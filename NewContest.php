@@ -8,7 +8,7 @@
 
 if (!isset($LandUser)) {
     header('Location: /Message.php?Msg=您没有登陆，无权访问');
-    return;
+    die();
 }
 
 $status = 0;
@@ -19,7 +19,7 @@ if (array_key_exists('ConID', $_GET)) {
 
 if (!can_edit_contest()) {
     header('Location: /Message.php?Msg=您不是管理员，无权访问');
-    return;
+    die();
 }
 
 if ($status == 1) {
@@ -31,11 +31,11 @@ if ($status == 1) {
 
         if (!$ContestData) {
             header('Location: /Message.php?Msg=未知比赛ID');
-            return;
+            die();
         }
     } else {
         header('Location: /Message.php?Msg=比赛查找失败');
-        return;
+        die();
     }
 }
 

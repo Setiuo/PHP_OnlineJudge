@@ -6,12 +6,12 @@ require_once("LoadData.php");
 if (!isset($LandUser)) {
     echo json_encode('{status:1}');
     oj_mysql_close();
-    return;
+    die();
 }
 if (!can_edit_problem()) {
     echo json_encode('{status:1}');
     oj_mysql_close();
-    return;
+    die();
 }
 
 $iDescription = addslashes($_POST['Description']);

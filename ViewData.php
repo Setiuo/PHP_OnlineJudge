@@ -7,11 +7,11 @@
 
 if (!isset($LandUser)) {
 	header('Location: /Message.php?Msg=您没有登陆，无权访问测试点页面');
-	return;
+	die();
 }
 if (!can_read_test()) {
 	header('Location: /Message.php?Msg=您无权访问测试点页面');
-	return;
+	die();
 }
 
 $sql = "SELECT `Test`, `Show` FROM `oj_problem` WHERE `proNum`='" . intval($_GET['Problem']) . "' LIMIT 1";
@@ -21,7 +21,7 @@ $AllData = explode('&', $ProblemData['Test']);
 
 if (!can_edit_problem() && ($ProblemData['Show'] == 0)) {
 	header('Location: /Message.php?Msg=题目已被隐藏，您无权查看测试点');
-	return;
+	die();
 }
 
 ?>

@@ -10,7 +10,7 @@
 
 	if (!isset($ConData)) {
 		header('Location: /Message.php?Msg=比赛数据获取异常');
-		return;
+		die();
 	}
 
 	$AllProblem = explode('|', $ConData['Problem']);
@@ -27,7 +27,7 @@
 
 	if (!$result) {
 		header('Location: /Message.php?Msg=排名数据计算异常');
-		return;
+		die();
 	}
 
 	$AllStatus = array();

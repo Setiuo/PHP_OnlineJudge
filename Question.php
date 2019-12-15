@@ -12,15 +12,15 @@ if (array_key_exists('Problem', $_GET)) {
 
     if (!isset($ShowRow['Show'])) {
         header('Location: /Message.php?Msg=未找到题目');
-        return;
+        die();
     }
     if ($ShowRow['Show'] == 0 && !can_edit_problem()) {
         header('Location: /Message.php?Msg=题目已被隐藏');
-        return;
+        die();
     }
 } else {
     header('Location: /Message.php?Msg=未知题号');
-    return;
+    die();
 }
 
 $sql = "SELECT * FROM `oj_problem` WHERE `proNum`='" . $ProblemID . "' LIMIT 1";
@@ -32,11 +32,11 @@ if ($result) {
 
     if (!$ProblemData) {
         header('Location: /Message.php?Msg=未知题号');
-        return;
+        die();
     }
 } else {
     header('Location: /Message.php?Msg=查找失败');
-    return;
+    die();
 }
 
 $sql = "SELECT count(*) AS value FROM `oj_status` WHERE `Status` = " . Accepted . " AND `Show`=1 AND `Problem` = " . $ProblemID;

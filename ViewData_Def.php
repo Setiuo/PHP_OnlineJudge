@@ -7,19 +7,19 @@
 
 if (!isset($LandUser)) {
 	header('Location: /Message.php?Msg=您没有登陆，无权访问测试点页面');
-	return;
+	die();
 }
 if (!can_read_test()) {
 	header('Location: /Message.php?Msg=您无权访问测试点页面');
-	return;
+	die();
 }
 if (!array_key_exists('Problem', $_GET)) {
 	header('Location: /Message.php?Msg=未知题号');
-	return;
+	die();
 }
 if (!array_key_exists('Data', $_GET)) {
 	header('Location: /Message.php?Msg=未知测试点');
-	return;
+	die();
 }
 
 if (!can_edit_problem()) {
@@ -29,7 +29,7 @@ if (!can_edit_problem()) {
 
 	if ($ProblemData['Show'] == 0) {
 		header('Location: /Message.php?Msg=题目已被隐藏，您无权查看测试点');
-		return;
+		die();
 	}
 }
 $FileIn_Path = "./Judge/data/" . intval($_GET['Problem']) . "/" . intval($_GET['Problem']) . "_" . intval($_GET['Data']) . ".in";

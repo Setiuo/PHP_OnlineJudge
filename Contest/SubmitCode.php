@@ -11,7 +11,7 @@ if (isset($_POST["code"]) && isset($_POST["language"]) && isset($_POST["ConID"])
 		unset($_POST['NowPro']);
 
 		echo json_encode("{status: 2}");
-		return;
+		die();
 	}
 
 	$ConID = intval($_POST["ConID"]);
@@ -24,10 +24,10 @@ if (isset($_POST["code"]) && isset($_POST["language"]) && isset($_POST["ConID"])
 	if ($NowDate > $ConData['OverTime']) {
 
 		echo json_encode("{status: 3}");
-		return;
+		die();
 	} else if ($NowDate < $ConData['StartTime']) {
 		echo json_encode("{status: 4}");
-		return;
+		die();
 	}
 
 	$AllPeople = $ConData['EnrollPeople'];
@@ -46,13 +46,13 @@ if (isset($_POST["code"]) && isset($_POST["language"]) && isset($_POST["ConID"])
 			oj_mysql_query($sql);
 		} else {
 			echo json_encode("{status: 5}");
-			return;
+			die();
 		}
 	}
 
 	if ($_POST['code'] == null) {
 		echo json_encode("{status: 6}");
-		return;
+		die();
 	}
 
 	if (!isset($_SESSION['code_submitTime'])) {
@@ -60,7 +60,7 @@ if (isset($_POST["code"]) && isset($_POST["language"]) && isset($_POST["ConID"])
 	} else {
 		if ($NowTime - $_SESSION['code_submitTime'] <= 5000) {
 			echo json_encode("{status: 7}");
-			return;
+			die();
 		}
 
 		$_SESSION['code_submitTime']  = $NowTime;

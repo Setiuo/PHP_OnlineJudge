@@ -8,11 +8,11 @@
 
 if (!isset($LandUser)) {
     header('Location: /Message.php?Msg=您没有登陆，无权访问');
-    return;
+    die();
 }
 if (!can_edit_problem()) {
     header('Location: /Message.php?Msg=您不是管理员，无权访问');
-    return;
+    die();
 }
 
 $status = 0;
@@ -27,11 +27,11 @@ if (array_key_exists('Problem', $_GET)) {
 
         if (!$ProblemData) {
             header('Location: /Message.php?Msg=未知题号');
-            return;
+            die();
         }
     } else {
         header('Location: /Message.php?Msg=查找失败');
-        return;
+        die();
     }
 }
 

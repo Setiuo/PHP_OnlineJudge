@@ -177,7 +177,7 @@ $result = oj_mysql_query($sql);
 
 if (!$result) {
 	header('Location: /Message.php?Msg=提交状态获取失败');
-	return;
+	die();
 }
 
 $AllStatus = array();

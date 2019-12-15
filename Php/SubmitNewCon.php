@@ -6,12 +6,12 @@ require_once("LoadData.php");
 if (!isset($LandUser)) {
     echo json_encode('{status:1}');
     oj_mysql_close();
-    return;
+    die();
 }
 if (!can_edit_contest()) {
     echo json_encode('{status:1}');
     oj_mysql_close();
-    return;
+    die();
 }
 
 $AllProblem = explode('|', $_POST['Problem']);
@@ -23,14 +23,14 @@ for ($i = 0; $i < $ProNum; $i++) {
     if (!$result) {
         echo json_encode('{status:2}');
         oj_mysql_close();
-        return;
+        die();
     } else {
         $num = mysqli_num_rows($result);
 
         if (!$num) {
             echo json_encode('{status:2}');
             oj_mysql_close();
-            return;
+            die();
         }
     }
 }

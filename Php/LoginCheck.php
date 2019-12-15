@@ -5,19 +5,19 @@ require_once("LoadData.php");
 if (!isset($_POST["username"]) || !isset($_POST["password"])) {
     echo json_encode("{status: 1}");
     oj_mysql_close();
-    return;
+    die();
 }
 
 if (!isset($_POST["captcha"])) {
     echo json_encode("{status: 2}");
     oj_mysql_close();
-    return;
+    die();
 }
 
 if (!check_captcha($_POST["captcha"], $NowTime)) {
     echo json_encode("{status: 3}");
     oj_mysql_close();
-    return;
+    die();
 }
 
 $user = addslashes(trim($_POST["username"]));

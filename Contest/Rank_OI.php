@@ -1,7 +1,7 @@
 <?php
 if (!can_edit_contest($ConID) && ($NowDate <= $ConData['OverTime'])) {
 	echo '<h3 class="text-center">注意：OI赛制不实时显示排名</h3>';
-	return;
+	die();
 }
 
 $PeopleRank = array();

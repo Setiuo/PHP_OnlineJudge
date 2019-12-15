@@ -10,7 +10,7 @@
 
     if ($ConData['Type'] == 0) {
         echo "<script>location.href='/Contest/Pandect.php?ConID=" . $ConID . "';</script>";
-        return;
+        die();
     }
     ?>
 

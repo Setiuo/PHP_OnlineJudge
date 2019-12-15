@@ -8,7 +8,7 @@
 //防止用户没登陆直接进入
 if (!isset($LandUser)) {
     header('Location: /Message.php?Msg=您还没有登陆');
-    return;
+    die();
 }
 
 //取得登陆的用户名

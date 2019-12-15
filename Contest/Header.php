@@ -1,6 +1,6 @@
 <?php
 if (!isset($ConData))
-	return;
+	die();
 ?>
 
 <script src="/js/click.js" type="text/javascript"></script>

@@ -28,7 +28,7 @@ if (isset($_GET['Search'])) {
         $data = oj_mysql_fetch_array($result);
         if (isset($data['proNum'])) {
             header('Location: /Question.php?Problem=' . $iMaybeProblemID);
-            return;
+            die();
         }
     }
 

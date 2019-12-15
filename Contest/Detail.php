@@ -11,14 +11,14 @@ if (array_key_exists('RunID', $_GET)) {
 
 	if ($RunID > $JudgeMacRunID - 1) {
 		header('Location: /Message.php?Msg=信息获取出现错误');
-		return;
+		die();
 	} else if ($RunID < 1) {
 		header('Location: /Message.php?Msg=信息获取出现错误');
-		return;
+		die();
 	}
 } else {
 	header('Location: /Contest/Status.php');
-	//return;
+	die();
 }
 
 if (can_edit_contest($ConID)) {
@@ -30,7 +30,7 @@ $rs = oj_mysql_query($sql);
 $row = oj_mysql_fetch_array($rs);
 if (!$row) {
 	header('Location: /Message.php?Msg=未找到该状态信息');
-	return;
+	die();
 }
 
 $StatusData = $row;
@@ -38,7 +38,7 @@ $StatusData = $row;
 if ($NowDate <= $ConData['OverTime']) {
 	if (!isset($LandUser) || (!can_edit_contest($ConID) && $StatusData['User'] != $LandUser)) {
 		header('Location: /Message.php?Msg=暂时无法查看评测信息');
-		return;
+		die();
 	}
 }
 

@@ -15,7 +15,7 @@ $AllProblem = explode('|', $ConData['Problem']);
 $ProNum = count($AllProblem);
 if ($ProNum == 0 || !isset($AllProblem[$NowProblem])) {
     header('Location: /Message.php?Msg=题目信息获取失败');
-    return;
+    die();
 }
 
 $sql = "SELECT * FROM `oj_problem` WHERE `proNum`=" . $AllProblem[$NowProblem] . " LIMIT 1";
@@ -23,13 +23,13 @@ $result = oj_mysql_query($sql);
 
 if (!$result) {
     header('Location: /Message.php?Msg=题目信息获取失败');
-    return;
+    die();
 }
 $ProblemData = oj_mysql_fetch_array($result);
 
 if (!isset($ProblemData)) {
     header('Location: /Message.php?Msg=题目信息获取失败');
-    return;
+    die();
 }
 
 $NowDate = date('Y-m-d H:i:s');
@@ -37,7 +37,7 @@ $NowDate = date('Y-m-d H:i:s');
 if ($NowDate < $ConData['StartTime']) {
     if (!can_edit_contest($ConID)) {
         header('Location: /Message.php?Msg=比赛未开始');
-        return;
+        die();
     }
 }
 

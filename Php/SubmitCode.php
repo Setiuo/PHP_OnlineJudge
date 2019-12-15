@@ -21,7 +21,7 @@ if (isset($_POST["code"]) && $_POST["language"]) {
 				if ($NowTime - $_SESSION['code_submitTime'] <= 5000) {
 					echo json_encode("{status: 5}");
 					oj_mysql_close();
-					return;
+					die();
 				}
 
 				$_SESSION['code_submitTime']  = $NowTime;

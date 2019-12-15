@@ -18,7 +18,7 @@ if (isset($User)) {
 
     if (!isset($UserData['name'])) {
         header('Location: /Message.php?Msg=未找到该用户');
-        return;
+        die();
     }
 
     //获取战斗力
@@ -79,7 +79,7 @@ if (isset($User)) {
     sort($nPassProblem);
 } else {
     header('Location: /Message.php?Msg=用户信息载入失败');
-    return;
+    die();
 }
 ?>
 

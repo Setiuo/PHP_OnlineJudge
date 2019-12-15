@@ -8,11 +8,11 @@
 
 if (!isset($LandUser)) {
     header('Location: /Message.php?Msg=您没有登陆，无权访问');
-    return;
+    die();
 }
 if (!is_admin()) {
     header('Location: /Message.php?Msg=您不是管理员，无权访问');
-    return;
+    die();
 }
 ?>
 

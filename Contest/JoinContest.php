@@ -5,7 +5,7 @@ require_once("../Php/LoadData.php");
 
 if (!isset($LandUser)) {
     echo json_encode('{status: 2}');
-    return;
+    die();
 }
 
 if (isset($_GET["ConID"])) {
@@ -15,7 +15,7 @@ if (isset($_GET["ConID"])) {
     if (!$result) {
         echo json_encode('{status: 1}');
         oj_mysql_close();
-        return;
+        die();
     }
 
     $ConData = oj_mysql_fetch_array($result);

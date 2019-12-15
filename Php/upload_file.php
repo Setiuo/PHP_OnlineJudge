@@ -3,7 +3,7 @@ header('Content-Type:application/json; charset=gbk');
 
 if (!can_edit_problem()) {
     echo json_encode('{"uploaded":0,"error": "test"}');
-    return;
+    die();
 }
 
 if ($_FILES["upload"]["error"] > 0) {

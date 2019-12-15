@@ -7,7 +7,7 @@ if (isset($_POST['captcha'])) {
     if (!check_captcha($_POST['captcha'], $NowTime)) {
         echo json_encode("{status: 5}");
         oj_mysql_close();
-        return;
+        die();
     }
 }
 
@@ -19,7 +19,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
     if (mb_strlen($psw, "utf-8") < 6 || mb_strlen($psw, "utf-8") > 12) {
         echo json_encode("{status: 4}");
         oj_mysql_close();
-        return;
+        die();
     }
 
     $md5pw = md5(md5($psw) . 'md5pwkey');
@@ -31,7 +31,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
     if ($hava) {
         echo json_encode("{status: 2}");
         oj_mysql_close();
-        return;
+        die();
     }
 
     $SessionID = session_id();

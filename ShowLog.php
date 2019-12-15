@@ -8,7 +8,7 @@ $RunID = intval($_GET['RunID']);
 
 if (!can_read_log()) {
 	header('Location: /Message.php?Msg=您没有权限查看日志');
-	return;
+	die();
 }
 ?>
 

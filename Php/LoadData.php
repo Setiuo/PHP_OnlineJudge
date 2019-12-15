@@ -61,7 +61,7 @@ LoadData();
 
 if ($Maintain == 1 && $_SERVER['PHP_SELF'] != "/Maintain.php") {
     header('Location: /Maintain.php');
-    return;
+    die();
 }
 
 //封装mysqli的query操作

@@ -10,7 +10,7 @@ if (isset($LandUser)) {
     if (!$rs) {
         unset($_SESSION['username']);
         header('Location: /Message.php?Msg=用户信息载入失败');
-        return;
+        die();
     }
     $row = oj_mysql_fetch_array($rs);
     $Skin = $row['skin'];

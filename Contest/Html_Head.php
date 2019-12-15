@@ -15,7 +15,7 @@ if (isset($LandUser)) {
 	if (!$rs) {
 		unset($_SESSION['username']);
 		header('Location: /Message.php?Msg=用户信息载入失败');
-		return;
+		die();
 	}
 	$row = oj_mysql_fetch_array($rs);
 	$Skin = $row['skin'];
@@ -23,7 +23,7 @@ if (isset($LandUser)) {
 
 if (!array_key_exists('ConID', $_GET)) {
 	header('Location: /Message.php?Msg=比赛信息获取失败');
-	return;
+	die();
 }
 
 $ConID = intval($_GET['ConID']);
@@ -34,12 +34,12 @@ $ConData = oj_mysql_fetch_array($result);
 
 if (!$ConData) {
 	header('Location: /Message.php?Msg=比赛信息获取失败');
-	return;
+	die();
 }
 
 if ($ConData['Show'] == 0 && !can_edit_contest($ConID)) {
 	header('Location: /Message.php?Msg=比赛已被隐藏');
-	return;
+	die();
 }
 
 //检查比赛是否需要密码进入
@@ -47,16 +47,16 @@ if ($ConData['Type'] == 1 && $_SERVER['PHP_SELF'] != "/Contest/PassWord.php" && 
 	if (isset($_SESSION['ConPassWord_' . $ConID])) {
 		if ($_SESSION['ConPassWord_' . $ConID] != $ConData['PassWord']) {
 			header('Location: /Contest/PassWord.php?ConID=' . $ConID);
-			return;
+			die();
 		}
 	} else {
 		header('Location: /Contest/PassWord.php?ConID=' . $ConID);
-		return;
+		die();
 	}
 } else if ($_SERVER['PHP_SELF'] == "/Contest/PassWord.php") {
 	if ((can_edit_contest($ConID)) || (isset($_SESSION['ConPassWord_' . $ConID]) && $_SESSION['ConPassWord_' . $ConID] == $ConData['PassWord'])) {
 		header('Location: /Contest/Pandect.php?ConID=' . $ConID);
-		return;
+		die();
 	}
 }
 

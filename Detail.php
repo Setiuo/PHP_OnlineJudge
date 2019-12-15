@@ -10,14 +10,14 @@ if (array_key_exists('RunID', $_GET)) {
 
 	if ($RunID > $JudgeMacRunID - 1) {
 		header('Location: /Message.php?Msg=信息获取出现错误');
-		return;
+		die();
 	} else if ($RunID < 1) {
 		header('Location: /Message.php?Msg=信息获取出现错误');
-		return;
+		die();
 	}
 } else {
 	header('Location: /Status.php');
-	//return;
+	die();
 }
 
 if (is_admin()) {
@@ -29,7 +29,7 @@ $rs = oj_mysql_query($sql);
 $row = oj_mysql_fetch_array($rs);
 if (!$row) {
 	header('Location: /Message.php?Msg=未找到该状态信息');
-	return;
+	die();
 }
 
 $StatusData = $row;

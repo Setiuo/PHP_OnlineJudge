@@ -9,7 +9,7 @@ if (isset($_POST["ConID"]) && isset($_POST["ConPassWord"])) {
 
     if (!isset($result)) {
         echo json_encode('{status:1}');
-        return;
+        die();
     }
 
     $ConData = oj_mysql_fetch_array($result);
