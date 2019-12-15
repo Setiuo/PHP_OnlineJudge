@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <stdio.h>
+
+using namespace std;
+
+int main()
+{
+	string s1, s2;
+	cin >> s1 >> s2;
+	int len1 = s1.length();
+	int len2 = s2.length();
+	int i, j, l = 0;
+	if (len1 < len2)
+	{
+		i = 0, j = 0;
+		while (i != len1 && j < len2)
+		{
+			if (s1.substr(i, 1) == s2.substr(j, 1))
+			{
+				i++; j++;
+			}
+			else j++;
+		}
+		if (i == len1)
+		{
+			cout << s1 << " is substring of " << s2;
+			l = 1;
+		}
+	}
+	else if (len1 > len2)
+	{
+		i = 0, j = 0;
+		while (i != len2 && j < len1)
+		{
+			if (s2.substr(i, 1) == s1.substr(j, 1))
+			{
+				i++; j++;
+			}
+			else j++;
+		}
+		if (i == len2)
+		{
+			cout << s2 << " is substring of " << s1;
+			l = 1;
+		}
+	}
+	if (l == 0) cout << "No substring";
+	return 0;
+}

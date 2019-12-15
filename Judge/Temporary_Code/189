@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <windows.h>
+
+int main(void)
+{
+    MessageBoxA(0, "", "", 0);
+    int a,b;
+    scanf("%d%d",&a,&b);
+    printf("%d",a+b);
+    return 0;
+}

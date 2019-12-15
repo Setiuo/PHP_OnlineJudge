@@ -1,0 +1,201 @@
+Java|吴泽|1015|2|1000|65536|1&2&3&4&5&6&7&8&9&10
+运行ID:56  用户:吴泽  题号:1015 语言:Java
+评测机文件路径：D:\OpenJudge\Judge\SEJudger_Contest.exe
+评测机：SEJudger_Contest
+
+Compiling[56]...
+Compilation successful
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[24872]
+--------------------------------
+PeakWorkingSetSize				22660
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			168
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		18
+QuotaNonPagedPoolUsage			0
+PagefileUsage					60
+PeakPagefileUsage				241828
+--------------------------------
+Special Judge UsedTime: 10
+Finish[56][01]: timeUsed:  78 ms  memoryUsed:241828 kb  status:8 [Wrong Answer], exitcode:0
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[20052]
+--------------------------------
+PeakWorkingSetSize				22708
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			168
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		18
+QuotaNonPagedPoolUsage			0
+PagefileUsage					60
+PeakPagefileUsage				241884
+--------------------------------
+Special Judge UsedTime: 10
+Finish[56][02]: timeUsed:  93 ms  memoryUsed:241884 kb  status:8 [Wrong Answer], exitcode:0
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[16496]
+--------------------------------
+PeakWorkingSetSize				22724
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			168
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		18
+QuotaNonPagedPoolUsage			0
+PagefileUsage					60
+PeakPagefileUsage				241884
+--------------------------------
+Special Judge UsedTime: 12
+Finish[56][03]: timeUsed: 109 ms  memoryUsed:241884 kb  status:8 [Wrong Answer], exitcode:0
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[26136]
+--------------------------------
+PeakWorkingSetSize				22776
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			168
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		18
+QuotaNonPagedPoolUsage			0
+PagefileUsage					60
+PeakPagefileUsage				241856
+--------------------------------
+Special Judge UsedTime: 10
+Finish[56][04]: timeUsed:  78 ms  memoryUsed:241856 kb  status:4 [Correct], exitcode:0
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[25896]
+--------------------------------
+PeakWorkingSetSize				22684
+WorkingSetSize					22676
+QuotaPeakPagedPoolUsage			168
+QuotaPagedPoolUsage				168
+QuotaPeakNonPagedPoolUsage		18
+QuotaNonPagedPoolUsage			18
+PagefileUsage					241952
+PeakPagefileUsage				241960
+--------------------------------
+--------------------------------
+PeakWorkingSetSize				22684
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			168
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		18
+QuotaNonPagedPoolUsage			0
+PagefileUsage					60
+PeakPagefileUsage				241960
+--------------------------------
+Finish[56][05]: timeUsed:1062 ms  memoryUsed:241960 kb  status:6 [Time Limit Exceeded], exitcode:1
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[23452]
+--------------------------------
+PeakWorkingSetSize				22644
+WorkingSetSize					22640
+QuotaPeakPagedPoolUsage			168
+QuotaPagedPoolUsage				168
+QuotaPeakNonPagedPoolUsage		18
+QuotaNonPagedPoolUsage			18
+PagefileUsage					241920
+PeakPagefileUsage				241920
+--------------------------------
+--------------------------------
+PeakWorkingSetSize				22644
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			168
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		18
+QuotaNonPagedPoolUsage			0
+PagefileUsage					60
+PeakPagefileUsage				241920
+--------------------------------
+Finish[56][06]: timeUsed:1046 ms  memoryUsed:241920 kb  status:6 [Time Limit Exceeded], exitcode:1
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[26408]
+--------------------------------
+PeakWorkingSetSize				22696
+WorkingSetSize					22692
+QuotaPeakPagedPoolUsage			168
+QuotaPagedPoolUsage				168
+QuotaPeakNonPagedPoolUsage		18
+QuotaNonPagedPoolUsage			18
+PagefileUsage					241940
+PeakPagefileUsage				241940
+--------------------------------
+--------------------------------
+PeakWorkingSetSize				22696
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			168
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		18
+QuotaNonPagedPoolUsage			0
+PagefileUsage					60
+PeakPagefileUsage				241940
+--------------------------------
+Finish[56][07]: timeUsed:1046 ms  memoryUsed:241940 kb  status:6 [Time Limit Exceeded], exitcode:1
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[4980]
+--------------------------------
+PeakWorkingSetSize				22652
+WorkingSetSize					22648
+QuotaPeakPagedPoolUsage			168
+QuotaPagedPoolUsage				168
+QuotaPeakNonPagedPoolUsage		18
+QuotaNonPagedPoolUsage			18
+PagefileUsage					241932
+PeakPagefileUsage				241932
+--------------------------------
+--------------------------------
+PeakWorkingSetSize				22652
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			168
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		18
+QuotaNonPagedPoolUsage			0
+PagefileUsage					60
+PeakPagefileUsage				241932
+--------------------------------
+Finish[56][08]: timeUsed:1062 ms  memoryUsed:241932 kb  status:6 [Time Limit Exceeded], exitcode:1
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[14564]
+--------------------------------
+PeakWorkingSetSize				22620
+WorkingSetSize					22616
+QuotaPeakPagedPoolUsage			168
+QuotaPagedPoolUsage				168
+QuotaPeakNonPagedPoolUsage		18
+QuotaNonPagedPoolUsage			18
+PagefileUsage					241872
+PeakPagefileUsage				241872
+--------------------------------
+--------------------------------
+PeakWorkingSetSize				22620
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			168
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		18
+QuotaNonPagedPoolUsage			0
+PagefileUsage					60
+PeakPagefileUsage				241872
+--------------------------------
+Finish[56][09]: timeUsed:1078 ms  memoryUsed:241872 kb  status:6 [Time Limit Exceeded], exitcode:1
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[19856]
+--------------------------------
+PeakWorkingSetSize				22668
+WorkingSetSize					22664
+QuotaPeakPagedPoolUsage			168
+QuotaPagedPoolUsage				168
+QuotaPeakNonPagedPoolUsage		18
+QuotaNonPagedPoolUsage			18
+PagefileUsage					241956
+PeakPagefileUsage				241956
+--------------------------------
+--------------------------------
+PeakWorkingSetSize				22668
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			168
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		18
+QuotaNonPagedPoolUsage			0
+PagefileUsage					60
+PeakPagefileUsage				241956
+--------------------------------
+Finish[56][10]: timeUsed:1015 ms  memoryUsed:241956 kb  status:6 [Time Limit Exceeded], exitcode:1

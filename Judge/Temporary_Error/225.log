@@ -1,0 +1,4 @@
+code.cpp: In function 'int main()':
+code.cpp:5:14: warning: unused variable 'i' [-Wunused-variable]
+         int *i = new int;
+              ^

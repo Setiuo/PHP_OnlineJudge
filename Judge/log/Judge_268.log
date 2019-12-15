@@ -1,0 +1,147 @@
+Python|肖江|1000|2|1000|65536|1&2&3&4&5&6&7&8&9&10
+运行ID:268 用户:肖江  题号:1000 语言:Python
+评测机文件路径：D:\OpenJudge\Judge\SEJudger.exe
+评测机：SEJudger
+
+Compiling[268]...
+Compilation successful
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[24700]
+--------------------------------
+PeakWorkingSetSize				9540
+WorkingSetSize					32
+QuotaPeakPagedPoolUsage			120
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					76
+PeakPagefileUsage				4140
+--------------------------------
+Special Judge UsedTime: 126
+Finish[268][01]: timeUsed: 125 ms  memoryUsed: 4140 kb  status:4 [Correct], exitcode:0
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[13872]
+--------------------------------
+PeakWorkingSetSize				9544
+WorkingSetSize					32
+QuotaPeakPagedPoolUsage			112
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					76
+PeakPagefileUsage				4132
+--------------------------------
+Special Judge UsedTime: 89
+Finish[268][02]: timeUsed:  62 ms  memoryUsed: 4132 kb  status:4 [Correct], exitcode:0
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[6136]
+--------------------------------
+PeakWorkingSetSize				9512
+WorkingSetSize					32
+QuotaPeakPagedPoolUsage			120
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					76
+PeakPagefileUsage				4128
+--------------------------------
+Special Judge UsedTime: 110
+Finish[268][03]: timeUsed:  62 ms  memoryUsed: 4128 kb  status:4 [Correct], exitcode:0
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[9560]
+--------------------------------
+PeakWorkingSetSize				9564
+WorkingSetSize					28
+QuotaPeakPagedPoolUsage			112
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					72
+PeakPagefileUsage				4128
+--------------------------------
+Special Judge UsedTime: 118
+Finish[268][04]: timeUsed:  62 ms  memoryUsed: 4128 kb  status:4 [Correct], exitcode:0
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[21688]
+--------------------------------
+PeakWorkingSetSize				9568
+WorkingSetSize					32
+QuotaPeakPagedPoolUsage			120
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					76
+PeakPagefileUsage				4160
+--------------------------------
+Special Judge UsedTime: 79
+Finish[268][05]: timeUsed:  62 ms  memoryUsed: 4160 kb  status:4 [Correct], exitcode:0
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[15980]
+--------------------------------
+PeakWorkingSetSize				9548
+WorkingSetSize					32
+QuotaPeakPagedPoolUsage			120
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					76
+PeakPagefileUsage				4144
+--------------------------------
+Special Judge UsedTime: 59
+Finish[268][06]: timeUsed:  46 ms  memoryUsed: 4144 kb  status:4 [Correct], exitcode:0
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[5036]
+--------------------------------
+PeakWorkingSetSize				9564
+WorkingSetSize					28
+QuotaPeakPagedPoolUsage			112
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					72
+PeakPagefileUsage				4148
+--------------------------------
+Special Judge UsedTime: 46
+Finish[268][07]: timeUsed:  46 ms  memoryUsed: 4148 kb  status:4 [Correct], exitcode:0
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[9608]
+--------------------------------
+PeakWorkingSetSize				9552
+WorkingSetSize					32
+QuotaPeakPagedPoolUsage			120
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					76
+PeakPagefileUsage				4128
+--------------------------------
+Special Judge UsedTime: 34
+Finish[268][08]: timeUsed:  15 ms  memoryUsed: 4128 kb  status:4 [Correct], exitcode:0
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[17304]
+--------------------------------
+PeakWorkingSetSize				9588
+WorkingSetSize					32
+QuotaPeakPagedPoolUsage			120
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					76
+PeakPagefileUsage				4172
+--------------------------------
+Special Judge UsedTime: 35
+Finish[268][09]: timeUsed:  31 ms  memoryUsed: 4172 kb  status:4 [Correct], exitcode:0
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[22664]
+--------------------------------
+PeakWorkingSetSize				9548
+WorkingSetSize					32
+QuotaPeakPagedPoolUsage			112
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					76
+PeakPagefileUsage				4140
+--------------------------------
+Special Judge UsedTime: 42
+Finish[268][10]: timeUsed:  15 ms  memoryUsed: 4140 kb  status:4 [Correct], exitcode:0

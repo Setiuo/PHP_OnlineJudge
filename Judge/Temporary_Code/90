@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int gys(int a, int b)
+{
+	if (b == 0)
+	{
+		return a;
+	}
+	else
+	{
+		return gys(b, a % b);
+	}
+}
+int main()
+{
+	int a, b;
+	scanf("%d%d", &a, &b);
+	int g = gys(a, b);
+	int gbs = a * b / g;
+
+	printf("%d", gbs);
+	return 0;
+}

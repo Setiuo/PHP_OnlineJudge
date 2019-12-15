@@ -1,0 +1,10 @@
+./temp/128/code.cpp: In function 'int main()':
+./temp/128/code.cpp:10:18: warning: unknown conversion type character 'l' in format [-Wformat=]
+  scanf("%lld", &n);
+                  ^
+./temp/128/code.cpp:10:18: warning: too many arguments for format [-Wformat-extra-args]
+./temp/128/code.cpp:21:30: warning: unknown conversion type character 'l' in format [-Wformat=]
+  printf("%lld %lld\n", an, Sn);
+                              ^
+./temp/128/code.cpp:21:30: warning: unknown conversion type character 'l' in format [-Wformat=]
+./temp/128/code.cpp:21:30: warning: too many arguments for format [-Wformat-extra-args]

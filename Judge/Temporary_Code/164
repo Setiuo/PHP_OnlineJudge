@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main()
+{
+    while(1)
+    {
+        int *b = new int;
+        delete b;
+    }
+    int *a = new int;
+    
+    return 0;
+}

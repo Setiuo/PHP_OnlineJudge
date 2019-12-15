@@ -1,0 +1,25 @@
+|||2|||
+运行ID:118 用户:      题号:     语言:  2
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_connect) on line 32
+Too many connections (MySQL error code: 1040 , SQLState: HY000 )
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_connect) on line 32
+Too many connections (MySQL error code: 1040 , SQLState: HY000 )
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_oj_allRun) on line 86
+ (MySQL error code: 0 , SQLState: 00000 )
+评测机文件路径：D:\OpenJudge\Judge\SEJudger.exe
+评测机：SEJudger
+
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_connect) on line 32
+Too many connections (MySQL error code: 1040 , SQLState: HY000 )
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_judgeStatus) on line 136
+ (MySQL error code: 0 , SQLState: 00000 )
+Compiling[118]...
+Compilation successful
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_connect) on line 32
+Too many connections (MySQL error code: 1040 , SQLState: HY000 )
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_judgeStatus) on line 136
+ (MySQL error code: 0 , SQLState: 00000 )
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_connect) on line 32
+Too many connections (MySQL error code: 1040 , SQLState: HY000 )
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_judgeData) on line 161
+ (MySQL error code: 0 , SQLState: 00000 )

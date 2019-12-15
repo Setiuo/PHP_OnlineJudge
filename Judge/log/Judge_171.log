@@ -1,0 +1,249 @@
+C++|肖江|1000|2|1000|65536|1&2&3&4&5&6&7&8&9&10
+运行ID:171 用户:肖江  题号:1000 语言:C++
+评测机文件路径：D:\OpenJudge\Judge\SEJudger_Contest.exe
+评测机：SEJudger_Contest
+
+Compiling[171]...
+Compilation successful
+InjectAPIHookDll OK, dwProcessId[5352]
+--------------------------------
+PeakWorkingSetSize				345288
+WorkingSetSize					345284
+QuotaPeakPagedPoolUsage			54
+QuotaPagedPoolUsage				38
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			9
+PagefileUsage					353604
+PeakPagefileUsage				353604
+--------------------------------
+--------------------------------
+PeakWorkingSetSize				345300
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			54
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				353604
+--------------------------------
+Finish[171][01]: timeUsed:1078 ms  memoryUsed:353604 kb  status:7 [Memory Limit Exceeded], exitcode:1
+InjectAPIHookDll OK, dwProcessId[20516]
+--------------------------------
+PeakWorkingSetSize				343808
+WorkingSetSize					343804
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				37
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			9
+PagefileUsage					352784
+PeakPagefileUsage				352784
+--------------------------------
+Reset Judge TimeLimit
+--------------------------------
+PeakWorkingSetSize				661868
+WorkingSetSize					661864
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				37
+QuotaPeakNonPagedPoolUsage		12
+QuotaNonPagedPoolUsage			12
+PagefileUsage					680928
+PeakPagefileUsage				680928
+--------------------------------
+--------------------------------
+PeakWorkingSetSize				661868
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		12
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				680928
+--------------------------------
+Finish[171][02]: timeUsed:1875 ms  memoryUsed:680928 kb  status:7 [Memory Limit Exceeded], exitcode:1
+InjectAPIHookDll OK, dwProcessId[21744]
+--------------------------------
+PeakWorkingSetSize				346460
+WorkingSetSize					346456
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				37
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			9
+PagefileUsage					355544
+PeakPagefileUsage				355544
+--------------------------------
+--------------------------------
+PeakWorkingSetSize				346472
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				355544
+--------------------------------
+Finish[171][03]: timeUsed:1062 ms  memoryUsed:355544 kb  status:7 [Memory Limit Exceeded], exitcode:1
+InjectAPIHookDll OK, dwProcessId[3768]
+--------------------------------
+PeakWorkingSetSize				348440
+WorkingSetSize					348436
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				37
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			9
+PagefileUsage					357188
+PeakPagefileUsage				357188
+--------------------------------
+--------------------------------
+PeakWorkingSetSize				348472
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				357232
+--------------------------------
+Finish[171][04]: timeUsed:1062 ms  memoryUsed:357232 kb  status:7 [Memory Limit Exceeded], exitcode:1
+InjectAPIHookDll OK, dwProcessId[15028]
+--------------------------------
+PeakWorkingSetSize				372268
+WorkingSetSize					372264
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				37
+QuotaPeakNonPagedPoolUsage		10
+QuotaNonPagedPoolUsage			10
+PagefileUsage					381504
+PeakPagefileUsage				381504
+--------------------------------
+--------------------------------
+PeakWorkingSetSize				372268
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		10
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				381504
+--------------------------------
+Finish[171][05]: timeUsed:1046 ms  memoryUsed:381504 kb  status:7 [Memory Limit Exceeded], exitcode:1
+InjectAPIHookDll OK, dwProcessId[19592]
+--------------------------------
+PeakWorkingSetSize				337868
+WorkingSetSize					337864
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				37
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			9
+PagefileUsage					346464
+PeakPagefileUsage				346464
+--------------------------------
+--------------------------------
+PeakWorkingSetSize				337932
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				346508
+--------------------------------
+Finish[171][06]: timeUsed:1031 ms  memoryUsed:346508 kb  status:7 [Memory Limit Exceeded], exitcode:1
+InjectAPIHookDll OK, dwProcessId[16396]
+--------------------------------
+PeakWorkingSetSize				340792
+WorkingSetSize					340788
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				37
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			9
+PagefileUsage					349208
+PeakPagefileUsage				349208
+--------------------------------
+--------------------------------
+PeakWorkingSetSize				340792
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				349208
+--------------------------------
+Finish[171][07]: timeUsed:1000 ms  memoryUsed:349208 kb  status:7 [Memory Limit Exceeded], exitcode:1
+InjectAPIHookDll OK, dwProcessId[19784]
+--------------------------------
+PeakWorkingSetSize				325616
+WorkingSetSize					325612
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				37
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			9
+PagefileUsage					333920
+PeakPagefileUsage				333920
+--------------------------------
+--------------------------------
+PeakWorkingSetSize				325616
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				333920
+--------------------------------
+Finish[171][08]: timeUsed:1000 ms  memoryUsed:333920 kb  status:7 [Memory Limit Exceeded], exitcode:1
+InjectAPIHookDll OK, dwProcessId[16504]
+--------------------------------
+PeakWorkingSetSize				358248
+WorkingSetSize					358244
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				37
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			9
+PagefileUsage					367184
+PeakPagefileUsage				367184
+--------------------------------
+--------------------------------
+PeakWorkingSetSize				358248
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				367184
+--------------------------------
+Finish[171][09]: timeUsed:1031 ms  memoryUsed:367184 kb  status:7 [Memory Limit Exceeded], exitcode:1
+InjectAPIHookDll OK, dwProcessId[18304]
+--------------------------------
+PeakWorkingSetSize				360616
+WorkingSetSize					360612
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				37
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			9
+PagefileUsage					369896
+PeakPagefileUsage				369896
+--------------------------------
+Reset Judge TimeLimit
+--------------------------------
+PeakWorkingSetSize				710704
+WorkingSetSize					710700
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				37
+QuotaPeakNonPagedPoolUsage		12
+QuotaNonPagedPoolUsage			12
+PagefileUsage					731184
+PeakPagefileUsage				731184
+--------------------------------
+--------------------------------
+PeakWorkingSetSize				710712
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		12
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				731184
+--------------------------------
+Finish[171][10]: timeUsed:2062 ms  memoryUsed:731184 kb  status:7 [Memory Limit Exceeded], exitcode:1

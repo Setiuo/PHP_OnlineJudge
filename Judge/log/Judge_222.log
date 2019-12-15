@@ -1,0 +1,137 @@
+C++|肖江|1000|2|1000|65536|1&2&3&4&5&6&7&8&9&10
+运行ID:222 用户:肖江  题号:1000 语言:C++
+评测机文件路径：D:\OpenJudge\Judge\SEJudger.exe
+评测机：SEJudger
+
+Compiling[222]...
+Compilation successful
+InjectAPIHookDll OK, dwProcessId[5588]
+--------------------------------
+PeakWorkingSetSize				3464
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			45
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1124
+--------------------------------
+Special Judge UsedTime: 289
+Finish[222][01]: timeUsed:   0 ms  memoryUsed: 1124 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[18232]
+--------------------------------
+PeakWorkingSetSize				3464
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			45
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1124
+--------------------------------
+Special Judge UsedTime: 13
+Finish[222][02]: timeUsed:  31 ms  memoryUsed: 1124 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[8072]
+--------------------------------
+PeakWorkingSetSize				3472
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			45
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1124
+--------------------------------
+Special Judge UsedTime: 14
+Finish[222][03]: timeUsed:   0 ms  memoryUsed: 1124 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[22356]
+--------------------------------
+PeakWorkingSetSize				3464
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			45
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1128
+--------------------------------
+Special Judge UsedTime: 16
+Finish[222][04]: timeUsed:   0 ms  memoryUsed: 1128 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[21172]
+--------------------------------
+PeakWorkingSetSize				3464
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			45
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1124
+--------------------------------
+Special Judge UsedTime: 13
+Finish[222][05]: timeUsed:   0 ms  memoryUsed: 1124 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[14648]
+--------------------------------
+PeakWorkingSetSize				3464
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			45
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1124
+--------------------------------
+Special Judge UsedTime: 14
+Finish[222][06]: timeUsed:   0 ms  memoryUsed: 1124 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[8148]
+--------------------------------
+PeakWorkingSetSize				3472
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			45
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1136
+--------------------------------
+Special Judge UsedTime: 17
+Finish[222][07]: timeUsed:  15 ms  memoryUsed: 1136 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[1964]
+--------------------------------
+PeakWorkingSetSize				3464
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			45
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1136
+--------------------------------
+Special Judge UsedTime: 13
+Finish[222][08]: timeUsed:  15 ms  memoryUsed: 1136 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[6892]
+--------------------------------
+PeakWorkingSetSize				3464
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			45
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1120
+--------------------------------
+Special Judge UsedTime: 24
+Finish[222][09]: timeUsed:   0 ms  memoryUsed: 1120 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[21560]
+--------------------------------
+PeakWorkingSetSize				3428
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			45
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1036
+--------------------------------
+Special Judge UsedTime: 22
+Finish[222][10]: timeUsed:   0 ms  memoryUsed: 1036 kb  status:4 [Correct], exitcode:0

@@ -1,0 +1,4 @@
+.\temp\57\Main.java:4: 错误: 类Java是公共的, 应在名为 Java.java 的文件中声明
+public class Java {
+       ^
+1 个错误

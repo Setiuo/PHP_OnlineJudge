@@ -1,0 +1,147 @@
+C++|肖江|1000|2|1000|65536|1&2&3&4&5&6&7&8&9&10
+运行ID:311 用户:肖江  题号:1000 语言:C++
+评测机文件路径：D:\OpenJudge\Judge\SEJudger.exe
+评测机：SEJudger
+
+Compiling[311]...
+Compilation successful
+InjectAPIHookDll OK, dwProcessId[9912]
+--------------------------------
+PeakWorkingSetSize				3856
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			56
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		8
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1188
+--------------------------------
+Finish[311][01]: timeUsed:  15 ms  memoryUsed: 1188 kb  status:9 [Runtime Error], exitcode:3
+Judge Used Time:39 ms
+
+InjectAPIHookDll OK, dwProcessId[2432]
+--------------------------------
+PeakWorkingSetSize				3516
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			55
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1132
+--------------------------------
+Finish[311][02]: timeUsed:  15 ms  memoryUsed: 1132 kb  status:9 [Runtime Error], exitcode:3
+Judge Used Time:23 ms
+
+InjectAPIHookDll OK, dwProcessId[7784]
+--------------------------------
+PeakWorkingSetSize				3524
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			55
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1124
+--------------------------------
+Finish[311][03]: timeUsed:  15 ms  memoryUsed: 1124 kb  status:9 [Runtime Error], exitcode:3
+Judge Used Time:24 ms
+
+InjectAPIHookDll OK, dwProcessId[9364]
+--------------------------------
+PeakWorkingSetSize				3528
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			55
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1132
+--------------------------------
+Finish[311][04]: timeUsed:   0 ms  memoryUsed: 1132 kb  status:9 [Runtime Error], exitcode:3
+Judge Used Time:28 ms
+
+InjectAPIHookDll OK, dwProcessId[14412]
+--------------------------------
+PeakWorkingSetSize				3528
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			55
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1132
+--------------------------------
+Finish[311][05]: timeUsed:   0 ms  memoryUsed: 1132 kb  status:9 [Runtime Error], exitcode:3
+Judge Used Time:26 ms
+
+InjectAPIHookDll OK, dwProcessId[2292]
+--------------------------------
+PeakWorkingSetSize				3528
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			55
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1136
+--------------------------------
+Finish[311][06]: timeUsed:  15 ms  memoryUsed: 1136 kb  status:9 [Runtime Error], exitcode:3
+Judge Used Time:34 ms
+
+InjectAPIHookDll OK, dwProcessId[14768]
+--------------------------------
+PeakWorkingSetSize				3524
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			55
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1132
+--------------------------------
+Finish[311][07]: timeUsed:   0 ms  memoryUsed: 1132 kb  status:9 [Runtime Error], exitcode:3
+Judge Used Time:38 ms
+
+InjectAPIHookDll OK, dwProcessId[10468]
+--------------------------------
+PeakWorkingSetSize				3516
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			55
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1120
+--------------------------------
+Finish[311][08]: timeUsed:   0 ms  memoryUsed: 1120 kb  status:9 [Runtime Error], exitcode:3
+Judge Used Time:25 ms
+
+InjectAPIHookDll OK, dwProcessId[7792]
+--------------------------------
+PeakWorkingSetSize				3528
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			55
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1136
+--------------------------------
+Finish[311][09]: timeUsed:   0 ms  memoryUsed: 1136 kb  status:9 [Runtime Error], exitcode:3
+Judge Used Time:22 ms
+
+InjectAPIHookDll OK, dwProcessId[21380]
+--------------------------------
+PeakWorkingSetSize				3536
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			55
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1132
+--------------------------------
+Finish[311][10]: timeUsed:  15 ms  memoryUsed: 1132 kb  status:9 [Runtime Error], exitcode:3
+Judge Used Time:22 ms
+

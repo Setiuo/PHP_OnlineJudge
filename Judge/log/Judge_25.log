@@ -1,0 +1,20 @@
+C++|肖江|1001|2|1000|65536|1
+运行ID:25  用户:肖江  题号:1001 语言:C++
+评测机文件路径：D:\OpenJudge\Judge\SEJudger_Contest.exe
+评测机：SEJudger_Contest
+
+Compiling[25]...
+Compilation successful
+InjectAPIHookDll OK, dwProcessId[17540]
+--------------------------------
+PeakWorkingSetSize				3456
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			61
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1128
+--------------------------------
+Special Judge UsedTime: 9
+Finish[25][01]: timeUsed:   0 ms  memoryUsed: 1128 kb  status:4 [Correct], exitcode:0

@@ -1,0 +1,18 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner Sc = new Scanner(System.in);
+        int n = Sc.nextInt();
+
+        long ans1 = 0, ans2 = 555555555;
+        for (int i = 0; i < n; i++) {
+            int j = Sc.nextInt();
+            ans1 = Math.max(j, ans1);
+            ans2 = Math.min(j, ans2);
+        }
+        System.out.print(ans1 + " " + ans2);
+        Sc.close();
+    }
+}

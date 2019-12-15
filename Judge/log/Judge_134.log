@@ -1,0 +1,27 @@
+C++|肖江|1044|2|1000|65536|1&2&3&4&5&6&7&8&9&10
+运行ID:134 用户:肖江  题号:1044 语言:C++
+评测机文件路径：D:\OpenJudge\Judge\SEJudger.exe
+评测机：SEJudger
+
+Compiling[134]...
+Compilation successful
+InjectAPIHookDll OK, dwProcessId[24372]
+Finish[134][01]: timeUsed:   0 ms  memoryUsed:395580 kb  status:7 [Memory Limit Exceeded], exitcode:0
+InjectAPIHookDll OK, dwProcessId[3328]
+Finish[134][02]: timeUsed:  15 ms  memoryUsed:395584 kb  status:7 [Memory Limit Exceeded], exitcode:0
+InjectAPIHookDll OK, dwProcessId[10956]
+Finish[134][03]: timeUsed:   0 ms  memoryUsed:395592 kb  status:7 [Memory Limit Exceeded], exitcode:0
+InjectAPIHookDll OK, dwProcessId[12060]
+Finish[134][04]: timeUsed:   0 ms  memoryUsed:395604 kb  status:7 [Memory Limit Exceeded], exitcode:0
+InjectAPIHookDll OK, dwProcessId[16744]
+Finish[134][05]: timeUsed:   0 ms  memoryUsed:395612 kb  status:7 [Memory Limit Exceeded], exitcode:0
+InjectAPIHookDll OK, dwProcessId[29584]
+Finish[134][06]: timeUsed:   0 ms  memoryUsed:395624 kb  status:7 [Memory Limit Exceeded], exitcode:0
+InjectAPIHookDll OK, dwProcessId[11616]
+Finish[134][07]: timeUsed:  15 ms  memoryUsed:395628 kb  status:7 [Memory Limit Exceeded], exitcode:0
+InjectAPIHookDll OK, dwProcessId[25804]
+Finish[134][08]: timeUsed:   0 ms  memoryUsed:395632 kb  status:7 [Memory Limit Exceeded], exitcode:0
+InjectAPIHookDll OK, dwProcessId[25832]
+Finish[134][09]: timeUsed:   0 ms  memoryUsed:395644 kb  status:7 [Memory Limit Exceeded], exitcode:0
+InjectAPIHookDll OK, dwProcessId[3512]
+Finish[134][10]: timeUsed:  15 ms  memoryUsed:395652 kb  status:7 [Memory Limit Exceeded], exitcode:0

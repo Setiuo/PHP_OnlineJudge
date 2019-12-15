@@ -1,0 +1,72 @@
+Gcc|肖江|1012|2|1000|65536|1&2&3&4&5
+运行ID:44  用户:肖江  题号:1012 语言:Gcc
+评测机文件路径：D:\OpenJudge\Judge\SEJudger_Contest.exe
+评测机：SEJudger_Contest
+
+Compiling[44]...
+Compilation successful
+InjectAPIHookDll OK, dwProcessId[20604]
+--------------------------------
+PeakWorkingSetSize				3740
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			51
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1156
+--------------------------------
+Special Judge UsedTime: 10
+Finish[44][01]: timeUsed:   0 ms  memoryUsed: 1156 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[14696]
+--------------------------------
+PeakWorkingSetSize				3748
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			51
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1168
+--------------------------------
+Special Judge UsedTime: 10
+Finish[44][02]: timeUsed:   0 ms  memoryUsed: 1168 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[23332]
+--------------------------------
+PeakWorkingSetSize				3740
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			51
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1156
+--------------------------------
+Special Judge UsedTime: 10
+Finish[44][03]: timeUsed:   0 ms  memoryUsed: 1156 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[8692]
+--------------------------------
+PeakWorkingSetSize				3748
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			51
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1168
+--------------------------------
+Special Judge UsedTime: 11
+Finish[44][04]: timeUsed:  15 ms  memoryUsed: 1168 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[26264]
+--------------------------------
+PeakWorkingSetSize				3780
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			51
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1192
+--------------------------------
+Special Judge UsedTime: 9
+Finish[44][05]: timeUsed:  15 ms  memoryUsed: 1192 kb  status:4 [Correct], exitcode:0

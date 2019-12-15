@@ -1,0 +1,4 @@
+In file included from ./temp/228/code.cpp:2:0:
+./temp/228/../../config.ini:1:1: error: expected unqualified-id before '[' token
+ [MySQL]
+ ^

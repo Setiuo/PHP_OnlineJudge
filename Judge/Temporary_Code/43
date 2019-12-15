@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Main
+
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner (System.in);
+
+		long  n = sc.nextInt();
+
+		long max=-1001;
+		long min=555555555;
+
+		for(int i = 1;i<=n;i++)
+		{
+			int number = sc.nextInt();
+
+			if (number>max)
+			{
+				max=number;
+			}
+			if(number<min)
+			{
+				min=number;
+			}
+		}
+		System.out.println(max+" "+min);
+	}
+}

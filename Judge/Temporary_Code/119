@@ -1,0 +1,43 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+
+    public static void sort(int a[], int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                if (a[i] > a[j]) {
+                    int m = a[i];
+                    a[i] = a[j];
+                    a[j] = m;
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner Sc = new Scanner(System.in);
+        int n = Sc.nextInt();
+
+        int all_1[] = new int[n];
+        int all_2[] = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            all_1[i] = Sc.nextInt();
+            all_2[i] = all_1[i];
+        }
+
+        sort(all_2, n);
+
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            if (all_2[i] != all_1[i]) {
+                ans++;
+            }
+        }
+
+        System.out.print(ans);
+
+        Sc.close();
+    }
+}

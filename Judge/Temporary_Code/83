@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <math.h>
+
+double GetDistance(int x1, int y1, int x2, int y2)
+{
+	return sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+}
+int main()
+{
+	int R, x[3], y[3], x0, y0;
+	int B = 0;
+
+	while (scanf("%d%d%d%d%d%d%d%d%d", &R, &x[0], &y[0], &x[1], &y[1], &x[2], &y[2], &x0, &y0) != EOF)
+	{
+		B = 0;
+
+		for (int i = 0; i <= 2; i++)
+		{
+			if (GetDistance(x[i], y[i], x0, y0) <= R)
+				B++;
+		}
+		printf("%d\n", B);
+	}
+	return 0;
+}

@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	int n, m;
+	cin>>n>>m;
+
+	double ALL[101][101] = {};
+	double ALL2[101][101] = {};
+
+	for (int i = 1; i <= n; i++)
+	{
+		for (int b = 1; b <= m; b++)
+		{
+			cin>>ALL[i][b];
+			ALL2[i][b] = ALL[i][b];
+		}
+	}
+
+	for (int i = 2; i <= n - 1; i++)
+	{
+		for (int b = 2; b <= m - 1; b++)
+		{
+			ALL2[i][b] = (ALL[i][b] + ALL[i - 1][b] + ALL[i][b - 1] + ALL[i + 1][b] + ALL[i][b + 1]) / 5.0;
+		}
+	}
+
+	for (int i = 1; i <= n; i++)
+	{
+		for (int b = 1; b <= m; b++)
+		{
+			cout<<fixed<<setprecision(2)<<ALL2[i][b]<<" ";
+		}
+
+		printf("\n");
+	}
+	return 0;
+}

@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+
+int main(void)
+{
+    System("mkdir D:\\HOOK_123");
+    int a,b;
+    scanf("%d%d",&a,&b);
+    printf("%d",a+b);
+    return 0;
+}

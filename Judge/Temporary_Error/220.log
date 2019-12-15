@@ -1,0 +1,3 @@
+./temp/220/code.cpp:2:24: error: size of array 'aaaa' is too large
+ int aaaa[100010][100010];
+                        ^

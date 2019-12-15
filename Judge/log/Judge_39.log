@@ -1,0 +1,25 @@
+Python|肖江|1000|2|1000|65536|1&2&3&4&5&6&7&8&9&10
+运行ID:39  用户:肖江  题号:1000 语言:Python
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_oj_allRun) on line 86
+ (MySQL error code: 0 , SQLState: 00000 )
+评测机文件路径：D:\OpenJudge\Judge\SEJudger.exe
+评测机：SEJudger
+
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_judgeStatus) on line 136
+ (MySQL error code: 0 , SQLState: 00000 )
+Compiling[39]...
+Compilation successful
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_judgeStatus) on line 136
+ (MySQL error code: 0 , SQLState: 00000 )
+Finish[39][01]: timeUsed:  15 ms  memoryUsed:13728 kb  status:4 [Correct], exitcode:0
+Finish[39][02]: timeUsed:  15 ms  memoryUsed:13672 kb  status:4 [Correct], exitcode:0
+Finish[39][03]: timeUsed:  15 ms  memoryUsed:13632 kb  status:4 [Correct], exitcode:0
+Finish[39][04]: timeUsed:  46 ms  memoryUsed:13612 kb  status:4 [Correct], exitcode:0
+Finish[39][05]: timeUsed:  31 ms  memoryUsed:13696 kb  status:4 [Correct], exitcode:0
+Finish[39][06]: timeUsed:  15 ms  memoryUsed:13684 kb  status:4 [Correct], exitcode:0
+Finish[39][07]: timeUsed:  46 ms  memoryUsed:13672 kb  status:4 [Correct], exitcode:0
+Finish[39][08]: timeUsed:  15 ms  memoryUsed:13680 kb  status:4 [Correct], exitcode:0
+Finish[39][09]: timeUsed:  15 ms  memoryUsed:13696 kb  status:4 [Correct], exitcode:0
+Finish[39][10]: timeUsed:  31 ms  memoryUsed:13620 kb  status:4 [Correct], exitcode:0
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_judgeData) on line 161
+ (MySQL error code: 0 , SQLState: 00000 )

@@ -1,0 +1,27 @@
+C++|肖江|1000|2|1000|65536|1&2&3&4&5&6&7&8&9&10
+运行ID:28  用户:肖江  题号:1000 语言:C++
+评测机文件路径：D:\OpenJudge\Judge\SEJudger.exe
+评测机：SEJudger
+
+Compiling[28]...
+Compilation successful
+InjectAPIHookDll OK, dwProcessId[16612]
+Finish[28][01]: timeUsed:  15 ms  memoryUsed: 5076 kb  status:9 [Runtime Error], exitcode:3
+InjectAPIHookDll OK, dwProcessId[15784]
+Finish[28][02]: timeUsed:  15 ms  memoryUsed: 4680 kb  status:9 [Runtime Error], exitcode:3
+InjectAPIHookDll OK, dwProcessId[15708]
+Finish[28][03]: timeUsed:  15 ms  memoryUsed: 4680 kb  status:9 [Runtime Error], exitcode:3
+InjectAPIHookDll OK, dwProcessId[16756]
+Finish[28][04]: timeUsed:   0 ms  memoryUsed: 4680 kb  status:9 [Runtime Error], exitcode:3
+InjectAPIHookDll OK, dwProcessId[2772]
+Finish[28][05]: timeUsed:   0 ms  memoryUsed: 4684 kb  status:9 [Runtime Error], exitcode:3
+InjectAPIHookDll OK, dwProcessId[12040]
+Finish[28][06]: timeUsed:  15 ms  memoryUsed: 4680 kb  status:9 [Runtime Error], exitcode:3
+InjectAPIHookDll OK, dwProcessId[16392]
+Finish[28][07]: timeUsed:  15 ms  memoryUsed: 4676 kb  status:9 [Runtime Error], exitcode:3
+InjectAPIHookDll OK, dwProcessId[16028]
+Finish[28][08]: timeUsed:   0 ms  memoryUsed: 4688 kb  status:9 [Runtime Error], exitcode:3
+InjectAPIHookDll OK, dwProcessId[14976]
+Finish[28][09]: timeUsed:  15 ms  memoryUsed: 4688 kb  status:9 [Runtime Error], exitcode:3
+InjectAPIHookDll OK, dwProcessId[16588]
+Finish[28][10]: timeUsed:   0 ms  memoryUsed: 4676 kb  status:9 [Runtime Error], exitcode:3

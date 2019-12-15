@@ -1,0 +1,21 @@
+Python|吴泽|1005|1|1000|65536|1&2&3&4&5&6&7&8&9&10
+运行ID:278 用户:吴泽  题号:1005 语言:Python
+评测机文件路径：D:\OpenJudge\Judge\SEJudger_Contest.exe
+评测机：SEJudger_Contest
+
+Compiling[278]...
+Compilation successful
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[2772]
+--------------------------------
+PeakWorkingSetSize				9540
+WorkingSetSize					32
+QuotaPeakPagedPoolUsage			112
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		9
+QuotaNonPagedPoolUsage			0
+PagefileUsage					76
+PeakPagefileUsage				4148
+--------------------------------
+Special Judge UsedTime: 289
+Finish[278][01]: timeUsed:  31 ms  memoryUsed: 4148 kb  status:8 [Wrong Answer], exitcode:0

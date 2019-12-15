@@ -1,0 +1,11 @@
+./temp/101/code.cpp: In function 'int lt(int, int, int)':
+./temp/101/code.cpp:8:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+./temp/101/code.cpp: In function 'int SPFA(int, int)':
+./temp/101/code.cpp:11:48: warning: iteration 200008u invokes undefined behavior [-Waggressive-loop-optimizations]
+     for(int i=1;i<=200009;i++){dis[i]=999999999;}
+                                                ^
+./temp/101/code.cpp:11:18: note: containing loop
+     for(int i=1;i<=200009;i++){dis[i]=999999999;}
+                  ^

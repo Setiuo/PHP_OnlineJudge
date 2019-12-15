@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	string Str1, Str2;
+	cin >> Str1;
+	cin >> Str2;
+
+	if (Str1.find(Str2) != string::npos)
+	{
+		cout << Str2 << " is substring of " << Str1 << endl;
+	}
+	else if (Str2.find(Str1) != string::npos)
+	{
+		cout << Str1 << " is substring of " << Str2 << endl;
+	}
+	else
+	{
+		cout << "No substring" << endl;
+	}
+	
+	return 0;
+}

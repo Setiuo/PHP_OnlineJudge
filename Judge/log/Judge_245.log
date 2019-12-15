@@ -1,0 +1,21 @@
+Java|肖江|1002|2|1000|65536|1
+运行ID:245 用户:肖江  题号:1002 语言:Java
+评测机文件路径：D:\OpenJudge\Judge\SEJudger_Contest.exe
+评测机：SEJudger_Contest
+
+Compiling[245]...
+Compilation successful
+CreateRemoteThread error 87
+InjectAPIHookDll Error, dwProcessId[19352]
+--------------------------------
+PeakWorkingSetSize				22768
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			180
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		18
+QuotaNonPagedPoolUsage			0
+PagefileUsage					60
+PeakPagefileUsage				241916
+--------------------------------
+Special Judge UsedTime: 8
+Finish[245][01]: timeUsed: 109 ms  memoryUsed:241916 kb  status:4 [Correct], exitcode:0

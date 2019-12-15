@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    string name;
+    cin>>name;
+    
+    if(name == "吴泽")
+        cout<<"肖江";
+    else if(name == "张春峰")
+        cout<<"肖江";
+    else if(name == "王永鑫")
+        cout<<"肖江";
+    else if(name == "寇春阳")
+        cout<<"肖江";
+    else if(name == "吴周磊")
+        cout<<"肖江";
+        
+    return 0;
+}

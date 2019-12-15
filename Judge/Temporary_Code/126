@@ -1,0 +1,17 @@
+#include <stdio.h>
+#define a1 2
+#define d 2
+
+int main()
+{
+	long long n;
+	scanf("%lld", &n);
+
+	long long an = a1 + ((n--) - 1) * d;
+
+	long long Sn = n * a1 + (long long)((1.0 / 2.0) * (n - 1) * n * d);
+
+	printf("%lld %lld\n", an, Sn);
+
+	return 0;
+}

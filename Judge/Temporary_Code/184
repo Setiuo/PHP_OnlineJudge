@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <iostream>
+#include <algorithm>
+#define Min(a, b) ((a > b) ? b : a)
+
+using namespace std;
+
+int main()
+{
+	int a, b, c;
+	scanf("%d%d%d", &a, &b, &c);
+
+	int iNum = 0, iDis = 0;
+
+	while (true)
+	{
+		while (a)
+		{
+			iNum += Min(a - 1, c - 1);
+			a -= Min(a, c);
+		}
+		iDis++;
+		a = iNum;
+		iNum = 0;
+
+		if (iDis == b)
+			break;
+	}
+
+	printf("%d", a);
+
+	return 0;
+}
+ 
+About FAQ

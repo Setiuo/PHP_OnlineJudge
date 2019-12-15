@@ -1,0 +1,34 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner Sc = new Scanner(System.in);
+        int n = Sc.nextInt();
+        int m = Sc.nextInt();
+        double ALL[][] = new double[n+1][m+1];
+        double ALL2[][] = new double[n+1][m+1];
+
+        for (int i = 1; i <= n; i++) {
+            for (int b = 1; b <= m; b++) {
+                ALL[i][b] = Sc.nextDouble();
+                ALL2[i][b] = ALL[i][b];
+            }
+        }
+
+        for (int i = 2; i <= n - 1; i++) {
+            for (int b = 2; b <= m - 1; b++) {
+                ALL2[i][b] = (ALL[i][b] + ALL[i - 1][b] + ALL[i][b - 1] + ALL[i + 1][b] + ALL[i][b + 1]) / 5.0;
+            }
+        }
+
+        for (int i = 1; i <= n; i++) {
+            for (int b = 1; b <= m; b++) {
+                System.out.print(String.format("%.2f ", ALL2[i][b]));
+            }
+            System.out.print("\n");
+        }
+
+        Sc.close();
+    }
+}

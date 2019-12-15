@@ -1,0 +1,4 @@
+./temp/201/code.cpp: In function 'int main()':
+./temp/201/code.cpp:6:14: warning: unused variable 'u' [-Wunused-variable]
+         int *u = new int;
+              ^

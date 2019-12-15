@@ -1,0 +1,13 @@
+C++|肖江|1043|2|1000|65536|1&2&3&4&5&6
+运行ID:144 用户:肖江  题号:1043 语言:C++
+评测机文件路径：D:\OpenJudge\Judge\SEJudger.exe
+评测机：SEJudger
+
+Compiling[144]...
+Compilation successful
+Finish[144][01]: timeUsed:1093 ms  memoryUsed: 3628 kb  status:6 [Time Limit Exceeded], exitcode:0
+Finish[144][02]: timeUsed:1078 ms  memoryUsed: 3628 kb  status:6 [Time Limit Exceeded], exitcode:0
+Finish[144][03]: timeUsed:1093 ms  memoryUsed: 3632 kb  status:6 [Time Limit Exceeded], exitcode:0
+Finish[144][04]: timeUsed:1093 ms  memoryUsed: 3628 kb  status:6 [Time Limit Exceeded], exitcode:0
+Finish[144][05]: timeUsed:1078 ms  memoryUsed: 3632 kb  status:6 [Time Limit Exceeded], exitcode:0
+Finish[144][06]: timeUsed:1078 ms  memoryUsed: 3628 kb  status:6 [Time Limit Exceeded], exitcode:0

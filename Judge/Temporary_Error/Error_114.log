@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "./test/114/Code.py", line 1, in <module>
+    print (sum(map(int, raw_input().split())))
+NameError: name 'raw_input' is not defined

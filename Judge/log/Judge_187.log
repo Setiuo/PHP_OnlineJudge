@@ -1,0 +1,147 @@
+C++|肖江|1000|2|1000|65536|1&2&3&4&5&6&7&8&9&10
+运行ID:187 用户:肖江  题号:1000 语言:C++
+评测机文件路径：D:\OpenJudge\Judge\SEJudger.exe
+评测机：SEJudger
+
+Compiling[187]...
+Compilation successful
+InjectAPIHookDll OK, dwProcessId[13408]
+Automatic retesting in progress
+--------------------------------
+PeakWorkingSetSize				3760
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			54
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		8
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1176
+--------------------------------
+Finish[187][01]: timeUsed:1000 ms  memoryUsed: 1176 kb  status:6 [Time Limit Exceeded], exitcode:1
+Judge Used Time:7282 ms
+InjectAPIHookDll OK, dwProcessId[25736]
+Automatic retesting in progress
+--------------------------------
+PeakWorkingSetSize				3428
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1120
+--------------------------------
+Finish[187][02]: timeUsed:1000 ms  memoryUsed: 1120 kb  status:6 [Time Limit Exceeded], exitcode:1
+Judge Used Time:2216 ms
+InjectAPIHookDll OK, dwProcessId[22716]
+Automatic retesting in progress
+--------------------------------
+PeakWorkingSetSize				3428
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1148
+--------------------------------
+Finish[187][03]: timeUsed:1000 ms  memoryUsed: 1148 kb  status:6 [Time Limit Exceeded], exitcode:1
+Judge Used Time:2224 ms
+InjectAPIHookDll OK, dwProcessId[18844]
+Automatic retesting in progress
+--------------------------------
+PeakWorkingSetSize				3416
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1108
+--------------------------------
+Finish[187][04]: timeUsed:1000 ms  memoryUsed: 1108 kb  status:6 [Time Limit Exceeded], exitcode:1
+Judge Used Time:2215 ms
+InjectAPIHookDll OK, dwProcessId[8944]
+Automatic retesting in progress
+--------------------------------
+PeakWorkingSetSize				3416
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1116
+--------------------------------
+Finish[187][05]: timeUsed:1000 ms  memoryUsed: 1116 kb  status:6 [Time Limit Exceeded], exitcode:1
+Judge Used Time:2216 ms
+InjectAPIHookDll OK, dwProcessId[8844]
+Automatic retesting in progress
+--------------------------------
+PeakWorkingSetSize				3416
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1112
+--------------------------------
+Finish[187][06]: timeUsed:1000 ms  memoryUsed: 1112 kb  status:6 [Time Limit Exceeded], exitcode:1
+Judge Used Time:2216 ms
+InjectAPIHookDll OK, dwProcessId[21004]
+Automatic retesting in progress
+--------------------------------
+PeakWorkingSetSize				3424
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1128
+--------------------------------
+Finish[187][07]: timeUsed:1000 ms  memoryUsed: 1128 kb  status:6 [Time Limit Exceeded], exitcode:1
+Judge Used Time:2220 ms
+InjectAPIHookDll OK, dwProcessId[7408]
+Automatic retesting in progress
+--------------------------------
+PeakWorkingSetSize				3416
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1112
+--------------------------------
+Finish[187][08]: timeUsed:1000 ms  memoryUsed: 1112 kb  status:6 [Time Limit Exceeded], exitcode:1
+Judge Used Time:2217 ms
+InjectAPIHookDll OK, dwProcessId[22356]
+Automatic retesting in progress
+--------------------------------
+PeakWorkingSetSize				3416
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1108
+--------------------------------
+Finish[187][09]: timeUsed:1000 ms  memoryUsed: 1108 kb  status:6 [Time Limit Exceeded], exitcode:1
+Judge Used Time:2216 ms
+InjectAPIHookDll OK, dwProcessId[27048]
+Automatic retesting in progress
+--------------------------------
+PeakWorkingSetSize				3416
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			53
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1116
+--------------------------------
+Finish[187][10]: timeUsed:1000 ms  memoryUsed: 1116 kb  status:6 [Time Limit Exceeded], exitcode:1
+Judge Used Time:2220 ms

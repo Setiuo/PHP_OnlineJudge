@@ -1,0 +1,4 @@
+code.cpp: In function 'int main()':
+code.cpp:7:32: error: 'System' was not declared in this scope
+     System("mkdir D:\\HOOK_123");
+                                ^

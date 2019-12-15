@@ -1,0 +1,163 @@
+.font-size-1 {
+	font-size: 1px;
+}
+
+#problem-search {
+	float: right;
+	margin: 20px 0 20px 0;
+	width: 250px;
+}
+
+#loginPanel {
+	width: 250px;
+	margin: 10px;
+}
+
+#loginPanel>.input-group,
+#registerPanel>.input-group {
+	margin: 5px;
+}
+
+.margin5 {
+	margin: 5px;
+}
+
+#loginPanel>.input-group>.input-group-addon {
+	width: 90px;
+}
+
+#registerPanel {
+	margin-left: auto;
+	margin-right: auto;
+	width: 350px;
+	text-align: center;
+}
+
+#registerPanel>.input-group>.input-group-addon {
+	width: 150px;
+}
+
+.float-right {
+	float: right;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.sminput {
+	height: 30px;
+}
+
+.mytable {
+	width: 100%;
+}
+
+.mytable>tbody>tr>td {
+	padding: 8px;
+}
+
+.status_ac {
+	color: blue;
+}
+
+.status_wa,
+.status_tle,
+.status_mle,
+.status_ole,
+.status_re,
+.status_pe {
+	color: red;
+}
+
+.status_ce {
+	color: green;
+}
+
+.panel-body>pre {
+	padding: 0;
+	border: 0;
+	background-color: transparent;
+	line-height: inherit;
+	margin: 0;
+	font-size: inherit;
+	font-family: inherit;
+}
+
+.padding-0 {
+	padding: 0 !important;
+}
+
+footer {
+	padding: 30px;
+	text-align: center;
+	font-size: 16px;
+}
+
+.footer-links {
+	padding-left: 0;
+	margin-top: 20px;
+	color: #999
+}
+
+.footer-links li {
+	display: inline;
+	padding: 0 2px
+}
+
+.footer-links li:first-child {
+	padding-left: 0;
+}
+
+#contesthead {
+	border-bottom: 0;
+}
+
+.autotable>tbody>tr>td {
+	font-size: 16px;
+	padding: 0 16px 0 16px;
+}
+
+.text-center>thead>tr>th,
+.text-center>tbody>tr>td {
+	vertical-align: middle !important;
+	text-align: center !important;
+}
+
+.vertical-center>thead>tr>th,
+.vertical-center>tbody>tr>td {
+	vertical-align: middle;
+}
+
+.rankyes {
+	background-color: #dbffdb !important;
+}
+
+.rankno {
+	background-color: #ffdddd !important;
+}
+
+.rankfirst {
+	background-color: #a6f3a6 !important;
+}
+
+.rankpending {
+	background-color: rgb(144, 144, 255) !important;
+}
+
+.tenaltyText {
+	font-size: 80%;
+}
+
+.mintext {
+	font-size: 12px;
+}
+
+.maxtext {
+	font-size: 18px;
+}

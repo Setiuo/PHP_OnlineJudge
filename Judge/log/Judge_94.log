@@ -1,0 +1,35 @@
+C++|肖江|1036|2|1000|65536|1&2&3&4&5&6&7&8&9&10
+运行ID:94  用户:肖江  题号:1036 语言:C++
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_connect) on line 32
+Too many connections (MySQL error code: 1040 , SQLState: HY000 )
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_connect) on line 32
+Too many connections (MySQL error code: 1040 , SQLState: HY000 )
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_oj_allRun) on line 86
+ (MySQL error code: 0 , SQLState: 00000 )
+评测机文件路径：D:\OpenJudge\Judge\SEJudger.exe
+评测机：SEJudger
+
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_connect) on line 32
+Too many connections (MySQL error code: 1040 , SQLState: HY000 )
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_judgeStatus) on line 136
+ (MySQL error code: 0 , SQLState: 00000 )
+Compiling[94]...
+Compilation successful
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_connect) on line 32
+Too many connections (MySQL error code: 1040 , SQLState: HY000 )
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_judgeStatus) on line 136
+ (MySQL error code: 0 , SQLState: 00000 )
+Finish[94][01]: timeUsed:   0 ms  memoryUsed: 4144 kb  status:4 [Correct], exitcode:0
+Finish[94][02]: timeUsed:   0 ms  memoryUsed: 3696 kb  status:4 [Correct], exitcode:0
+Finish[94][03]: timeUsed:  15 ms  memoryUsed: 3696 kb  status:4 [Correct], exitcode:0
+Finish[94][04]: timeUsed:   0 ms  memoryUsed: 3704 kb  status:4 [Correct], exitcode:0
+Finish[94][05]: timeUsed:   0 ms  memoryUsed: 3700 kb  status:4 [Correct], exitcode:0
+Finish[94][06]: timeUsed:   0 ms  memoryUsed: 3704 kb  status:4 [Correct], exitcode:0
+Finish[94][07]: timeUsed:   0 ms  memoryUsed: 3700 kb  status:4 [Correct], exitcode:0
+Finish[94][08]: timeUsed:  15 ms  memoryUsed: 3700 kb  status:4 [Correct], exitcode:0
+Finish[94][09]: timeUsed:  15 ms  memoryUsed: 3704 kb  status:4 [Correct], exitcode:0
+Finish[94][10]: timeUsed:  15 ms  memoryUsed: 3700 kb  status:4 [Correct], exitcode:0
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_connect) on line 32
+Too many connections (MySQL error code: 1040 , SQLState: HY000 )
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_judgeData) on line 161
+ (MySQL error code: 0 , SQLState: 00000 )

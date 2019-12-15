@@ -1,0 +1,16 @@
+C++|肖江|1001|2|1000|65536|1
+运行ID:2   用户:肖江  题号:1001 语言:C++
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_oj_allRun) on line 86
+ (MySQL error code: 0 , SQLState: 00000 )
+评测机文件路径：D:\OpenJudge\Judge\SEJudger.exe
+评测机：SEJudger
+
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_judgeStatus) on line 136
+ (MySQL error code: 0 , SQLState: 00000 )
+Compiling[2]...
+Compilation successful
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_judgeStatus) on line 136
+ (MySQL error code: 0 , SQLState: 00000 )
+Finish[02][01]: timeUsed: 671 ms  memoryUsed:19476 kb  status:9 [Runtime Error], exitcode:-1073741819
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_judgeData) on line 161
+ (MySQL error code: 0 , SQLState: 00000 )

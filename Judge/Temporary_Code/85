@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+	char Str[50];
+	scanf("%s", Str);
+
+	int len = strlen(Str);
+
+	if (Str[len - 2] == 'e' && Str[len - 1] == 'r')
+	{
+		Str[len - 2] = '\0';
+	}
+	else if (Str[len - 2] == 'l' && Str[len - 1] == 'y')
+	{
+		Str[len - 2] = '\0';
+	}
+	else if (Str[len - 3] == 'i'  && Str[len - 2] == 'n' && Str[len - 1] == 'g')
+	{
+		Str[len - 3] = '\0';
+	}
+	
+	printf("%s", Str);
+
+	return 0;
+}

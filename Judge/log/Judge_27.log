@@ -1,0 +1,67 @@
+C++|吴泽|1006|2|1000|66536|1&2&6&7&8
+运行ID:27  用户:吴泽  题号:1006 语言:C++
+评测机文件路径：D:\OpenJudge\Judge\SEJudger_Contest.exe
+评测机：SEJudger_Contest
+
+Compiling[27]...
+Compilation successful
+InjectAPIHookDll OK, dwProcessId[2888]
+--------------------------------
+PeakWorkingSetSize				3524
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			63
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		8
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1128
+--------------------------------
+Finish[27][01]: timeUsed:   0 ms  memoryUsed: 1128 kb  status:9 [Runtime Error], exitcode:3
+InjectAPIHookDll OK, dwProcessId[8088]
+--------------------------------
+PeakWorkingSetSize				3524
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			63
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1124
+--------------------------------
+Finish[27][02]: timeUsed:   0 ms  memoryUsed: 1124 kb  status:9 [Runtime Error], exitcode:3
+InjectAPIHookDll OK, dwProcessId[10596]
+--------------------------------
+PeakWorkingSetSize				3524
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			63
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1128
+--------------------------------
+Finish[27][06]: timeUsed:  15 ms  memoryUsed: 1128 kb  status:9 [Runtime Error], exitcode:3
+InjectAPIHookDll OK, dwProcessId[21444]
+--------------------------------
+PeakWorkingSetSize				3524
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			63
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1128
+--------------------------------
+Finish[27][07]: timeUsed:   0 ms  memoryUsed: 1128 kb  status:9 [Runtime Error], exitcode:3
+InjectAPIHookDll OK, dwProcessId[15936]
+--------------------------------
+PeakWorkingSetSize				3540
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			63
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1136
+--------------------------------
+Finish[27][08]: timeUsed:  15 ms  memoryUsed: 1136 kb  status:9 [Runtime Error], exitcode:3

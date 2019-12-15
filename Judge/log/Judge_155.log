@@ -1,0 +1,25 @@
+C++|肖江|1003|2|1000|65536|1&2&3&4&5
+运行ID:155 用户:肖江  题号:1003 语言:C++
+评测机文件路径：D:\OpenJudge\Judge\SE_JudgerContest.exe
+评测机：SE_JudgerContest
+
+设置评测模式：2
+设置运行ID：155
+设置题号：1003
+设置时间限制：1000
+设置内存限制：65536
+编译中...
+编译完成
+设置测试点数量：5
+设置每个测试点号
+开始评测： 2019-07-15 20:45:44
+开始评测1 - 5测试点
+评测完成！
+##1  : Accepted                usetime:15  ms  runttime:76  ms  usememory:640  kb  ExitCode:0x0
+##2  : Accepted                usetime:0   ms  runttime:78  ms  usememory:644  kb  ExitCode:0x0
+##3  : Accepted                usetime:0   ms  runttime:84  ms  usememory:644  kb  ExitCode:0x0
+##4  : Accepted                usetime:0   ms  runttime:75  ms  usememory:640  kb  ExitCode:0x0
+##5  : Accepted                usetime:0   ms  runttime:75  ms  usememory:644  kb  ExitCode:0x0
+Judge Over, Accepted                usetime:15  ms  usememory:644  kb
+评测总耗时：95ms
+

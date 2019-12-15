@@ -1,0 +1,37 @@
+C++|肖江|1000|2|1000|65536|1&2&3&4&5&6&7&8&9&10
+运行ID:160 用户:肖江  题号:1000 语言:C++
+评测机文件路径：D:\OpenJudge\Judge\SEJudger.exe
+评测机：SEJudger
+
+Compiling[160]...
+Compilation successful
+InjectAPIHookDll OK, dwProcessId[8540]
+Special Judge UsedTime: 18
+Finish[160][01]: timeUsed:   0 ms  memoryUsed:39092 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[8084]
+Special Judge UsedTime: 16
+Finish[160][02]: timeUsed:   0 ms  memoryUsed:38640 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[24856]
+Special Judge UsedTime: 15
+Finish[160][03]: timeUsed:   0 ms  memoryUsed:38636 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[15856]
+Special Judge UsedTime: 17
+Finish[160][04]: timeUsed:   0 ms  memoryUsed:38636 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[23700]
+Special Judge UsedTime: 19
+Finish[160][05]: timeUsed:   0 ms  memoryUsed:38636 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[28860]
+Special Judge UsedTime: 20
+Finish[160][06]: timeUsed:   0 ms  memoryUsed:38632 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[14412]
+Special Judge UsedTime: 20
+Finish[160][07]: timeUsed:   0 ms  memoryUsed:38640 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[14808]
+Special Judge UsedTime: 18
+Finish[160][08]: timeUsed:   0 ms  memoryUsed:38636 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[18652]
+Special Judge UsedTime: 16
+Finish[160][09]: timeUsed:   0 ms  memoryUsed:38632 kb  status:4 [Correct], exitcode:0
+InjectAPIHookDll OK, dwProcessId[11788]
+Special Judge UsedTime: 20
+Finish[160][10]: timeUsed:   0 ms  memoryUsed:38632 kb  status:4 [Correct], exitcode:0

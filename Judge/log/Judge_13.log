@@ -1,0 +1,20 @@
+C++|肖江|1012|2|1000|65536|1&2&3&4&5
+运行ID:13  用户:肖江  题号:1012 语言:C++
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_oj_allRun) on line 86
+ (MySQL error code: 0 , SQLState: 00000 )
+评测机文件路径：D:\OpenJudge\Judge\SEJudger.exe
+评测机：SEJudger
+
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_judgeStatus) on line 136
+ (MySQL error code: 0 , SQLState: 00000 )
+Compiling[13]...
+Compilation successful
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_judgeStatus) on line 136
+ (MySQL error code: 0 , SQLState: 00000 )
+Finish[13][01]: timeUsed:   0 ms  memoryUsed: 4188 kb  status:4 [Correct], exitcode:0
+Finish[13][02]: timeUsed:   0 ms  memoryUsed: 3736 kb  status:4 [Correct], exitcode:0
+Finish[13][03]: timeUsed:   0 ms  memoryUsed: 3736 kb  status:4 [Correct], exitcode:0
+Finish[13][04]: timeUsed:   0 ms  memoryUsed: 3744 kb  status:4 [Correct], exitcode:0
+Finish[13][05]: timeUsed:   0 ms  memoryUsed: 3744 kb  status:4 [Correct], exitcode:0
+SQLException in c:\users\dell\desktop\newjudger\sejudger\sejudger\function_mysql.cpp (mysql_set_judgeData) on line 161
+ (MySQL error code: 0 , SQLState: 00000 )

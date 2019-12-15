@@ -1,0 +1,11 @@
+import sys
+
+for line in sys.stdin:
+    Num = line.split()
+
+Num.sort()
+
+if (int(Num[0]) + int(Num[1]) > int(Num[2])) and (int(Num[1]) - int(Num[0]) < int(Num[2])):
+    print ("Yes")
+else:
+    print ("No")

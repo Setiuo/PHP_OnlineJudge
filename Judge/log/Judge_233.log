@@ -1,0 +1,19 @@
+C++|肖江|1001|1|1000|65536|1
+运行ID:233 用户:肖江  题号:1001 语言:C++
+评测机文件路径：D:\OpenJudge\Judge\SEJudger_Contest.exe
+评测机：SEJudger_Contest
+
+Compiling[233]...
+Compilation successful
+InjectAPIHookDll OK, dwProcessId[9600]
+--------------------------------
+PeakWorkingSetSize				3852
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			48
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		8
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				1180
+--------------------------------
+Finish[233][01]: timeUsed:   0 ms  memoryUsed: 1180 kb  status:9 [Runtime Error], exitcode:3

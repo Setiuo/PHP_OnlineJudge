@@ -1,0 +1,27 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner Sc = new Scanner(System.in);
+        int n = Sc.nextInt();
+
+        int Egg[] = new int[n];
+        int oldEgg[] = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            Egg[i] = Sc.nextInt();
+            oldEgg[i] = Egg[i];
+        }
+
+        Arrays.sort(Egg);
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            if (Egg[i] != oldEgg[i]) {
+                ans++;
+            }
+        }
+        System.out.println(ans);
+        Sc.close();
+    }
+}

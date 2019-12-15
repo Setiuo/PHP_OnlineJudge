@@ -1,0 +1,8 @@
+./temp/254/code.cpp:1:10: error: #include expects "FILENAME" or <FILENAME>
+./temp/254/code.cpp: In function 'int main()':
+./temp/254/code.cpp:6:23: error: 'scanf' was not declared in this scope
+     scanf("%d%d",&a,&b);
+                       ^
+./temp/254/code.cpp:7:20: error: 'printf' was not declared in this scope
+     printf("%d",a+b);
+                    ^

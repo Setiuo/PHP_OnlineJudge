@@ -1,0 +1,4 @@
+./temp/175/code.cpp: In function 'int main()':
+./temp/175/code.cpp:14:6: warning: unused variable 'block' [-Wunused-variable]
+  int block = (int)sqrt(n);
+      ^

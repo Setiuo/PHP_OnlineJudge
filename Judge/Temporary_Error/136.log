@@ -1,0 +1,5 @@
+  File "./temp/136/code.py", line 1
+    sximport sys
+               ^
+SyntaxError: invalid syntax
+
