@@ -5,153 +5,163 @@ C++|Ð¤½­|1000|2|1000|65536|1&2&3&4&5&6&7&8&9&10
 
 Compiling[318]...
 Compilation successful
-InjectAPIHookDll OK, dwProcessId[19292]
+InjectAPIHookDll OK, dwProcessId[3712]
+1
 --------------------------------
-PeakWorkingSetSize				3800
+PeakWorkingSetSize				3428
 WorkingSetSize					20
-QuotaPeakPagedPoolUsage			54
+QuotaPeakPagedPoolUsage			45
 QuotaPagedPoolUsage				0
-QuotaPeakNonPagedPoolUsage		8
+QuotaPeakNonPagedPoolUsage		6
 QuotaNonPagedPoolUsage			0
 PagefileUsage					64
-PeakPagefileUsage				1184
+PeakPagefileUsage				972
 --------------------------------
-Special Judge UsedTime: 21 ms
-Finish[318][01]: timeUsed:  15 ms  memoryUsed: 1184 kb  status:4 [Correct], exitcode:0
-Judge Used Time:114 ms
+Special Judge UsedTime: 110 ms
+Finish[318][01]: timeUsed:   0 ms  memoryUsed:  972 kb  status:4 [Correct], exitcode:0
+Judge Used Time:321 ms
 
-InjectAPIHookDll OK, dwProcessId[15088]
+InjectAPIHookDll OK, dwProcessId[23088]
+1
 --------------------------------
-PeakWorkingSetSize				3456
+PeakWorkingSetSize				3428
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			45
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				968
+--------------------------------
+Special Judge UsedTime: 109 ms
+Finish[318][02]: timeUsed:   0 ms  memoryUsed:  968 kb  status:4 [Correct], exitcode:0
+Judge Used Time:316 ms
+
+InjectAPIHookDll OK, dwProcessId[6216]
+1
+--------------------------------
+PeakWorkingSetSize				3428
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			45
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				972
+--------------------------------
+Special Judge UsedTime: 110 ms
+Finish[318][03]: timeUsed:  15 ms  memoryUsed:  972 kb  status:4 [Correct], exitcode:0
+Judge Used Time:319 ms
+
+InjectAPIHookDll OK, dwProcessId[6372]
+1
+--------------------------------
+PeakWorkingSetSize				3428
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			45
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				976
+--------------------------------
+Special Judge UsedTime: 35 ms
+Finish[318][04]: timeUsed:   0 ms  memoryUsed:  976 kb  status:4 [Correct], exitcode:0
+Judge Used Time:243 ms
+
+InjectAPIHookDll OK, dwProcessId[23112]
+1
+--------------------------------
+PeakWorkingSetSize				3428
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			45
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				972
+--------------------------------
+Special Judge UsedTime: 111 ms
+Finish[318][05]: timeUsed:  15 ms  memoryUsed:  972 kb  status:4 [Correct], exitcode:0
+Judge Used Time:322 ms
+
+InjectAPIHookDll OK, dwProcessId[13440]
+1
+--------------------------------
+PeakWorkingSetSize				3428
+WorkingSetSize					20
+QuotaPeakPagedPoolUsage			45
+QuotaPagedPoolUsage				0
+QuotaPeakNonPagedPoolUsage		6
+QuotaNonPagedPoolUsage			0
+PagefileUsage					64
+PeakPagefileUsage				972
+--------------------------------
+Special Judge UsedTime: 111 ms
+Finish[318][06]: timeUsed:   0 ms  memoryUsed:  972 kb  status:4 [Correct], exitcode:0
+Judge Used Time:318 ms
+
+InjectAPIHookDll OK, dwProcessId[10852]
+1
+--------------------------------
+PeakWorkingSetSize				3428
 WorkingSetSize					20
 QuotaPeakPagedPoolUsage			53
 QuotaPagedPoolUsage				0
 QuotaPeakNonPagedPoolUsage		6
 QuotaNonPagedPoolUsage			0
 PagefileUsage					64
-PeakPagefileUsage				1116
+PeakPagefileUsage				972
 --------------------------------
-Special Judge UsedTime: 17 ms
-Finish[318][02]: timeUsed:   0 ms  memoryUsed: 1116 kb  status:4 [Correct], exitcode:0
-Judge Used Time:37 ms
+Special Judge UsedTime: 112 ms
+Finish[318][07]: timeUsed:   0 ms  memoryUsed:  972 kb  status:4 [Correct], exitcode:0
+Judge Used Time:319 ms
 
-InjectAPIHookDll OK, dwProcessId[13264]
+InjectAPIHookDll OK, dwProcessId[15956]
+1
 --------------------------------
-PeakWorkingSetSize				3456
+PeakWorkingSetSize				3428
 WorkingSetSize					20
 QuotaPeakPagedPoolUsage			53
 QuotaPagedPoolUsage				0
 QuotaPeakNonPagedPoolUsage		6
 QuotaNonPagedPoolUsage			0
 PagefileUsage					64
-PeakPagefileUsage				1120
+PeakPagefileUsage				972
 --------------------------------
-Special Judge UsedTime: 19 ms
-Finish[318][03]: timeUsed:   0 ms  memoryUsed: 1120 kb  status:4 [Correct], exitcode:0
-Judge Used Time:42 ms
+Special Judge UsedTime: 23 ms
+Finish[318][08]: timeUsed:   0 ms  memoryUsed:  972 kb  status:4 [Correct], exitcode:0
+Judge Used Time:181 ms
 
-InjectAPIHookDll OK, dwProcessId[5048]
+InjectAPIHookDll OK, dwProcessId[12940]
+1
 --------------------------------
-PeakWorkingSetSize				3456
+PeakWorkingSetSize				3428
 WorkingSetSize					20
 QuotaPeakPagedPoolUsage			53
 QuotaPagedPoolUsage				0
 QuotaPeakNonPagedPoolUsage		6
 QuotaNonPagedPoolUsage			0
 PagefileUsage					64
-PeakPagefileUsage				1116
+PeakPagefileUsage				972
 --------------------------------
-Special Judge UsedTime: 27 ms
-Finish[318][04]: timeUsed:   0 ms  memoryUsed: 1116 kb  status:4 [Correct], exitcode:0
-Judge Used Time:54 ms
+Special Judge UsedTime: 112 ms
+Finish[318][09]: timeUsed:   0 ms  memoryUsed:  972 kb  status:4 [Correct], exitcode:0
+Judge Used Time:304 ms
 
-InjectAPIHookDll OK, dwProcessId[24056]
+InjectAPIHookDll OK, dwProcessId[13492]
+1
 --------------------------------
-PeakWorkingSetSize				3468
+PeakWorkingSetSize				3428
 WorkingSetSize					20
 QuotaPeakPagedPoolUsage			53
 QuotaPagedPoolUsage				0
 QuotaPeakNonPagedPoolUsage		6
 QuotaNonPagedPoolUsage			0
 PagefileUsage					64
-PeakPagefileUsage				1124
+PeakPagefileUsage				972
 --------------------------------
-Special Judge UsedTime: 16 ms
-Finish[318][05]: timeUsed:   0 ms  memoryUsed: 1124 kb  status:4 [Correct], exitcode:0
-Judge Used Time:37 ms
-
-InjectAPIHookDll OK, dwProcessId[21108]
---------------------------------
-PeakWorkingSetSize				3456
-WorkingSetSize					20
-QuotaPeakPagedPoolUsage			53
-QuotaPagedPoolUsage				0
-QuotaPeakNonPagedPoolUsage		6
-QuotaNonPagedPoolUsage			0
-PagefileUsage					64
-PeakPagefileUsage				1116
---------------------------------
-Special Judge UsedTime: 18 ms
-Finish[318][06]: timeUsed:   0 ms  memoryUsed: 1116 kb  status:4 [Correct], exitcode:0
-Judge Used Time:36 ms
-
-InjectAPIHookDll OK, dwProcessId[5888]
---------------------------------
-PeakWorkingSetSize				3456
-WorkingSetSize					20
-QuotaPeakPagedPoolUsage			53
-QuotaPagedPoolUsage				0
-QuotaPeakNonPagedPoolUsage		6
-QuotaNonPagedPoolUsage			0
-PagefileUsage					64
-PeakPagefileUsage				1112
---------------------------------
-Special Judge UsedTime: 20 ms
-Finish[318][07]: timeUsed:   0 ms  memoryUsed: 1112 kb  status:4 [Correct], exitcode:0
-Judge Used Time:38 ms
-
-InjectAPIHookDll OK, dwProcessId[12104]
---------------------------------
-PeakWorkingSetSize				3456
-WorkingSetSize					20
-QuotaPeakPagedPoolUsage			53
-QuotaPagedPoolUsage				0
-QuotaPeakNonPagedPoolUsage		6
-QuotaNonPagedPoolUsage			0
-PagefileUsage					64
-PeakPagefileUsage				1116
---------------------------------
-Special Judge UsedTime: 17 ms
-Finish[318][08]: timeUsed:   0 ms  memoryUsed: 1116 kb  status:4 [Correct], exitcode:0
-Judge Used Time:36 ms
-
-InjectAPIHookDll OK, dwProcessId[18664]
---------------------------------
-PeakWorkingSetSize				3460
-WorkingSetSize					20
-QuotaPeakPagedPoolUsage			53
-QuotaPagedPoolUsage				0
-QuotaPeakNonPagedPoolUsage		6
-QuotaNonPagedPoolUsage			0
-PagefileUsage					64
-PeakPagefileUsage				1120
---------------------------------
-Special Judge UsedTime: 16 ms
-Finish[318][09]: timeUsed:   0 ms  memoryUsed: 1120 kb  status:4 [Correct], exitcode:0
-Judge Used Time:36 ms
-
-InjectAPIHookDll OK, dwProcessId[23364]
---------------------------------
-PeakWorkingSetSize				3468
-WorkingSetSize					20
-QuotaPeakPagedPoolUsage			53
-QuotaPagedPoolUsage				0
-QuotaPeakNonPagedPoolUsage		6
-QuotaNonPagedPoolUsage			0
-PagefileUsage					64
-PeakPagefileUsage				1124
---------------------------------
-Special Judge UsedTime: 16 ms
-Finish[318][10]: timeUsed:   0 ms  memoryUsed: 1124 kb  status:4 [Correct], exitcode:0
-Judge Used Time:36 ms
+Special Judge UsedTime: 110 ms
+Finish[318][10]: timeUsed:   0 ms  memoryUsed:  972 kb  status:4 [Correct], exitcode:0
+Judge Used Time:319 ms
 

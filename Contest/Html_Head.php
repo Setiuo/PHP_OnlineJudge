@@ -60,6 +60,8 @@ if ($ConData['Type'] == 1 && $_SERVER['PHP_SELF'] != "/Contest/PassWord.php" && 
 	}
 }
 
+$NowDate = date('Y-m-d H:i:s');
+
 //封榜时间
 if ($ConData['Practice'] == 0 && $ConData['Rule'] == 'ACM' && $NowDate <= $ConData['UnfreezeTime'] && !can_edit_contest($ConID)) {
 	$FreezeTime = $ConData['FreezeTime'];
@@ -68,7 +70,6 @@ if ($ConData['Practice'] == 0 && $ConData['Rule'] == 'ACM' && $NowDate <= $ConDa
 }
 
 $ProEngNum = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
-$NowDate = date('Y-m-d H:i:s');
 ?>
 
 
