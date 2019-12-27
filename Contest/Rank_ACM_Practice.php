@@ -1,4 +1,69 @@
 <?php
+//以用户名的形式储存所有提交信息
+global $contestAllStatus_User;
+$contestAllStatus_User = array();
+
+$sql = 'SELECT * FROM `oj_constatus` WHERE `ConID`=' . $ConID;
+$result = oj_mysql_query($sql);
+while ($iStatus = oj_mysql_fetch_array($result)) {
+	if ($iStatus['Show'] == 1) {
+		$contestAllStatus_User[$iStatus['User']][] = $iStatus;
+	}
+}
+//print_r($contestAllStatus_User);
+
+//查找参赛者AC的提交时间，没有则返回NULL
+function find_user_accepted($user, $problem)
+{
+	$submitTime = null;
+	$submitTime_Text = null;
+
+	global $contestAllStatus_User;
+	foreach ($contestAllStatus_User[$user] as $iStatus) {
+		//print_r($iStatus);
+		if ($iStatus['Status'] == Accepted && $iStatus['Problem'] == $problem) {
+			//转化为时间戳
+			$submitTime_new = strtotime($iStatus['SubTime']);
+
+			if (!$submitTime || ($submitTime_new < $submitTime)) {
+				$submitTime = $submitTime_new;
+				$submitTime_Text = $iStatus['SubTime'];
+			}
+		}
+	}
+
+	return $submitTime_Text;
+}
+//计算参赛者WA的次数
+function count_user_wa($user, $problem, $time)
+{
+	$count = 0;
+	global $contestAllStatus_User;
+	foreach ($contestAllStatus_User[$user] as $iStatus) {
+		if ($iStatus['Problem'] == $problem) {
+			if (
+				$iStatus['Status'] != Accepted && $iStatus['Status'] != Wating && $iStatus['Status'] != Pending &&
+				$iStatus['Status'] != Running && $iStatus['Status'] != CompileError && $iStatus['Status'] != Accepted
+			) {
+				if ($time) {
+					$submitTime_new = strtotime($iStatus['SubTime']);
+					$compareTime = strtotime($time);
+
+					if ($submitTime_new < $compareTime) {
+						$count++;
+					}
+				} else {
+					$count++;
+				}
+			}
+		}
+	}
+
+	return $count;
+}
+
+
+
 $PeopleRank = array();
 
 $AllPeople = $ConData['EnrollPeople'];
@@ -16,6 +81,7 @@ foreach ($Data as $var) {
 		$iAttemptNum = 0;
 		$iUseTime = "";
 
+		/*
 		//获取参赛者的AC提交信息
 		$sql = "SELECT `SubTime` FROM `oj_constatus` WHERE (`SubTime`=(SELECT min(SubTime) FROM `oj_constatus` WHERE`Status`=" . Accepted . " AND `Show` = 1 AND `ConID`=" . $ConID . " AND `Problem`=" . $i . " AND `User`='" . $var . "') AND `User`='" . $var . "')";
 		if (can_edit_contest($ConID)) {
@@ -23,20 +89,26 @@ foreach ($Data as $var) {
 		}
 		$result = oj_mysql_query($sql);
 		$IsAC = oj_mysql_fetch_array($result);
+		*/
 
+		/*
 		//获取参赛者错误提交信息
 		$sql = "SELECT count(*) AS value FROM `oj_constatus` WHERE `Status`!=" . Accepted . " AND `Status`!=" . CompileError . " AND `Show` = 1 AND `ConID`=" . $ConID . " AND `Problem`=" . $i . " AND `User`='" . $var . "'";
 		if (can_edit_contest($ConID)) {
 			$sql = "SELECT count(*) AS value FROM `oj_constatus` WHERE `Status`!=" . Accepted . " AND `Status`!=" . CompileError . " AND `ConID`=" . $ConID . " AND `Problem`=" . $i . " AND `User`='" . $var . "'";
 		}
 		if ($IsAC) {
-			$sql .=  " AND `SubTime`<='" . $IsAC['SubTime'] . "'";
+			$sql .=  " AND `SubTime`<='" . $IsAC . "'";
 		}
 		$rs = oj_mysql_query($sql);
 		$Num = oj_mysql_fetch_array($rs);
 		$iAttemptNum = $Num['value'];
-		//增加罚时
+		*/
 
+		$IsAC = find_user_accepted($var, $i);
+		$iAttemptNum = count_user_wa($var, $i, $IsAC);
+
+		//增加罚时
 		//如果
 		if ($IsAC) {
 			//已经AC,计算罚时
@@ -46,7 +118,7 @@ foreach ($Data as $var) {
 			$iUserACNum++;
 
 			$Startdate = strtotime($ConData['StartTime']);
-			$Enddate   = strtotime($IsAC['SubTime']);
+			$Enddate   = strtotime($IsAC);
 
 			$Timediff = $Enddate - $Startdate;
 			$Days =     intval($Timediff / 86400);

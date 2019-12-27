@@ -1,4 +1,156 @@
 <?php
+//以用户名的形式储存所有提交信息
+global $contestAllStatus_User;
+$contestAllStatus_User = array();
+//以题号的形式储存所有提交信息
+global $contestAllStatus_Problem;
+$contestAllStatus_Problem = array();
+
+$sql = 'SELECT * FROM `oj_constatus` WHERE `ConID`=' . $ConID;
+$result = oj_mysql_query($sql);
+while ($iStatus = oj_mysql_fetch_array($result)) {
+	if ($iStatus['Show'] == 1) {
+		$contestAllStatus_User[$iStatus['User']][] = $iStatus;
+		$contestAllStatus_Problem[$iStatus['Problem']][] = $iStatus;
+	}
+}
+
+//查找参赛者AC的提交时间，没有则返回NULL
+function find_user_accepted($user, $problem, $time)
+{
+	$submitTime = null;
+	$submitTime_Text = null;
+
+	global $contestAllStatus_User;
+	foreach ($contestAllStatus_User[$user] as $iStatus) {
+		if ($iStatus['Status'] == Accepted && $iStatus['Problem'] == $problem) {
+			$can = true;
+
+			if ($time) {
+				$can = false;
+				$submitTime_new = strtotime($iStatus['SubTime']);
+				$compareTime = strtotime($time);
+
+				if ($submitTime_new < $compareTime) {
+					$can = true;
+				}
+			}
+
+			if ($can) {
+				//转化为时间戳
+				$submitTime_new = strtotime($iStatus['SubTime']);
+
+				if (!$submitTime || ($submitTime_new < $submitTime)) {
+					$submitTime = $submitTime_new;
+					$submitTime_Text = $iStatus['SubTime'];
+				}
+			}
+		}
+	}
+
+	return $submitTime_Text;
+}
+//计算参赛者WA的次数
+function count_user_wa($user, $problem, $time)
+{
+	$count = 0;
+	global $contestAllStatus_User;
+	foreach ($contestAllStatus_User[$user] as $iStatus) {
+		if ($iStatus['Problem'] == $problem) {
+			if (
+				$iStatus['Status'] != Accepted && $iStatus['Status'] != Wating && $iStatus['Status'] != Pending &&
+				$iStatus['Status'] != Running && $iStatus['Status'] != CompileError && $iStatus['Status'] != Accepted
+			) {
+				if ($time) {
+					$submitTime_new = strtotime($iStatus['SubTime']);
+					$compareTime = strtotime($time);
+
+					if ($submitTime_new < $compareTime) {
+						$count++;
+					}
+				} else {
+					$count++;
+				}
+			}
+		}
+	}
+
+	return $count;
+}
+//获取Pending状态数目
+function count_user_pend($user, $problem, $time)
+{
+	$count = 0;
+	global $contestAllStatus_User;
+	foreach ($contestAllStatus_User[$user] as $iStatus) {
+		if ($iStatus['Problem'] == $problem) {
+			if (
+				$iStatus['Status'] == Wating || $iStatus['Status'] == Pending ||
+				$iStatus['Status'] == Running
+			) {
+				$count++;
+			}
+
+			if ($time) {
+				$submitTime_new = strtotime($iStatus['SubTime']);
+				$compareTime = strtotime($time);
+
+				if ($submitTime_new >= $compareTime) {
+					$count++;
+				}
+			}
+		}
+	}
+
+	return $count;
+}
+//查找第一个AC的提交时间
+function find_first_ac($problem)
+{
+	$submitTime_Text = null;
+	$submitTime = null;
+
+	global $contestAllStatus_Problem;
+	foreach ($contestAllStatus_Problem[$problem] as $iStatus) {
+		$submitTime_new = strtotime($iStatus['SubTime']);
+		if (!$submitTime || $submitTime_new < $submitTime) {
+			$submitTime = $submitTime_new;
+			$submitTime_Text = $iStatus['SubTime'];
+		}
+	}
+
+	return $submitTime_Text;
+}
+//计算问题AC数量
+function count_problem_ac($problem, $time)
+{
+	$timestamp = strtotime($time);
+	$count = 0;
+
+	global $contestAllStatus_Problem;
+	foreach ($contestAllStatus_Problem[$problem] as $iStatus) {
+		$submitTime_new = strtotime($iStatus['SubTime']);
+
+		if ($submitTime_new < $timestamp && $iStatus['Status'] == Accepted) {
+			$count++;
+		}
+	}
+
+	return $count;
+}
+//计算问题提交数量
+function count_problem_submit($problem)
+{
+	$count = 0;
+
+	global $contestAllStatus_Problem;
+	foreach ($contestAllStatus_Problem[$problem] as $iStatus) {
+		$count++;
+	}
+
+	return $count;
+}
+
 $PeopleRank = array();
 
 $AllPeople = $ConData['EnrollPeople'];
@@ -19,6 +171,7 @@ foreach ($Data as $var) {
 		$iUseTime = "";
 		$iFirstAC = 0;
 
+		/*
 		//获取参赛者封榜前的AC提交信息
 		$sql = "SELECT `SubTime` FROM `oj_constatus` WHERE (`SubTime`=(select min(SubTime) FROM `oj_constatus` WHERE`Status`=" . Accepted . " AND `Show` = 1 AND `ConID`=" . $ConID . " AND `Problem`=" . $i . " AND `User`='" . $var . "' AND `SubTime` < '" . $FreezeTime . "') AND `User`='" . $var . "')";
 		if (can_edit_contest($ConID)) {
@@ -26,7 +179,9 @@ foreach ($Data as $var) {
 		}
 		$result = oj_mysql_query($sql);
 		$IsAC = oj_mysql_fetch_array($result);
+		*/
 
+		/*
 		//错误过滤条件
 		$filtrate = "`Status`!=" . Accepted . " AND `Status`!=" . CompileError . " AND `Status`!=" . Running . " AND `Status`!=" . Pending . " AND `Status`!=" . Wating . " AND `Status`!=" . Compiling;
 		//获取参赛者封榜前的错误提交信息
@@ -35,22 +190,31 @@ foreach ($Data as $var) {
 			$sql = "SELECT count(*) AS value FROM `oj_constatus` WHERE " . $filtrate . " AND `ConID`=" . $ConID . " AND `Problem`=" . $i . " AND `User`='" . $var . "' AND `SubTime` < '" . $FreezeTime . "'";
 		}
 		if ($IsAC) {
-			$sql .=  " AND `SubTime`<='" . $IsAC['SubTime'] . "'";
+			$sql .=  " AND `SubTime`<='" . $IsAC . "'";
 		}
 		$rs = oj_mysql_query($sql);
 		$Num = oj_mysql_fetch_array($rs);
 		$iAttemptNum = $Num['value'];
+		*/
+
+		$IsAC = find_user_accepted($var, $i, $FreezeTime);
+		if ($IsAC)
+			$iAttemptNum = count_user_wa($var, $i, $IsAC);
+		else
+			$iAttemptNum = count_user_wa($var, $i, $FreezeTime);
 
 		if ($IsAC) {
+			/*
 			//获取第一个提交信息
-			$sql = "SELECT `SubTime` FROM `oj_constatus` WHERE (`SubTime`=(select min(SubTime) FROM `oj_constatus` WHERE`Status`=" . Accepted . " AND `Show` = 1 AND `ConID`=" . $ConID . " AND `Problem`=" . $i . "))";
+			$sql = "SELECT min(SubTime) AS SubTime FROM `oj_constatus` WHERE`Status`=" . Accepted . " AND `Show` = 1 AND `ConID`=" . $ConID . " AND `Problem`=" . $i;
 			if (can_edit_contest($ConID)) {
-				$sql = "SELECT `SubTime` FROM `oj_constatus` WHERE (`SubTime`=(select min(SubTime) FROM `oj_constatus` WHERE`Status`=" . Accepted . " AND `ConID`=" . $ConID . " AND `Problem`=" . $i . "))";
+				$sql = "SELECT min(SubTime) AS SubTime FROM `oj_constatus` WHERE`Status`=" . Accepted . " AND `ConID`=" . $ConID . " AND `Problem`=" . $i;
 			}
 			$result = oj_mysql_query($sql);
 			$FirstAC = oj_mysql_fetch_array($result);
-
-			if ($IsAC['SubTime'] == $FirstAC['SubTime']) {
+			*/
+			$FirstAC = find_first_ac($i);
+			if ($IsAC == $FirstAC) {
 				$iFirstAC = 1;
 			}
 
@@ -61,7 +225,7 @@ foreach ($Data as $var) {
 			$iUserACNum++;
 
 			$Startdate = strtotime($ConData['StartTime']);
-			$Enddate   = strtotime($IsAC['SubTime']);
+			$Enddate   = strtotime($IsAC);
 
 			$Timediff = $Enddate - $Startdate;
 			$Days =     intval($Timediff / 86400);
@@ -79,6 +243,7 @@ foreach ($Data as $var) {
 				$iUseTime = $Hours . ':' . $Mins . ':' . $Secs;
 			}
 		} else {
+			/*
 			//Pending条件：封榜时间内未出评判结果或封榜后提交了记录
 			$pend_filtrate = "(((`Status`=" . Running . " OR `Status`=" . Pending . " OR `Status`=" . Wating . " OR `Status`=" . Compiling . ") AND `SubTime`<'" . $FreezeTime . "') OR (`SubTime`>='" . $FreezeTime . "' AND `Status`!=" . CompileError . "))";
 
@@ -90,6 +255,8 @@ foreach ($Data as $var) {
 			$rs = oj_mysql_query($sql);
 			$Pend_Num_Array = oj_mysql_fetch_array($rs);
 			$Pend_Num = $Pend_Num_Array['value'];
+			*/
+			$Pend_Num = count_user_pend($var, $i, $FreezeTime);
 
 			if ($Pend_Num > 0) {
 				$iACStatus = 3;
@@ -133,21 +300,27 @@ usort($PeopleRank, "my_sort");
 
 		<?php
 		for ($i = 0; $i < $ProNum; $i++) {
+			/*
 			$sql = "SELECT count(*) as value FROM `oj_constatus` WHERE `ConID` = " . $ConID . " AND `Status` = " . Accepted . " AND `Show` = 1 AND `Problem` = " . $i . " AND `SubTime`<'" . $FreezeTime . "'";
 			if (can_edit_contest($ConID)) {
 				$sql = "SELECT count(*) as value FROM `oj_constatus` WHERE `ConID` = " . $ConID . " AND `Status` = " . Accepted . " AND `Problem` = " . $i . " AND `SubTime`<'" . $FreezeTime . "'";
 			}
 			$rs = oj_mysql_query($sql);
 			$PassProNum = oj_mysql_fetch_array($rs);
+			*/
+			$PassProNum = count_problem_ac($i, $FreezeTime);
 
+			/*
 			$sql = "SELECT count(*) as value FROM `oj_constatus` WHERE `ConID` = " . $ConID . " AND `Show` = 1 AND `Problem` = " . $i;
 			if (can_edit_contest($ConID)) {
 				$sql = "SELECT count(*) as value FROM `oj_constatus` WHERE `ConID` = " . $ConID . " AND `Problem` = " . $i;
 			}
 			$rs = oj_mysql_query($sql);
 			$AllProNum = oj_mysql_fetch_array($rs);
+			*/
+			$AllProNum = count_problem_submit($i);
 
-			echo '<th><a href="/Contest/Problem.php?ConID=' . $ConID . '&Problem=' . $ProEngNum[$i] . '">' . $ProEngNum[$i] . '(' . $PassProNum['value'] . '/' . $AllProNum['value'] . ')</a></th>';
+			echo '<th><a href="/Contest/Problem.php?ConID=' . $ConID . '&Problem=' . $ProEngNum[$i] . '">' . $ProEngNum[$i] . '(' . $PassProNum . '/' . $AllProNum . ')</a></th>';
 		}
 		?>
 
