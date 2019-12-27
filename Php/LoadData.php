@@ -5,7 +5,7 @@
 session_start();
 
 define("SQL_USER", "openjudge");
-define("SQL_PASSWORD", "sqlieIAjVBw02");
+define("SQL_PASSWORD", "sql_password");
 define("SQL_BASE", "openjudge");
 
 function LoadData()
