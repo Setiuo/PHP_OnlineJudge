@@ -18,7 +18,7 @@
 远程服务器也可运行评测机，只要可以连接服务器MYSQL即可
 运行Daemon.exe即开启评测机。Daemon.exe用于检测评测运行状态并将运行状态写入数据库。
 ！！强烈建议使用限制权限的用户运行评测机；命令行：runas /env /user:Judger C:\Judger\Daemon.exe
-！！/user:Judger意思为使用Judger用户运行C:\Judger\Daemon.exe程序
+！！命令行意思为使用Judger用户运行C:\Judger\Daemon.exe程序
 ！！Judger文件夹内的文件及文件夹均需要读写权限
 ！！temp文件夹需要删除权限
 ！！spj文件夹只设置读权限即可
