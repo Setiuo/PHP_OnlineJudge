@@ -3,7 +3,7 @@
 global $contestAllStatus_User;
 $contestAllStatus_User = array();
 
-$sql = 'SELECT * FROM `oj_constatus` WHERE `Show`=1 AND `ConID`=' . $ConID;
+$sql = 'SELECT `User`, `Problem`, `Status`, `SubTime` FROM `oj_constatus` WHERE `Show`=1 AND `ConID`=' . $ConID;
 $result = oj_mysql_query($sql);
 while ($iStatus = oj_mysql_fetch_array($result)) {
 	$contestAllStatus_User[$iStatus['User']][] = $iStatus;
