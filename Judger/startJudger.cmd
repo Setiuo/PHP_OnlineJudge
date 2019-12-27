@@ -1,0 +1,1 @@
+runas /env /user:Judger C:\Judger\Daemon.exe
