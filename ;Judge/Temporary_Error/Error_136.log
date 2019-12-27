@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "./test/136/Code.py", line 3, in <module>
-    for line in sys.stdin2:
-AttributeError: module 'sys' has no attribute 'stdin2'

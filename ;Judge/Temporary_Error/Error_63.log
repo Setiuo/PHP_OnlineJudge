@@ -1,4 +1,0 @@
-Exception in thread "main" java.util.InputMismatchException: For input string: "6546851846514865"
-	at java.util.Scanner.nextInt(Unknown Source)
-	at java.util.Scanner.nextInt(Unknown Source)
-	at Main.main(Main.java:10)

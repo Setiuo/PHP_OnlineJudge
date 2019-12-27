@@ -1,4 +1,0 @@
-./temp/105/code.cpp: In function 'int main()':
-./temp/105/code.cpp:24:13: warning: unused variable 'q' [-Wunused-variable]
-         int q=2;
-             ^

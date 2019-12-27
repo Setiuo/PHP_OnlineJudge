@@ -1,3 +1,0 @@
-./temp/281/code.cpp:1:1: error: 'import' does not name a type
- import sys
- ^

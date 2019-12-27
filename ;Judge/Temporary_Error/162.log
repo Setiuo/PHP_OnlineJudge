@@ -1,5 +1,0 @@
-code.c: In function 'main':
-code.c:8:8: warning: unknown conversion type character 'l' in format [-Wformat=]
-  scanf("%lld", &n);
-        ^
-code.c:8:8: warning: too many arguments for format [-Wformat-extra-args]

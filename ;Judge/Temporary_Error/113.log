@@ -1,5 +1,0 @@
-  File "./temp/113/code.py", line 1
-    print sum(map(int, raw_input().split()))
-            ^
-SyntaxError: invalid syntax
-
