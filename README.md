@@ -7,6 +7,7 @@
 网站使用PHP编写，可运行在7.2.10版本（其它版本也可以运行）<br />
 服务器使用nginx或apache均可<br />
 更改LoadData.php文件中的SQL_USER，SQL_PASSWORD，SQL_BASE，即MYSQL连接用户名，MYSQL连接密码，数据库名称<br />
+验证码功能Captcha.php文件中字体文件路径是绝对路径，注意更改。<br />
 
 <h2>MYSQL数据库导入</h2>
 运行openjudge.sql即可初始化数据
