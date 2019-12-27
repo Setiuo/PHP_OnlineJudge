@@ -37,15 +37,18 @@ if (isset($_POST["code"]) && $_POST["language"]) {
 			//获取运行ID
 			$RunID = $JudgeMacRunID;
 
+			/*
 			//输出代码文件
 			$myfile = fopen("../Judge/Temporary_Code/" . $RunID, "w");
 			fwrite($myfile, $_POST["code"]);
 			fclose($myfile);
+			*/
 
 			//向数据库中插入评测任务
 			$sql = 'INSERT INTO oj_judge_task(`runID`, `contestID`, `user`, `problemID`, `language`, `judgeType`, `limitTime`, `limitMemory`, `test`, `code`, `isRead`) values(' . $RunID . ', 0, "' . $LandUser . '", ' . $ProblemID . ', "' . $Language . '", 2, ' . $ProblemData['LimitTime'] . ', ' . $ProblemData['LimitMemory'] . ', "' . $ProblemData['Test'] . '", "' . addslashes($_POST["code"]) . '", 0)';
 			$result = oj_mysql_query($sql);
 
+			/*
 			//输出评测信息
 			$myfile = fopen("../Judge/log/data_" . $RunID, "w");
 			fwrite($myfile, $Language);
@@ -58,6 +61,7 @@ if (isset($_POST["code"]) && $_POST["language"]) {
 			fwrite($myfile, $ProblemData['Test']);
 			fclose($myfile);
 			copy("../Judge/log/data_" . $RunID, "../Judge/Temporary_Data/" . $RunID);
+			*/
 
 			$CodeLen = mb_strlen($_POST["code"], "utf-8");
 			$NowTime = date('Y-m-d H:i:s');
@@ -76,6 +80,7 @@ if (isset($_POST["code"]) && $_POST["language"]) {
 			$data = "{status: 0}";
 		}
 	}
+
 	echo json_encode($data);
 	oj_mysql_close();
 }

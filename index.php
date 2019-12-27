@@ -66,7 +66,7 @@ usort($AllContest, "my_sort");
 
     <?php
     if (can_edit_contest()) {
-        ?>
+    ?>
         <script>
             function changeContestStatus(contestID) {
                 $.get(<?php echo '"/Contest/ContestStatus.php?ConID="' ?> + contestID, function(msg) {
@@ -241,6 +241,8 @@ usort($AllContest, "my_sort");
                 </div>
                 <div id="collapseFour" class="panel-collapse collapse">
                     <div class="panel-body">
+                        2019/12/19 重写了评测机，支持远程Judger评测，可部署多个评测机共同评测<br>
+                        2019/12/19 增加编译警告显示功能<br>
                         2019/12/07 增加了ACM赛制的封榜功能<br>
                         2019/12/06 增加了账号注册和登陆的验证码验证功能<br>
                         2019/12/04 增加了用户小尾巴显示<br>

@@ -24,6 +24,8 @@ if (!can_read_log()) {
 		echo '<div class="panel-body">';
 		echo '<pre class="SlateFix">';
 
+		echo '评测日志需要在评测机端查看';
+		/*
 		$File_Path = '../Judge/log/Judge_' . $RunID . '.log';
 
 		if (file_exists($File_Path)) {
@@ -34,6 +36,8 @@ if (!can_read_log()) {
 				echo $str_encode;
 			}
 		}
+		*/
+
 		echo '</pre>';
 		echo '</div>';
 		echo '</div>';

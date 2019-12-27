@@ -57,7 +57,7 @@ $AllStatus = explode("|", $StatusData['AllStatus']);
 
 	<?php
 	if (can_edit_contest($ConID)) {
-		?>
+	?>
 		<script>
 			function afreshEva(runID, conID) {
 				$.get("/Contest/AfreshEva.php?ReEva=" + runID + '&ConID=' + conID, function(msg) {
@@ -74,7 +74,7 @@ $AllStatus = explode("|", $StatusData['AllStatus']);
 
 	<?php
 	if (can_edit_contest($ConID)) {
-		?>
+	?>
 		<script>
 			function changeStatusShow(runID) {
 				$.get("/Contest/StatusShow.php?RunID=" + runID, function(msg) {
@@ -95,7 +95,7 @@ $AllStatus = explode("|", $StatusData['AllStatus']);
 				<ul class="nav nav-tabs" role="tablist">
 					<?php
 					if (can_edit_contest($ConID)) {
-						?>
+					?>
 						<li role="presentation"><a class="label label-warning" href="javascript:show_all_problem()">显示题目</a></li>
 						<li role="presentation"><a class="label label-default" href="javascript:hide_all_problem()">隐藏题目</a></li>
 						<li role="presentation"><a class="label label-danger" href="javascript:rejudge_all_status()">重测代码</a></li>
@@ -200,6 +200,16 @@ $AllStatus = explode("|", $StatusData['AllStatus']);
 					echo '<div class="panel panel-default animated fadeInDown">';
 					echo '<div class="panel-heading">编译错误信息</div>';
 					echo '<div class="panel-body">';
+
+					$sql = "SELECT `compileLog` FROM `oj_judge_compile_log` WHERE `runID`=" . $StatusData['RunID'] . " LIMIT 1";
+					$rs = oj_mysql_query($sql);
+					$row = oj_mysql_fetch_array($rs);
+					$log = htmlspecialchars($row['compileLog']);
+					$log = str_replace("\n", "<br>", $log);
+					$log = str_replace(" ", "&nbsp", $log);
+					echo $log;
+
+					/*
 					$File_Path = '../Judge/Temporary_Error/' . $StatusData['RunID'] . '.log';
 					if (file_exists($File_Path)) {
 						$file_size = filesize($File_Path);
@@ -216,10 +226,34 @@ $AllStatus = explode("|", $StatusData['AllStatus']);
 					} else {
 						echo "未找到编译错误日志.";
 					}
+					*/
+
 					echo '</div>';
 					echo '</div>';
 				} else if (($ConData['Rule'] == 'ACM' && ($NowDate >= $ConData['OverTime'])) || can_edit_contest($ConID) || $NowDate >= $ConData['OverTime']) {
 					if ($StatusData['Status'] != Wating && $StatusData['Status'] != Pending && $StatusData['Status'] != Compiling && $StatusData['Status'] != Running) {
+						//编译警告
+						{
+							$sql = "SELECT `compileLog` FROM `oj_judge_compile_log` WHERE `runID`=" . $StatusData['RunID'] . " LIMIT 1";
+							$rs = oj_mysql_query($sql);
+							$row = oj_mysql_fetch_array($rs);
+							$log = htmlspecialchars($row['compileLog']);
+
+							if ($log) {
+								echo '<div class="panel panel-default animated fadeInDown">';
+								echo '<div class="panel-heading">编译警告信息</div>';
+								echo '<div class="panel-body">';
+
+
+								$log = str_replace("\n", "<br>", $log);
+								$log = str_replace(" ", "&nbsp", $log);
+
+								echo $log;
+								echo '</div>';
+								echo '</div>';
+							}
+						}
+
 						echo '<div class="panel panel-default animated fadeInDown">';
 						echo '<div class="panel-heading">测试点详情</div>';
 						echo '<table class="table table-striped table-hover">';
@@ -282,15 +316,15 @@ $AllStatus = explode("|", $StatusData['AllStatus']);
 							echo '<div class="panel-body">';
 							echo '<pre class="padding-0"><code class="C++">';
 
-							/*
+
 							$sql = "SELECT `code` FROM `oj_judge_task` WHERE `RunID`=" . $RunID . " LIMIT 1";
 							$rs = oj_mysql_query($sql);
 							$row = oj_mysql_fetch_array($rs);
 
 							echo htmlspecialchars($row['code']);
-							*/
 
 
+							/*
 							$File_Path = '../Judge/Temporary_Code/' . $StatusData['RunID'];
 
 							if (file_exists($File_Path)) {
@@ -302,7 +336,7 @@ $AllStatus = explode("|", $StatusData['AllStatus']);
 									echo $str;
 								}
 							}
-
+								*/
 
 							echo '</code></pre></div>';
 						} else {

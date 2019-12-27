@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\lib\runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\lib\runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\lib\py_compile.py", line 186, in <module>
+    sys.exit(main())
+  File "D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\lib\py_compile.py", line 178, in main
+    compile(filename, doraise=True)
+  File "D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\lib\py_compile.py", line 122, in compile
+    source_bytes = loader.get_data(file)
+  File "<frozen importlib._bootstrap_external>", line 832, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: 'code.py'

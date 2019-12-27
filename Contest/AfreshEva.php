@@ -28,6 +28,11 @@ if ($result) {
 		$result = oj_mysql_query($sql);
 		$ProblemData = oj_mysql_fetch_array($result);
 
+
+		$sql = "UPDATE `oj_judge_task` SET `problemID`=" . $AllProblem[$NowProblem] . ", `judgeType`=2, `limitTime`=" . $ProblemData['LimitTime'] . ", `limitMemory`=" . $ProblemData['LimitMemory'] . ", `test`='" . $ProblemData['Test'] . "', `isRead`=0 WHERE `RunID`=" . intval($_GET['ReEva']);
+		$result = oj_mysql_query($sql);
+
+		/*
 		$myfile = fopen("../Judge/log/data_" . intval($_GET['ReEva']), "w");
 		fwrite($myfile, $StatusData['Language']);
 		fwrite($myfile, '|' . $StatusData['User']);
@@ -39,6 +44,7 @@ if ($result) {
 		fwrite($myfile, $ProblemData['Test']);
 		fclose($myfile);
 		copy("../Judge/log/data_" . intval($_GET['ReEva']), "../Judge/Temporary_ContestData/" . intval($_GET['ReEva']));
+		*/
 
 		echo  json_encode("{status: 0}");
 	} else {

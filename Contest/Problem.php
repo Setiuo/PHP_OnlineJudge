@@ -61,7 +61,7 @@ $SubNum = oj_mysql_fetch_array($rs);
 
     <?php
     if (can_edit_problem()) {
-        ?>
+    ?>
         <script>
             function changeStatus() {
                 $.get(<?php echo '"/Php/ProblemStatus.php?Problem=' . $ProblemData['proNum'] . '"' ?>, function(msg) {
@@ -82,7 +82,7 @@ $SubNum = oj_mysql_fetch_array($rs);
                 <ul class="nav nav-tabs" role="tablist">
                     <?php
                     if (can_edit_contest($ConID)) {
-                        ?>
+                    ?>
                         <li role="presentation"><a class="label label-warning" href="javascript:show_all_problem()">显示题目</a></li>
                         <li role="presentation"><a class="label label-default" href="javascript:hide_all_problem()">隐藏题目</a></li>
                         <li role="presentation"><a class="label label-danger" href="javascript:rejudge_all_status()">重测代码</a></li>
@@ -233,10 +233,10 @@ $SubNum = oj_mysql_fetch_array($rs);
                                         语言：
                                         <select name="language" id="language" style="height:32px;width:120px;">
 
-                                            <option value="Gcc">C</option>
+                                            <option value="C">C</option>
                                             <option value="C++">C++</option>
                                             <option value="Java">Java</option>
-                                            <option value="Python">Python3.6</option>
+                                            <option value="Python3.7">Python3.7</option>
                                         </select>
                                         <button id="SubmitCodeButton" type="submit" class="btn btn-primary">提交代码</button>
                                     </div>

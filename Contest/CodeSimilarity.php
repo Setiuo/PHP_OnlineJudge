@@ -66,12 +66,16 @@ if ($standford_moss) {
 }
 
 while ($StatusData = oj_mysql_fetch_array($statusData_result)) {
+    $sql = "SELECT `code` FROM `oj_judge_task` WHERE `RunID`=" . $StatusData['RunID'] . " LIMIT 1";
+    $rs = oj_mysql_query($sql);
+    $row = oj_mysql_fetch_array($rs);
+
     $AllCodeData[$StatusData['User']][] =
         array(
             "User" => $StatusData['User'],
             "Problem" => $ProEngNum[$StatusData['Problem']],
             "Language" => $StatusData['Language'],
-            "Code" => file_get_contents("../Judge/Temporary_Code/" . $StatusData['RunID']),
+            "Code" => $row['code'],
             "SubmitTime" => $StatusData['SubTime'],
             "RunID" => $StatusData['RunID'],
         );

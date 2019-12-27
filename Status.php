@@ -184,7 +184,7 @@ while ($row = oj_mysql_fetch_array($result)) {
 
 	<?php
 	if (is_admin()) {
-		?>
+	?>
 		<script>
 			function afreshEva(runID) {
 				$.get("/Php/AfreshEva.php?ReEva=" + runID, function(msg) {
@@ -261,10 +261,10 @@ while ($row = oj_mysql_fetch_array($result)) {
 
 				<select name="Language" class="form-control">
 					<option value="">All</option>
-					<option value="Gcc">C</option>
+					<option value="C">C</option>
 					<option value="C++">C++</option>
 					<option value="Java">Java</option>
-					<option value="Python">Python3.6</option>
+					<option value="Python3.7">Python3.7</option>
 				</select>
 
 				<script language=JavaScript>

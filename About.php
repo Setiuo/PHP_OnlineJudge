@@ -44,41 +44,25 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td class="maxtext">
-                                    <a>Judger</a>
-                                </td>
-                                <td class="maxtext">
-                                    <?php
-                                    if ($JudgeMac_1 == 1) {
-                                        echo '<span class="label label-success">正常运行中</span>';
-                                    } else {
-                                        echo '<span class="label label-danger">已关闭</span>';
-                                    }
-                                    ?>
-                                </td>
-                                <td class="maxtext">
-                                    <a><?php echo $JudgeAllRun_1 ?> 次</a>
-                                </td>
-                            </tr>
+                            <?php
+                            $sql = "SELECT * FROM `oj_judger`";
+                            $result = oj_mysql_query($sql);
+                            while ($row = oj_mysql_fetch_array($result)) {
+                                echo " <tr>";
+                                echo "<td>";
+                                echo $row['name'];
+                                echo "</td>";
 
-                            <tr>
-                                <td class="maxtext">
-                                    <a>Judger_Contest</a>
-                                </td>
-                                <td class="maxtext">
-                                    <?php
-                                    if ($JudgeMac_2 == 1) {
-                                        echo '<span class="label label-success">正常运行中</span>';
-                                    } else {
-                                        echo '<span class="label label-danger">已关闭</span>';
-                                    }
-                                    ?>
-                                </td>
-                                <td class="maxtext">
-                                    <a><?php echo $JudgeAllRun_2 ?> 次</a>
-                                </td>
-                            </tr>
+                                echo "<td>";
+                                echo $row['status'] == 1 ? '<span class="label label-success">运行中</span>' : '<span class="label label-danger">已关闭</span>';
+                                echo "</td>";
+
+                                echo "<td>";
+                                echo $row['run_count'] . ' 次';
+                                echo "</td>";
+                                echo " </tr>";
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>

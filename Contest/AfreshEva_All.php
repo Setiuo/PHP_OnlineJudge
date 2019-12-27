@@ -36,6 +36,9 @@ if (can_edit_contest($ConID)) {
 		$result = oj_mysql_query($sql);
 		$ProblemData = oj_mysql_fetch_array($result);
 
+		$sql = "UPDATE `oj_judge_task` SET `judgeType`=2, `limitTime`=" . $ProblemData['LimitTime'] . ", `limitMemory`=" . $ProblemData['LimitMemory'] . ", `test`='" . $ProblemData['Test'] . "', `isRead`=0 WHERE `RunID`=" . $StatusData['RunID'];
+		$result = oj_mysql_query($sql);
+		/*
 		$myfile = fopen("../Judge/log/data_" . $StatusData['RunID'], "w");
 		fwrite($myfile, $StatusData['Language']);
 		fwrite($myfile, '|' . $StatusData['User']);
@@ -47,6 +50,7 @@ if (can_edit_contest($ConID)) {
 		fwrite($myfile, $ProblemData['Test']);
 		fclose($myfile);
 		copy("../Judge/log/data_" . $StatusData['RunID'], "../Judge/Temporary_ContestData/" . $StatusData['RunID']);
+		*/
 	}
 
 	if ($error)

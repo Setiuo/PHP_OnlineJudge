@@ -211,7 +211,7 @@ while ($row = oj_mysql_fetch_array($result)) {
 
 	<?php
 	if (can_edit_contest($ConID)) {
-		?>
+	?>
 		<script>
 			function afreshEva(runID, conID) {
 				$.get("/Contest/AfreshEva.php?ReEva=" + runID + '&ConID=' + conID, function(msg) {
@@ -241,7 +241,7 @@ while ($row = oj_mysql_fetch_array($result)) {
 				<ul class="nav nav-tabs" role="tablist">
 					<?php
 					if (can_edit_contest($ConID)) {
-						?>
+					?>
 						<li role="presentation"><a class="label label-warning" href="javascript:show_all_problem()">显示题目</a></li>
 						<li role="presentation"><a class="label label-default" href="javascript:hide_all_problem()">隐藏题目</a></li>
 						<li role="presentation"><a class="label label-danger" href="javascript:rejudge_all_status()">重测代码</a></li>
@@ -277,8 +277,7 @@ while ($row = oj_mysql_fetch_array($result)) {
 
 				<form>
 					<div class="input-group" style="padding-bottom:15px;">
-						<span class="input-group-addon">比赛ID</span>
-						<input name="ConID" type="number" value=<?php if (isset($iConID) && $iConID) echo '"' . $iConID . '"';
+						<input type="hidden" name="ConID" value=<?php if (isset($iConID) && $iConID) echo '"' . $iConID . '"';
 																else echo '""' ?> class="form-control" readonly="readonly">
 						<span class="input-group-addon">用户名</span>
 						<input name="User" type="text" value=<?php if (isset($iUser) && $iUser) echo '"' . $iUser . '"';
@@ -289,7 +288,7 @@ while ($row = oj_mysql_fetch_array($result)) {
 
 						<?php
 						if ($ConData['Rule'] == 'ACM' || can_edit_contest($ConID) || $NowDate >= $ConData['OverTime']) {
-							?>
+						?>
 							<span class="input-group-addon">评测结果</span>
 
 							<select name="Status" class="form-control">
@@ -316,10 +315,10 @@ while ($row = oj_mysql_fetch_array($result)) {
 
 						<select name="Language" class="form-control">
 							<option value="">All</option>
-							<option value="Gcc">C</option>
+							<option value="C">C</option>
 							<option value="C++">C++</option>
 							<option value="Java">Java</option>
-							<option value="Python">Python3.6</option>
+							<option value="Python3.7">Python3.7</option>
 						</select>
 
 						<script language=JavaScript>

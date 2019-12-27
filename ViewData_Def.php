@@ -22,8 +22,10 @@ if (!array_key_exists('Data', $_GET)) {
 	die();
 }
 
+$problemID = intval($_GET['Problem']);
+
 if (!can_edit_problem()) {
-	$sql = "SELECT `Show` FROM `oj_problem` WHERE `proNum`='" . intval($_GET['Problem']) . "' LIMIT 1";
+	$sql = "SELECT `Show` FROM `oj_problem` WHERE `proNum`='" . $problemID . "' LIMIT 1";
 	$result = oj_mysql_query($sql);
 	$ProblemData = oj_mysql_fetch_array($result);
 
@@ -32,8 +34,8 @@ if (!can_edit_problem()) {
 		die();
 	}
 }
-$FileIn_Path = "./Judge/data/" . intval($_GET['Problem']) . "/" . intval($_GET['Problem']) . "_" . intval($_GET['Data']) . ".in";
-$FileOut_Path = "./Judge/data/" . intval($_GET['Problem']) . "/" . intval($_GET['Problem']) . "_" . intval($_GET['Data']) . ".out";
+//$FileIn_Path = "./Judge/data/" . intval($_GET['Problem']) . "/" . intval($_GET['Problem']) . "_" . intval($_GET['Data']) . ".in";
+//$FileOut_Path = "./Judge/data/" . intval($_GET['Problem']) . "/" . intval($_GET['Problem']) . "_" . intval($_GET['Data']) . ".out";
 ?>
 
 <body>
@@ -47,16 +49,27 @@ $FileOut_Path = "./Judge/data/" . intval($_GET['Problem']) . "/" . intval($_GET[
 			<div class="panel-heading">输入数据</div>
 			<div class="panel-body">
 				<pre class="SlateFix"><?php
-										if (file_exists($FileIn_Path)) {
-											$file_arr = file($FileIn_Path);
+										$test_in_name = 'test' . intval($_GET['Data']) . '_in';
+										$sql = 'SELECT `' . $test_in_name . '` FROM `oj_problem_test` WHERE `problemID` = ' . $problemID . ' LIMIT 1';
+										$result_in = oj_mysql_query($sql);
 
-											for ($i = 0; $i < count($file_arr); $i++) {
-												$str = $file_arr[$i];
-												$str = str_replace("<", "&lt;", $str);
-												$str = str_replace(">", "&gt;", $str);
-												echo $str;
-											}
+										if ($result_in) {
+											$testInData = oj_mysql_fetch_array($result_in);
+											echo htmlspecialchars($testInData[$test_in_name]);
 										}
+
+										/*
+					if (file_exists($FileIn_Path)) {
+						$file_arr = file($FileIn_Path);
+
+						for ($i = 0; $i < count($file_arr); $i++) {
+							$str = $file_arr[$i];
+							$str = str_replace("<", "&lt;", $str);
+							$str = str_replace(">", "&gt;", $str);
+							echo $str;
+						}
+					}
+					*/
 										?>
 				</pre>
 			</div>
@@ -66,16 +79,27 @@ $FileOut_Path = "./Judge/data/" . intval($_GET['Problem']) . "/" . intval($_GET[
 			<div class="panel-heading">输出数据</div>
 			<div class="panel-body">
 				<pre class="SlateFix"><?php
-										if (file_exists($FileOut_Path)) {
-											$file_arr = file($FileOut_Path);
+										$test_out_name = 'test' . intval($_GET['Data']) . '_out';
+										$sql = 'SELECT `' . $test_out_name . '` FROM `oj_problem_test` WHERE `problemID` = ' . $problemID . ' LIMIT 1';
+										$result_out = oj_mysql_query($sql);
 
-											for ($i = 0; $i < count($file_arr); $i++) {
-												$str = $file_arr[$i];
-												$str = str_replace("<", "&lt;", $str);
-												$str = str_replace(">", "&gt;", $str);
-												echo $str;
-											}
+										if ($result_out) {
+											$testOutData = oj_mysql_fetch_array($result_out);
+											echo htmlspecialchars($testOutData[$test_out_name]);
 										}
+
+										/*
+					if (file_exists($FileOut_Path)) {
+						$file_arr = file($FileOut_Path);
+
+						for ($i = 0; $i < count($file_arr); $i++) {
+							$str = $file_arr[$i];
+							$str = str_replace("<", "&lt;", $str);
+							$str = str_replace(">", "&gt;", $str);
+							echo $str;
+						}
+					}
+					*/
 										?>
 				</pre>
 			</div>

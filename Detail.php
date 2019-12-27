@@ -46,7 +46,7 @@ $AllStatus = explode("|", $StatusData['AllStatus']);
 
 	<?php
 	if (is_admin()) {
-		?>
+	?>
 		<script>
 			function afreshEva(runID) {
 				$.get("/Php/AfreshEva.php?ReEva=" + runID, function(msg) {
@@ -147,6 +147,16 @@ $AllStatus = explode("|", $StatusData['AllStatus']);
 			echo '<div class="panel panel-default animated fadeInDown">';
 			echo '<div class="panel-heading">编译错误信息</div>';
 			echo '<div class="panel-body">';
+
+			$sql = "SELECT `compileLog` FROM `oj_judge_compile_log` WHERE `runID`=" . $StatusData['RunID'] . " LIMIT 1";
+			$rs = oj_mysql_query($sql);
+			$row = oj_mysql_fetch_array($rs);
+			$log = htmlspecialchars($row['compileLog']);
+			$log = str_replace("\n", "<br>", $log);
+			$log = str_replace(" ", "&nbsp", $log);
+			echo $log;
+
+			/*
 			$File_Path = './Judge/Temporary_Error/' . $StatusData['RunID'] . '.log';
 			if (file_exists($File_Path)) {
 				$file_size = filesize($File_Path);
@@ -164,11 +174,36 @@ $AllStatus = explode("|", $StatusData['AllStatus']);
 			} else {
 				echo "未找到编译错误日志.";
 			}
+			*/
+
 			//$str = file_get_contents($File_Path);
 			//$str = str_replace('\r', '<br/>', $str);
 			echo '</div>';
 			echo '</div>';
 		} else if ($StatusData['Status'] != Wating && $StatusData['Status'] != Pending && $StatusData['Status'] != Compiling && $StatusData['Status'] != Running) {
+			//编译警告
+			{
+				$sql = "SELECT `compileLog` FROM `oj_judge_compile_log` WHERE `runID`=" . $StatusData['RunID'] . " LIMIT 1";
+				$rs = oj_mysql_query($sql);
+				$row = oj_mysql_fetch_array($rs);
+				$log = htmlspecialchars($row['compileLog']);
+
+				if ($log) {
+					echo '<div class="panel panel-default animated fadeInDown">';
+					echo '<div class="panel-heading">编译警告信息</div>';
+					echo '<div class="panel-body">';
+
+
+					$log = str_replace("\n", "<br>", $log);
+					$log = str_replace(" ", "&nbsp", $log);
+
+					echo $log;
+					echo '</div>';
+					echo '</div>';
+				}
+			}
+
+
 			echo '<div class="panel panel-default animated fadeInDown">';
 			echo '<div class="panel-heading">测试点详情</div>';
 			echo '<table class="table table-striped table-hover">';
@@ -227,15 +262,15 @@ $AllStatus = explode("|", $StatusData['AllStatus']);
 					echo '<div class="panel-body">';
 					echo '<pre class="padding-0"><code class="C++">';
 
-					/*
+
 					$sql = "SELECT `code` FROM `oj_judge_task` WHERE `RunID`=" . $RunID . " LIMIT 1";
 					$rs = oj_mysql_query($sql);
 					$row = oj_mysql_fetch_array($rs);
 
 					echo htmlspecialchars($row['code']);
-					*/
 
 
+					/*
 					$File_Path = './Judge/Temporary_Code/' . $StatusData['RunID'];
 
 					if (file_exists($File_Path)) {
@@ -247,6 +282,7 @@ $AllStatus = explode("|", $StatusData['AllStatus']);
 							echo $str;
 						}
 					}
+					*/
 
 
 					echo '</code></pre></div>';

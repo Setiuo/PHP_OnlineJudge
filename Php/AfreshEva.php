@@ -12,7 +12,7 @@ if (is_admin()) {
 		$result = oj_mysql_query($sql);
 
 		if ($result) {
-			$sql = "UPDATE `oj_status` SET `Status`=" . Wating . " , `AllStatus`='', `UseTime`=-1 , `UseMemory`=-1 WHERE `RunID`='" . $runID . "'";
+			$sql = "UPDATE `oj_status` SET `Status`=" . Wating . " , `AllStatus`='', `UseTime`=-1 , `UseMemory`=-1 WHERE `RunID`=" . $runID;
 			oj_mysql_query($sql);
 
 			$StatusData = oj_mysql_fetch_array($result);
@@ -21,6 +21,9 @@ if (is_admin()) {
 			$result = oj_mysql_query($sql);
 			$ProblemData = oj_mysql_fetch_array($result);
 
+			$sql = "UPDATE `oj_judge_task` SET `judgeType`=2, `limitTime`=" . $ProblemData['LimitTime'] . ", `limitMemory`=" . $ProblemData['LimitMemory'] . ", `test`='" . $ProblemData['Test'] . "', `isRead`=0 WHERE `RunID`=" . $runID;
+			$result = oj_mysql_query($sql);
+			/*
 			$myfile = fopen("../Judge/log/data_" . $runID, "w");
 			fwrite($myfile, $StatusData['Language']);
 			fwrite($myfile, '|' . $StatusData['User']);
@@ -32,6 +35,7 @@ if (is_admin()) {
 			fwrite($myfile, $ProblemData['Test']);
 			fclose($myfile);
 			copy("../Judge/log/data_" . $runID, "../Judge/Temporary_Data/" . $runID);
+			*/
 
 			echo  json_encode("{status: 0}");
 		} else {

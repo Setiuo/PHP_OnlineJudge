@@ -18,7 +18,7 @@
 			<div class="panel-heading">Frequently Asked Questions</div>
 			<div class="panel-body">
 				<p>Q:可以使用哪种编程语言?<br />
-					A:目前提供C(gcc)、C++(g++)、Java和Python3.6</p>
+					A:目前提供C(gcc)、C++(g++)、Java和Python3.7</p>
 
 				<p>Q:如何进行读取和输出?<br />
 					A:只能stdin/stdout(使用标准输入/输出),不允许读取和写入任何文件.在C/C++中可以使用scanf读取,printf输出.</p>
@@ -49,7 +49,7 @@
 							<tr>
 								<td><span class="label label-primary">Pending</span></td>
 								<td></td>
-								<td>代码已经加入评测名单,正在等待测评</td>
+								<td>评测机已经接收评测任务,正在等待测评</td>
 							</tr>
 							<tr>
 								<td><span class="label label-primary">Compiling</span></td>
@@ -115,7 +115,7 @@
 					C: gcc Code.c -o main -O -Wall -lm --static -std=c99 -DONLINE_JUDGE<br />
 					C++: g++ Code.cpp -o main -O -Wall -lm --static -DONLINE_JUDGE<br />
 					Java: javac -J-Xms32m -J-Xmx256m Main.java<br />
-					Python: python -m py_compile Code.py<br />
+					Python3.7: python -m py_compile Code.py<br />
 				</p>
 				<div>
 					Q:如何编写代码?<br />
@@ -156,7 +156,7 @@ public class Main
     }
 }
 </code></pre><br />
-					Python3.6<br />
+					Python3.7<br />
 					<pre><code class="Python">import sys
 for line in sys.stdin:
  a = line.split() 

@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string a[100100];
+
+int main()
+{
+	std::ios::sync_with_stdio(false);
+	a[0] = "http://www.acm.org/";
+	string str, url;
+	int cnt = 0, maxn = 0;
+
+	while (cin >> str)
+	{
+		if (str[0] == 'Q')
+			break;
+		else if (str[0] == 'V')
+		{
+			cin >> url;
+			cnt++;
+			maxn = cnt;
+			a[cnt] = url;
+			cout << url << endl;
+		}
+		else if (str[0] == 'B')
+		{
+			if (cnt - 1 >= 0)
+			{
+				cnt--;
+				cout << a[cnt] << endl;
+			}
+			else
+			{
+				cout << "Ignored" << endl;
+			}
+		}
+		else if (str[0] == 'F')
+		{
+			if (cnt + 1 > maxn)
+			{
+				cout << "Ignored" << endl;
+			}
+			else
+			{
+				cnt++;
+				cout << a[cnt] << endl;
+			}
+		}
+	}
+
+	return 0;
+}

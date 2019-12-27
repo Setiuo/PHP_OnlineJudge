@@ -75,7 +75,7 @@ $SubmitNum = $SubNum['value'];
 
         <?php
         if (can_edit_problem()) {
-            ?>
+        ?>
             <script>
                 function changeStatus() {
                     $.get(<?php echo '"/Php/ProblemStatus.php?Problem=' . $ProblemID . '"' ?>, function(msg) {
@@ -201,10 +201,10 @@ $SubmitNum = $SubNum['value'];
                             <div class="float-left">
                                 语言：
                                 <select name="language" id="language" style="height:32px;width:120px;">
-                                    <option value="Gcc">C</option>
+                                    <option value="C">C</option>
                                     <option value="C++">C++</option>
                                     <option value="Java">Java</option>
-                                    <option value="Python">Python3.6</option>
+                                    <option value="Python3.7">Python3.7</option>
                                 </select>
                                 <button id="SubmitCodeButton" type="submit" class="btn btn-primary">提交代码</button>
                             </div>

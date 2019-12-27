@@ -44,7 +44,12 @@ if ($_POST['NewType'] == 1) {
 } else {
     $sql = "INSERT INTO `oj_contest` (`ConID`, `Title`, `Synopsis`, `Organizer`, `Rule`, `Type`, `PassWord`, `StartTime`, `OverTime`, `FreezeTime`, `UnfreezeTime`, `EnrollStartTime`, `EnrollOverTime`, `EnrollPeople`, `RiskRatio`, `RatingStatus`, `Problem`, `Show`, `Practice`) VALUES (" . $_POST['ConID'] . ", '" . $_POST['Title'] . "', '" . addslashes($_POST['Synopsis']) . "', '" . $_POST['Organizer'] . "','" . $_POST['Rule'] . "', '" . $Type . "', '" . $_POST['PassWord'] . "', '" . $_POST['StartTime'] . "', '" . $_POST['OverTime'] . "','" . $_POST['FreezeTime'] . "', '" . $_POST['UnfreezeTime'] . "', '" . $_POST['EnrollStartTime'] . "', '" . $_POST['EnrollOverTime'] . "', '', '" . $_POST['RiskRatio'] . "' ,'0' ,'" . $_POST['Problem'] . "', 0, " . $_POST['Practice'] . ");";
     $result = oj_mysql_query($sql);
-    echo json_encode('{status:0, type:0}');
+
+    if ($result) {
+        echo json_encode('{status:0, type:0}');
+    } else {
+        echo json_encode('{status:3}');
+    }
 }
 
 oj_mysql_close();
