@@ -21,4 +21,7 @@
 ！！命令行意思为使用Judger用户运行C:\Judger\Daemon.exe程序<br />
 ！！Judger文件夹内的文件及文件夹均需要读写权限<br />
 ！！temp文件夹需要删除权限<br />
-！！spj文件夹只设置读权限即可
+！！spj文件夹只设置读权限即可<br />
+
+注：<br />
+评测机 API HOOK 安全模块参考并使用了https://gitee.com/ismallcode/online-judge的hook.dll
