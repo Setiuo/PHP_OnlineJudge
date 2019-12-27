@@ -4,9 +4,9 @@
 
 session_start();
 
-define("SQL_USER", "openjudge");
+define("SQL_USER", "onlinejudge");
 define("SQL_PASSWORD", "sql_password");
-define("SQL_BASE", "openjudge");
+define("SQL_BASE", "onlinejudge");
 
 function LoadData()
 {
