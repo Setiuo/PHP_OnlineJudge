@@ -30,11 +30,6 @@ function LoadData()
     date_default_timezone_set('Asia/Shanghai');
     $NowTime = 1000 * time();
 
-    //global $mysqli;
-    //$mysqli = new mysqli("127.0.0.1", "openjudge", SQL_PASSWORD);
-    //$mysqli->select_db("openjudge");
-    //$mysqli->set_charset("utf8");
-
     $con = mysqli_connect('127.0.0.1', SQL_USER, SQL_PASSWORD, SQL_BASE); //数据库用户名，密码
 
     if (!$con && $_SERVER['PHP_SELF'] != "/Message.php")
