@@ -20,27 +20,29 @@ function find_user_accepted($user, $problem, $time)
 	$submitTime_Text = null;
 
 	global $contestAllStatus_User;
-	foreach ($contestAllStatus_User[$user] as $iStatus) {
-		if ($iStatus['Status'] == Accepted && $iStatus['Problem'] == $problem) {
-			$can = true;
+	if (isset($contestAllStatus_User[$user])) {
+		foreach ($contestAllStatus_User[$user] as $iStatus) {
+			if ($iStatus['Status'] == Accepted && $iStatus['Problem'] == $problem) {
+				$can = true;
 
-			if ($time) {
-				$can = false;
-				$submitTime_new = strtotime($iStatus['SubTime']);
-				$compareTime = strtotime($time);
+				if ($time) {
+					$can = false;
+					$submitTime_new = strtotime($iStatus['SubTime']);
+					$compareTime = strtotime($time);
 
-				if ($submitTime_new < $compareTime) {
-					$can = true;
+					if ($submitTime_new < $compareTime) {
+						$can = true;
+					}
 				}
-			}
 
-			if ($can) {
-				//转化为时间戳
-				$submitTime_new = strtotime($iStatus['SubTime']);
+				if ($can) {
+					//转化为时间戳
+					$submitTime_new = strtotime($iStatus['SubTime']);
 
-				if (!$submitTime || ($submitTime_new < $submitTime)) {
-					$submitTime = $submitTime_new;
-					$submitTime_Text = $iStatus['SubTime'];
+					if (!$submitTime || ($submitTime_new < $submitTime)) {
+						$submitTime = $submitTime_new;
+						$submitTime_Text = $iStatus['SubTime'];
+					}
 				}
 			}
 		}
@@ -53,21 +55,24 @@ function count_user_wa($user, $problem, $time)
 {
 	$count = 0;
 	global $contestAllStatus_User;
-	foreach ($contestAllStatus_User[$user] as $iStatus) {
-		if ($iStatus['Problem'] == $problem) {
-			if (
-				$iStatus['Status'] != Accepted && $iStatus['Status'] != Wating && $iStatus['Status'] != Pending &&
-				$iStatus['Status'] != Running && $iStatus['Status'] != CompileError && $iStatus['Status'] != Accepted
-			) {
-				if ($time) {
-					$submitTime_new = strtotime($iStatus['SubTime']);
-					$compareTime = strtotime($time);
 
-					if ($submitTime_new < $compareTime) {
+	if (isset($contestAllStatus_User[$user])) {
+		foreach ($contestAllStatus_User[$user] as $iStatus) {
+			if ($iStatus['Problem'] == $problem) {
+				if (
+					$iStatus['Status'] != Accepted && $iStatus['Status'] != Wating && $iStatus['Status'] != Pending &&
+					$iStatus['Status'] != Running && $iStatus['Status'] != CompileError && $iStatus['Status'] != Accepted
+				) {
+					if ($time) {
+						$submitTime_new = strtotime($iStatus['SubTime']);
+						$compareTime = strtotime($time);
+
+						if ($submitTime_new < $compareTime) {
+							$count++;
+						}
+					} else {
 						$count++;
 					}
-				} else {
-					$count++;
 				}
 			}
 		}
@@ -80,21 +85,24 @@ function count_user_pend($user, $problem, $time)
 {
 	$count = 0;
 	global $contestAllStatus_User;
-	foreach ($contestAllStatus_User[$user] as $iStatus) {
-		if ($iStatus['Problem'] == $problem) {
-			if (
-				$iStatus['Status'] == Wating || $iStatus['Status'] == Pending ||
-				$iStatus['Status'] == Running
-			) {
-				$count++;
-			}
 
-			if ($time) {
-				$submitTime_new = strtotime($iStatus['SubTime']);
-				$compareTime = strtotime($time);
-
-				if ($submitTime_new >= $compareTime) {
+	if (isset($contestAllStatus_User[$user])) {
+		foreach ($contestAllStatus_User[$user] as $iStatus) {
+			if ($iStatus['Problem'] == $problem) {
+				if (
+					$iStatus['Status'] == Wating || $iStatus['Status'] == Pending ||
+					$iStatus['Status'] == Running
+				) {
 					$count++;
+				}
+
+				if ($time) {
+					$submitTime_new = strtotime($iStatus['SubTime']);
+					$compareTime = strtotime($time);
+
+					if ($submitTime_new >= $compareTime) {
+						$count++;
+					}
 				}
 			}
 		}
@@ -109,11 +117,13 @@ function find_first_ac($problem)
 	$submitTime = null;
 
 	global $contestAllStatus_Problem;
-	foreach ($contestAllStatus_Problem[$problem] as $iStatus) {
-		$submitTime_new = strtotime($iStatus['SubTime']);
-		if (!$submitTime || $submitTime_new < $submitTime) {
-			$submitTime = $submitTime_new;
-			$submitTime_Text = $iStatus['SubTime'];
+	if (isset($contestAllStatus_Problem[$problem])) {
+		foreach ($contestAllStatus_Problem[$problem] as $iStatus) {
+			$submitTime_new = strtotime($iStatus['SubTime']);
+			if (!$submitTime || $submitTime_new < $submitTime) {
+				$submitTime = $submitTime_new;
+				$submitTime_Text = $iStatus['SubTime'];
+			}
 		}
 	}
 
@@ -126,11 +136,13 @@ function count_problem_ac($problem, $time)
 	$count = 0;
 
 	global $contestAllStatus_Problem;
-	foreach ($contestAllStatus_Problem[$problem] as $iStatus) {
-		$submitTime_new = strtotime($iStatus['SubTime']);
+	if (isset($contestAllStatus_Problem[$problem])) {
+		foreach ($contestAllStatus_Problem[$problem] as $iStatus) {
+			$submitTime_new = strtotime($iStatus['SubTime']);
 
-		if ($submitTime_new < $timestamp && $iStatus['Status'] == Accepted) {
-			$count++;
+			if ($submitTime_new < $timestamp && $iStatus['Status'] == Accepted) {
+				$count++;
+			}
 		}
 	}
 
@@ -140,10 +152,12 @@ function count_problem_ac($problem, $time)
 function count_problem_submit($problem)
 {
 	$count = 0;
-
 	global $contestAllStatus_Problem;
-	foreach ($contestAllStatus_Problem[$problem] as $iStatus) {
-		$count++;
+
+	if (isset($contestAllStatus_Problem[$problem])) {
+		foreach ($contestAllStatus_Problem[$problem] as $iStatus) {
+			$count++;
+		}
 	}
 
 	return $count;

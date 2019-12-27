@@ -17,15 +17,17 @@ function find_user_accepted($user, $problem)
 	$submitTime_Text = null;
 
 	global $contestAllStatus_User;
-	foreach ($contestAllStatus_User[$user] as $iStatus) {
-		//print_r($iStatus);
-		if ($iStatus['Status'] == Accepted && $iStatus['Problem'] == $problem) {
-			//转化为时间戳
-			$submitTime_new = strtotime($iStatus['SubTime']);
+	if (isset($contestAllStatus_User[$user])) {
+		foreach ($contestAllStatus_User[$user] as $iStatus) {
+			//print_r($iStatus);
+			if ($iStatus['Status'] == Accepted && $iStatus['Problem'] == $problem) {
+				//转化为时间戳
+				$submitTime_new = strtotime($iStatus['SubTime']);
 
-			if (!$submitTime || ($submitTime_new < $submitTime)) {
-				$submitTime = $submitTime_new;
-				$submitTime_Text = $iStatus['SubTime'];
+				if (!$submitTime || ($submitTime_new < $submitTime)) {
+					$submitTime = $submitTime_new;
+					$submitTime_Text = $iStatus['SubTime'];
+				}
 			}
 		}
 	}
@@ -37,21 +39,24 @@ function count_user_wa($user, $problem, $time)
 {
 	$count = 0;
 	global $contestAllStatus_User;
-	foreach ($contestAllStatus_User[$user] as $iStatus) {
-		if ($iStatus['Problem'] == $problem) {
-			if (
-				$iStatus['Status'] != Accepted && $iStatus['Status'] != Wating && $iStatus['Status'] != Pending &&
-				$iStatus['Status'] != Running && $iStatus['Status'] != CompileError && $iStatus['Status'] != Accepted
-			) {
-				if ($time) {
-					$submitTime_new = strtotime($iStatus['SubTime']);
-					$compareTime = strtotime($time);
 
-					if ($submitTime_new < $compareTime) {
+	if (isset($contestAllStatus_User[$user])) {
+		foreach ($contestAllStatus_User[$user] as $iStatus) {
+			if ($iStatus['Problem'] == $problem) {
+				if (
+					$iStatus['Status'] != Accepted && $iStatus['Status'] != Wating && $iStatus['Status'] != Pending &&
+					$iStatus['Status'] != Running && $iStatus['Status'] != CompileError && $iStatus['Status'] != Accepted
+				) {
+					if ($time) {
+						$submitTime_new = strtotime($iStatus['SubTime']);
+						$compareTime = strtotime($time);
+
+						if ($submitTime_new < $compareTime) {
+							$count++;
+						}
+					} else {
 						$count++;
 					}
-				} else {
-					$count++;
 				}
 			}
 		}
@@ -59,7 +64,6 @@ function count_user_wa($user, $problem, $time)
 
 	return $count;
 }
-
 
 
 $PeopleRank = array();
