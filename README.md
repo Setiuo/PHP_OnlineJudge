@@ -24,4 +24,4 @@
 ！！spj文件夹只设置读权限即可<br />
 
 注：<br />
-评测机 API HOOK 安全模块参考并使用了https://gitee.com/ismallcode/online-judge的hook.dll
+评测机 API HOOK 安全模块参考并使用了https://gitee.com/ismallcode/online-judge 的 hook.dll
