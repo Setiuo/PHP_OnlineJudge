@@ -1,0 +1,53 @@
+.myuser-base {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-decoration: none !important;
+    font-weight: bold;
+}
+
+.myuser-legendary {
+    color: #CC0000 !important;
+}
+
+.myuser-red {
+    color: red !important;
+}
+
+.myuser-fire {
+    color: #FF6666 !important;
+}
+
+.myuser-orange {
+    color: #FF8C00 !important;
+}
+
+.myuser-yellow {
+    color: #EECC00 !important;
+}
+
+.myuser-purple {
+    color: #DD00DD !important;
+}
+
+.myuser-violet {
+    color: #FF99FF !important;
+}
+
+.myuser-blue {
+    color: blue !important;
+}
+
+.myuser-cyan {
+    color: #00CCCC !important;
+}
+
+.myuser-green {
+    color: rgb(0, 255, 179) !important;
+}
+
+.myuser-gray {
+    color: gray !important;
+}
+
+.myuser-admin {
+    color: black !important;
+}
