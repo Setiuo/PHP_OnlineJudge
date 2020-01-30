@@ -98,7 +98,7 @@ if (!can_edit_problem() && ($ProblemData['Show'] == 0)) {
 								echo '<td>' . ($Size_1 + $Size_2) . '</td>';
 								echo '<td><a href="/ViewData_Def.php?Problem=' . $problemID . '&Data=' . $Var . '">点我~点我~就能看到数据了~</a></td>';
 								if (can_edit_problem()) {
-									echo '<td><a href="javascript:delete_test(' . $problemID . ', ' . intval($Var) . ')">删除</a></td>';
+									echo '<td><a href="/ViewData_Edit.php?Problem=' . $problemID . '&Data=' . $Var . '">编辑</a></td>';
 								}
 								echo '</tr>';
 

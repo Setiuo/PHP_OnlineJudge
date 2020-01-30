@@ -10,10 +10,13 @@
 验证码功能Captcha.php文件中字体文件路径是绝对路径，注意更改。<br />
 
 <h2>MYSQL数据库导入</h2>
-运行openjudge.sql即可初始化数据
-管理员账号为admin,密码为123456，请注意更改
+运行openjudge.sql即可初始化数据<br />
+管理员账号为admin,密码为123456，请注意更改<br />
 
 <h2>评测机部署</h2>
+在Judger目录里新建data文件夹<br />
+在Judger目录里新建log文件夹<br />
+在Judger目录里新建temp文件夹<br />
 更改config.ini文件中所有MYSQL连接对应数据<br />
 一台机器可以运行多个评测机，但需要使用任务管理器绑定CPU。一般一个CPU绑定一个评测机<br />
 远程服务器也可运行评测机，只要可以连接服务器MYSQL即可<br />
