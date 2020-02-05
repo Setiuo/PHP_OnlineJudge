@@ -7,9 +7,22 @@ if (!isset($ConData))
 
 <?php
 if (can_edit_contest($ConID)) {
-	?>
+?>
 
 	<script>
+		function rating_settlement() {
+			$.get(<?php echo '"/Rating/Rating.php?ConID=' . $ConID . '"' ?>, function(msg) {
+				var obj = eval('(' + msg + ')');
+				if (obj.status === 0) {
+					location.reload();
+				} else if (obj.status === 1) {
+					alert('已经结算完毕。');
+				} else {
+					alert('结算时发生异常。');
+				}
+			});
+		}
+
 		function show_all_problem() {
 			$.get(<?php echo '"/Contest/ShowAllProblem.php?ConID=' . $ConID . '"' ?>, function(msg) {
 				var obj = eval('(' + msg + ')');
@@ -127,7 +140,7 @@ if (can_edit_contest($ConID)) {
 
 <?php
 if (can_edit_contest($ConID)) {
-	?>
+?>
 	<script>
 		function changeContestStatus(contestID) {
 			$.get("/Contest/ContestStatus.php?ConID=" + contestID, function(msg) {

@@ -241,6 +241,7 @@ usort($AllContest, "my_sort");
                 </div>
                 <div id="collapseFour" class="panel-collapse collapse">
                     <div class="panel-body">
+                        2020/2/5 增加了比赛中的战斗力结算功能<br>
                         2019/12/19 重写了评测机，支持远程Judger评测，可部署多个评测机共同评测<br>
                         2019/12/19 增加编译警告显示功能<br>
                         2019/12/07 增加了ACM赛制的封榜功能<br>
