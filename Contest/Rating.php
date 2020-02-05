@@ -60,7 +60,7 @@ $DataNum = count($RatingData);
 							?>
 								<tr data-rank="<?php echo $iData[1] ?>">
 									<td><a href="/OtherUser.php?User=<?php echo $iData[0] ?>" class=<?php echo GetUserColor($TF['fight']) ?>><?php echo $iData[0] ?></a></td>
-									<td>2</td>
+									<td><?php echo $iData[1] ?></td>
 									<td><?php echo $iData[2] ?></td>
 									<td class="SlateFixBlack <?php echo  $after >= $before ? 'rankyes' : 'rankno' ?>"><?php if ($after > $before) echo '+';
 																														echo $after - $before ?></td>
