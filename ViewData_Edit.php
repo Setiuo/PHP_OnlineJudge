@@ -63,14 +63,14 @@ if ($row) {
 			<div class="panel panel-default">
 				<div class="panel-heading">输入数据</div>
 				<div class="panel-body">
-					<textarea name="inputData" class="form-control"><?php echo $inputData ?></textarea>
+					<textarea style="height:200px" name="inputData" class="form-control"><?php echo $inputData ?></textarea>
 				</div>
 			</div>
 
 			<div class="panel panel-default">
 				<div class="panel-heading">输出数据</div>
 				<div class="panel-body">
-					<textarea name="outputData" class="form-control"><?php echo $outputData ?></textarea>
+					<textarea style="height:200px" name="outputData" class="form-control"><?php echo $outputData ?></textarea>
 				</div>
 			</div>
 
