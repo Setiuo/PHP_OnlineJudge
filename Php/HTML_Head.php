@@ -43,7 +43,7 @@ if (isset($LandUser)) {
                 echo "addcss('/css/bootstrap." . $Skin . ".min.css');";
             } else {
                 //echo "addcss('/css/bootstrap.spacelab.min.css');";
-                echo "addcss('/css/bootstrap.lumen.min.css');";
+                echo "addcss('/css/bootstrap.Cerulean.min.css');";
             }
 
             ?>

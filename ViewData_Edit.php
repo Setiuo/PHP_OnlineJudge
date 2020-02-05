@@ -6,7 +6,7 @@
 <?php
 
 if (!isset($LandUser)) {
-	header('Location: /Message.php?Msg=您没有登陆，无权访问测试点页面');
+	header('Location: /Message.php?Msg=您没有登陆，无权访问测试点编辑页面');
 	die();
 }
 if (!can_edit_problem()) {
@@ -16,16 +16,14 @@ if (!can_edit_problem()) {
 
 $problemID = intval($_GET['Problem']);
 $dataID = intval($_GET['Data']);
-$dataNum = 0;
 $inputData = '';
 $outputData = '';
 
-$sql = "SELECT `test" . $dataID . "_in`,`test" . $dataID . "_out`, `testNum` FROM `oj_problem_test` WHERE `problemID`=$problemID LIMIT 1";
+$sql = "SELECT `test" . $dataID . "_in`,`test" . $dataID . "_out` FROM `oj_problem_test` WHERE `problemID`=$problemID LIMIT 1";
 $have = oj_mysql_query($sql);
 $row = oj_mysql_fetch_array($have);
 if ($row) {
 	$testData = $row;
-	$dataNum = $testData['testNum'];
 	$inputData = $testData["test" . $dataID . "_in"];
 	$outputData = $testData["test" . $dataID . "_out"];
 }
@@ -56,13 +54,6 @@ if ($row) {
 						<div class="input-group">
 							<span class="input-group-addon">测试点ID</span>
 							<input name="dataID" type="number" class="form-control" value="<?php echo $dataID ?>">
-						</div>
-					</div>
-
-					<div class="col-xs-12">
-						<div class="input-group">
-							<span class="input-group-addon">测试点总数</span>
-							<input name="dataNum" type="number" class="form-control" placeholder="10" value="<?php echo $dataNum ?>">
 						</div>
 					</div>
 

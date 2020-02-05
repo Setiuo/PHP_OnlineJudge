@@ -97,7 +97,7 @@ $ProEngNum = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', '
 			if (isset($LandUser)) {
 				echo "addcss('/css/bootstrap." . $Skin . ".min.css');";
 			} else {
-				echo "addcss('/css/bootstrap.lumen.min.css');";
+				echo "addcss('/css/bootstrap.Cerulean.min.css');";
 				//echo "addcss('/css/bootstrap.spacelab.min.css');";
 			}
 

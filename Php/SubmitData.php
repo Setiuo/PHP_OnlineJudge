@@ -16,7 +16,6 @@ if (!can_edit_problem()) {
 
 $problemID = intval($_POST['problemID']);
 $dataID = intval($_POST['dataID']);
-$dataNum = intval($_POST['dataNum']);
 $inData = addslashes($_POST['inputData']);
 $outData = addslashes($_POST['outputData']);
 
@@ -28,7 +27,7 @@ if (!$row) {
     oj_mysql_query($sql);
 }
 
-$sql = "UPDATE `oj_problem_test` SET `testNum`=$dataNum,  `test" . $dataID . "_in`='$inData', `test" . $dataID . "_out`='$outData' WHERE `problemID` = $problemID LIMIT 1";
+$sql = "UPDATE `oj_problem_test` SET `test" . $dataID . "_in`='$inData', `test" . $dataID . "_out`='$outData' WHERE `problemID` = $problemID LIMIT 1";
 $result = oj_mysql_query($sql);
 
 if ($result) {
