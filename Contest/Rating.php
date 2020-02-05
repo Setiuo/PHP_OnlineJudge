@@ -1,65 +1,87 @@
-
 <!DOCTYPE html>
 
 <html lang="zh-cn">
 
-<?php require_once("Html_Head.php");?>
+<?php require_once("Html_Head.php");
 
-  <body>
-	<?php 
+$RatingData = explode('&', $ConData['RatingData']);
+$DataNum = count($RatingData);
+?>
+
+<body>
+	<?php
 	require_once("Header.php");
 	?>
-	
+
 	<div class="container">
 
-<div class="panel panel-default">
-	<div id="contesthead" class="panel-heading" style="padding:0 0 0 0;">
-		<ul class="nav nav-tabs" role="tablist">
-		
-		<li><h4>&nbsp;</h4></li>
-		</ul>
-	</div>
-    <div class="panel-body">
+		<div class="panel panel-default ">
+			<div id="contesthead" class="panel-heading" style="padding:0 0 0 0;">
+				<ul class="nav nav-tabs" role="tablist">
+					<?php
+					if (can_edit_contest($ConID)) {
+					?>
+						<li role="presentation"><a class="label label-warning" href="javascript:show_all_problem()">显示题目</a></li>
+						<li role="presentation"><a class="label label-default" href="javascript:hide_all_problem()">隐藏题目</a></li>
+						<li role="presentation"><a class="label label-danger" href="javascript:rejudge_all_status()">重测代码</a></li>
+					<?php
+					}
+					?>
+					<li>
+						<h4>&nbsp;</h4>
+					</li>
+				</ul>
+			</div>
+			<div class="panel-body">
 
-<div class="panel panel-default">
-	<table class="table table-striped table-hover text-center">
-	<thead>
-	  <tr>
-		<th>用户名</th>
-		<th>比赛排名</th>
-		<th>赛前战斗力</th>
-		<th>战斗力增减</th>
-		<th>赛后战斗力</th>
-	  </tr>
-	</thead>
-	<tbody>
-	
-	  <tr data-rank="2">
-		<td><a href="/User/星星"  class="myuser-base myuser-violet" >星星</a></td>
-		<td>2</td>
-		<td>1906.483915</td>
-		<td class="SlateFixBlack rankyes">24.604204</td>
-		<td>1931.088119</td>
-      </tr>
-      
-	  <tr data-rank="10">
-		<td><a href="/User/温思海"  class="myuser-base myuser-blue" >温思海</a></td>
-		<td>8</td>
-		<td>1693.690769</td>
-		<td class="SlateFixBlack rankno">-48.570514</td>
-		<td>1645.120254</td>
-	  </tr>
-	
-	</tbody>
-  </table>
-</div>
-</div></div>
+				<div class="panel panel-default animated fadeInDown">
+					<table class="table table-striped table-hover text-center">
+						<thead>
+							<tr>
+								<th>用户名</th>
+								<th>比赛排名</th>
+								<th>赛前战斗力</th>
+								<th>战斗力增减</th>
+								<th>赛后战斗力</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+							for ($i = 0; $i < $DataNum; $i++) {
+								if (!$RatingData[$i])
+									continue;
+
+								$iData = explode('|', $RatingData[$i]);
+								$TF = get_user_tailsAndFight($iData[0]);
+
+								$before = intval($iData[2]);
+								$after =  intval($iData[3]);
+
+							?>
+								<tr data-rank="<?php echo $iData[1] ?>">
+									<td><a href="/OtherUser.php?User=<?php echo $iData[0] ?>" class=<?php echo GetUserColor($TF['fight']) ?>><?php echo $iData[0] ?></a></td>
+									<td>2</td>
+									<td><?php echo $iData[2] ?></td>
+									<td class="SlateFixBlack <?php echo  $after >= $before ? 'rankyes' : 'rankno' ?>"><?php if ($after > $before) echo '+';
+																														echo $after - $before ?></td>
+									<td><?php echo $iData[3] ?></td>
+								</tr>
+
+							<?php
+							}
+							?>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
 	</div>
 	<?php
-    $PageActive = "#c_rating";
+	$PageActive = "#c_rating";
 	require_once('Footer.php');
 	?>
-	
-	
-  </body>
+
+
+</body>
+
 </html>

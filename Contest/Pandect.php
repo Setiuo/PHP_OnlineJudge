@@ -30,7 +30,7 @@
 
 					<?php
 					if (can_edit_contest($ConID)) {
-						?>
+					?>
 						<li role="presentation"><a class="label label-warning" href="javascript:show_all_problem()">显示题目</a></li>
 						<li role="presentation"><a class="label label-default" href="javascript:hide_all_problem()">隐藏题目</a></li>
 						<li role="presentation"><a class="label label-danger" href="javascript:rejudge_all_status()">重测代码</a></li>
@@ -70,14 +70,14 @@
 						<tr>
 							<td><b>封榜时间:</b><?php echo $ConData['FreezeTime'] ?></td>
 							<td><b>封榜状态:</b><?php
-												if ($NowDate < $ConData['FreezeTime']) {
-													echo '<font class="label label-primary">未封榜</font>';
-												} else if ($NowDate > $ConData['UnfreezeTime']) {
-													echo '<font class="label label-default">封榜已解除</font>';
-												} else {
-													echo '<font class="label label-success">封榜中</font>';
-												}
-												?>
+											if ($NowDate < $ConData['FreezeTime']) {
+												echo '<font class="label label-primary">未封榜</font>';
+											} else if ($NowDate > $ConData['UnfreezeTime']) {
+												echo '<font class="label label-default">封榜已解除</font>';
+											} else {
+												echo '<font class="label label-success">封榜中</font>';
+											}
+											?>
 							</td>
 						</tr>
 					<?php
@@ -137,24 +137,24 @@
 																					?></font>
 						</td>
 					</tr>
-
-					<tr>
-						<td><b>风险系数:</b><?php echo $ConData['RiskRatio'] ?></td>
-						<?php
-						if ($ConData['RatingStatus'] == 0) {
-							if (can_edit_contest($ConID)) {
-								echo '<td>';
-								echo '<b>战斗力结算完毕:</b><a class="label label-warning" href="">立即结算</a>';
-								echo '</td>';
+					<?php if ($ConData['RiskRatio'] != 0) { ?>
+						<tr>
+							<td><b>风险系数:</b><?php echo $ConData['RiskRatio'] ?></td>
+							<?php
+							if ($ConData['RatingStatus'] == 0) {
+								if (can_edit_contest($ConID)) {
+									echo '<td>';
+									echo '<b>战斗力结算完毕:</b><a class="label label-warning" href="javascript:rating_settlement()">立即结算</a>';
+									echo '</td>';
+								} else {
+									echo '<td><b>战斗力结算完毕:</b><font class="label label-danger">未结算</font></td>';
+								}
 							} else {
-								echo '<td><b>战斗力结算完毕:</b><font class="label label-danger">未结算</font></td>';
+								echo '<td><b>战斗力结算完毕:</b><font class="label label-success">已结算</font></td>';
 							}
-						} else {
-							echo '<td><b>战斗力结算完毕:</b><font class="label label-success">已结算</font></td>';
-						}
-						?>
-					</tr>
-
+							?>
+						</tr>
+					<?php } ?>
 				</table>
 
 				<?php if ($ConData['Synopsis'] != '') { ?>
@@ -176,59 +176,59 @@
 									<th>题号</th>
 									<th>题目名称</th>
 									<?php
-										if ($ConData['Rule'] == 'ACM' || can_edit_contest($ConID) || $NowDate >= $ConData['OverTime']) {
-											echo '<th>通过人数</th>';
-											echo '<th>总提交次数</th>';
-										}
-										?>
+									if ($ConData['Rule'] == 'ACM' || can_edit_contest($ConID) || $NowDate >= $ConData['OverTime']) {
+										echo '<th>通过人数</th>';
+										echo '<th>总提交次数</th>';
+									}
+									?>
 								</tr>
 							</thead>
 							<tbody>
 
 								<?php
-									$AllProblem = explode('|', $ConData['Problem']);
-									$ProNum = count($AllProblem);
+								$AllProblem = explode('|', $ConData['Problem']);
+								$ProNum = count($AllProblem);
 
-									for ($i = 0; $i < $ProNum; $i++) {
-										$sql = "SELECT `Name` FROM `oj_problem` WHERE `proNum`=" . $AllProblem[$i] . " LIMIT 1";
-										$result = oj_mysql_query($sql);
-										if (!$result) {
-											continue;
-										}
-										$ProblemData = oj_mysql_fetch_array($result);
-
-										$sql = "SELECT count(distinct(`User`)) AS value FROM `oj_constatus` WHERE `Status` = " . Accepted . " AND `Show`=1 AND `Problem` = " . $i . " AND `ConID`=" . $ConID . " AND `SubTime`<'" . $FreezeTime . "'";
-										if (can_edit_contest($ConID)) {
-											$sql = "SELECT count(distinct(`User`)) AS value FROM `oj_constatus` WHERE `Status` = " . Accepted . " AND `Problem` = " . $i . " AND `ConID`=" . $ConID . " AND `SubTime`<'" . $FreezeTime . "'";
-										}
-										$rs = oj_mysql_query($sql);
-										$PassNum = oj_mysql_fetch_array($rs);
-
-										$sql = "SELECT count(*) AS value FROM `oj_constatus` WHERE `Show`=1 AND `Problem` = " . $i . " AND `ConID`=" . $ConID;
-										if (can_edit_contest($ConID)) {
-											$sql = "SELECT count(*) AS value FROM `oj_constatus` WHERE `Problem` = " . $i . " AND `ConID`=" . $ConID;
-										}
-										$rs = oj_mysql_query($sql);
-										$SubNum = oj_mysql_fetch_array($rs);
-
-										echo '<tr>';
-
-										echo '<td>' . $ProEngNum[$i] . '</td>';
-										echo '<td>';
-										echo '<a href="/Contest/Problem.php?ConID=' . $ConID . '&Problem=' . $ProEngNum[$i] . '">' . $ProblemData['Name'] . '</a>';
-										if ($ConStatus == 2 || can_edit_contest($ConID)) {
-											echo ' [题库题号 <a href="/Question.php?Problem=' . $AllProblem[$i] . '">P' . $AllProblem[$i] . '</a>]';
-										}
-										echo '</td>';
-
-										if ($ConData['Rule'] == 'ACM' || can_edit_contest($ConID) || $NowDate >= $ConData['OverTime']) {
-											echo '<td>' . $PassNum['value'] . '</td>';
-											echo '<td>' . $SubNum['value'] . '</td>';
-										}
-
-										echo '</tr>';
+								for ($i = 0; $i < $ProNum; $i++) {
+									$sql = "SELECT `Name` FROM `oj_problem` WHERE `proNum`=" . $AllProblem[$i] . " LIMIT 1";
+									$result = oj_mysql_query($sql);
+									if (!$result) {
+										continue;
 									}
-									?>
+									$ProblemData = oj_mysql_fetch_array($result);
+
+									$sql = "SELECT count(distinct(`User`)) AS value FROM `oj_constatus` WHERE `Status` = " . Accepted . " AND `Show`=1 AND `Problem` = " . $i . " AND `ConID`=" . $ConID . " AND `SubTime`<'" . $FreezeTime . "'";
+									if (can_edit_contest($ConID)) {
+										$sql = "SELECT count(distinct(`User`)) AS value FROM `oj_constatus` WHERE `Status` = " . Accepted . " AND `Problem` = " . $i . " AND `ConID`=" . $ConID . " AND `SubTime`<'" . $FreezeTime . "'";
+									}
+									$rs = oj_mysql_query($sql);
+									$PassNum = oj_mysql_fetch_array($rs);
+
+									$sql = "SELECT count(*) AS value FROM `oj_constatus` WHERE `Show`=1 AND `Problem` = " . $i . " AND `ConID`=" . $ConID;
+									if (can_edit_contest($ConID)) {
+										$sql = "SELECT count(*) AS value FROM `oj_constatus` WHERE `Problem` = " . $i . " AND `ConID`=" . $ConID;
+									}
+									$rs = oj_mysql_query($sql);
+									$SubNum = oj_mysql_fetch_array($rs);
+
+									echo '<tr>';
+
+									echo '<td>' . $ProEngNum[$i] . '</td>';
+									echo '<td>';
+									echo '<a href="/Contest/Problem.php?ConID=' . $ConID . '&Problem=' . $ProEngNum[$i] . '">' . $ProblemData['Name'] . '</a>';
+									if ($ConStatus == 2 || can_edit_contest($ConID)) {
+										echo ' [题库题号 <a href="/Question.php?Problem=' . $AllProblem[$i] . '">P' . $AllProblem[$i] . '</a>]';
+									}
+									echo '</td>';
+
+									if ($ConData['Rule'] == 'ACM' || can_edit_contest($ConID) || $NowDate >= $ConData['OverTime']) {
+										echo '<td>' . $PassNum['value'] . '</td>';
+										echo '<td>' . $SubNum['value'] . '</td>';
+									}
+
+									echo '</tr>';
+								}
+								?>
 							</tbody>
 						</table>
 					</div>
