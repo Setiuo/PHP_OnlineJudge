@@ -205,9 +205,6 @@ if ($ret == 0) {
     $sql = "UPDATE `oj_contest` SET `RatingStatus`= 1, `RatingData`='$RatingData' WHERE `ConID`=$ConID";
     $result = oj_mysql_query($sql);
 
-    $sql = "UPDATE `oj_user` SET `fight`= 1, WHERE `User`=$ConID";
-    oj_mysql_query($sql);
-
     if ($result) {
         echo  json_encode("{status: 0}");
     } else {
