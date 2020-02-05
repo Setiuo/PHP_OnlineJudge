@@ -1,6 +1,16 @@
 <?php
+require_once("../Php/LoadData.php");
 
-define('THOUSAND_SEPARATOR',true);
+if (!isset($LandUser)) {
+    header('Location: /Message.php?Msg=您没有登陆，无权访问缓存数据页面');
+    die();
+}
+if (!is_admin()) {
+    header('Location: /Message.php?Msg=您无权访问缓存数据页面');
+    die();
+}
+
+define('THOUSAND_SEPARATOR', true);
 
 if (!extension_loaded('Zend OPcache')) {
     echo '<div style="background-color: #F2DEDE; color: #B94A48; padding: 1em;">You do not have the Zend OPcache extension loaded, sample data is being shown instead.</div>';
@@ -47,9 +57,9 @@ class OpCacheDataModel
                     }
                     if ($k === 'current_wasted_percentage' || $k === 'opcache_hit_rate') {
                         $v = number_format(
-                                $v,
-                                2
-                            ) . '%';
+                            $v,
+                            2
+                        ) . '%';
                     }
                     if ($k === 'blacklist_miss_ratio') {
                         $v = number_format($v, 2) . '%';
@@ -110,7 +120,7 @@ class OpCacheDataModel
 
         $basename = '';
         while (true) {
-            if (count($this->_d3Scripts) !=1) break;
+            if (count($this->_d3Scripts) != 1) break;
             $basename .= DIRECTORY_SEPARATOR . key($this->_d3Scripts);
             $this->_d3Scripts = reset($this->_d3Scripts);
         }
@@ -235,7 +245,7 @@ class OpCacheDataModel
             return $value;
         }
 
-        $array = array('name' => $name,'children' => array());
+        $array = array('name' => $name, 'children' => array());
 
         foreach ($value as $k => $v) {
             $array['children'][] = $this->_processPartition($v, $k);
@@ -273,15 +283,14 @@ class OpCacheDataModel
         $keys = explode(DIRECTORY_SEPARATOR, ltrim($key, DIRECTORY_SEPARATOR));
         while (count($keys) > 1) {
             $key = array_shift($keys);
-            if ( ! isset($array[$key]) || ! is_array($array[$key])) {
+            if (!isset($array[$key]) || !is_array($array[$key])) {
                 $array[$key] = array();
             }
-            $array =& $array[$key];
+            $array = &$array[$key];
         }
         $array[array_shift($keys)] = $value;
         return $array;
     }
-
 }
 
 $dataModel = new OpCacheDataModel();
@@ -289,10 +298,11 @@ $dataModel = new OpCacheDataModel();
 <!DOCTYPE html>
 <meta charset="utf-8">
 <html>
+
 <head>
     <style>
         body {
-            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
@@ -342,7 +352,8 @@ $dataModel = new OpCacheDataModel();
             display: none;
         }
 
-        .tab th, .tab td {
+        .tab th,
+        .tab td {
             padding: 8px 12px;
         }
 
@@ -361,7 +372,8 @@ $dataModel = new OpCacheDataModel();
             width: 100%;
         }
 
-        .content th, .tab:nth-child(3) td {
+        .content th,
+        .tab:nth-child(3) td {
             text-align: left;
         }
 
@@ -373,13 +385,13 @@ $dataModel = new OpCacheDataModel();
             cursor: pointer;
         }
 
-        [type=radio]:checked ~ label {
+        [type=radio]:checked~label {
             background: white;
             border-bottom: 1px solid white;
             z-index: 2;
         }
 
-        [type=radio]:checked ~ label ~ .content {
+        [type=radio]:checked~label~.content {
             z-index: 1;
         }
 
@@ -389,13 +401,13 @@ $dataModel = new OpCacheDataModel();
             position: relative;
         }
 
-        #graph > form {
+        #graph>form {
             position: absolute;
             right: 60px;
             top: -20px;
         }
 
-        #graph > svg {
+        #graph>svg {
             position: absolute;
             top: 0;
             right: 0;
@@ -407,7 +419,8 @@ $dataModel = new OpCacheDataModel();
             top: 145px;
         }
 
-        #stats th, #stats td {
+        #stats th,
+        #stats td {
             padding: 6px 10px;
             font-size: 0.8em;
         }
@@ -462,6 +475,7 @@ $dataModel = new OpCacheDataModel();
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script>
         var hidden = {};
+
         function toggleVisible(head, row) {
             if (!hidden[row]) {
                 d3.selectAll(row).transition().style('display', 'none');
@@ -558,17 +572,21 @@ $dataModel = new OpCacheDataModel();
 
         var arc = d3.svg.arc().innerRadius(radius - 20).outerRadius(radius - 50);
         var svg = d3.select("#graph").append("svg")
-                    .attr("width", width)
-                    .attr("height", height)
-                    .append("g")
-                    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
         var path = svg.selectAll("path")
-                      .data(pie(dataset.memory))
-                      .enter().append("path")
-                      .attr("fill", function(d, i) { return colour(i); })
-                      .attr("d", arc)
-                      .each(function(d) { this._current = d; }); // store the initial values
+            .data(pie(dataset.memory))
+            .enter().append("path")
+            .attr("fill", function(d, i) {
+                return colour(i);
+            })
+            .attr("d", arc)
+            .each(function(d) {
+                this._current = d;
+            }); // store the initial values
 
         d3.selectAll("input").on("change", change);
         set_text("memory");
@@ -576,26 +594,26 @@ $dataModel = new OpCacheDataModel();
         function set_text(t) {
             if (t === "memory") {
                 d3.select("#stats").html(
-                    "<table><tr><th style='background:#B41F1F;'>Used</th><td><?php echo $dataModel->getHumanUsedMemory()?></td></tr>"+
-                    "<tr><th style='background:#1FB437;'>Free</th><td><?php echo $dataModel->getHumanFreeMemory()?></td></tr>"+
-                    "<tr><th style='background:#ff7f0e;' rowspan=\"2\">Wasted</th><td><?php echo $dataModel->getHumanWastedMemory()?></td></tr>"+
-                    "<tr><td><?php echo $dataModel->getWastedMemoryPercentage()?>%</td></tr></table>"
+                    "<table><tr><th style='background:#B41F1F;'>Used</th><td><?php echo $dataModel->getHumanUsedMemory() ?></td></tr>" +
+                    "<tr><th style='background:#1FB437;'>Free</th><td><?php echo $dataModel->getHumanFreeMemory() ?></td></tr>" +
+                    "<tr><th style='background:#ff7f0e;' rowspan=\"2\">Wasted</th><td><?php echo $dataModel->getHumanWastedMemory() ?></td></tr>" +
+                    "<tr><td><?php echo $dataModel->getWastedMemoryPercentage() ?>%</td></tr></table>"
                 );
             } else if (t === "keys") {
                 d3.select("#stats").html(
-                    "<table><tr><th style='background:#B41F1F;'>Cached keys</th><td>"+format_value(dataset[t][0])+"</td></tr>"+
-                    "<tr><th style='background:#1FB437;'>Free Keys</th><td>"+format_value(dataset[t][1])+"</td></tr></table>"
+                    "<table><tr><th style='background:#B41F1F;'>Cached keys</th><td>" + format_value(dataset[t][0]) + "</td></tr>" +
+                    "<tr><th style='background:#1FB437;'>Free Keys</th><td>" + format_value(dataset[t][1]) + "</td></tr></table>"
                 );
             } else if (t === "hits") {
                 d3.select("#stats").html(
-                    "<table><tr><th style='background:#B41F1F;'>Misses</th><td>"+format_value(dataset[t][0])+"</td></tr>"+
-                    "<tr><th style='background:#1FB437;'>Cache Hits</th><td>"+format_value(dataset[t][1])+"</td></tr></table>"
+                    "<table><tr><th style='background:#B41F1F;'>Misses</th><td>" + format_value(dataset[t][0]) + "</td></tr>" +
+                    "<tr><th style='background:#1FB437;'>Cache Hits</th><td>" + format_value(dataset[t][1]) + "</td></tr></table>"
                 );
             } else if (t === "restarts") {
                 d3.select("#stats").html(
-                    "<table><tr><th style='background:#B41F1F;'>Memory</th><td>"+dataset[t][0]+"</td></tr>"+
-                    "<tr><th style='background:#1FB437;'>Manual</th><td>"+dataset[t][1]+"</td></tr>"+
-                    "<tr><th style='background:#ff7f0e;'>Keys</th><td>"+dataset[t][2]+"</td></tr></table>"
+                    "<table><tr><th style='background:#B41F1F;'>Memory</th><td>" + dataset[t][0] + "</td></tr>" +
+                    "<tr><th style='background:#1FB437;'>Manual</th><td>" + dataset[t][1] + "</td></tr>" +
+                    "<tr><th style='background:#ff7f0e;'>Keys</th><td>" + dataset[t][2] + "</td></tr></table>"
                 );
             }
         }
@@ -611,7 +629,7 @@ $dataModel = new OpCacheDataModel();
                 $('#graph').find('> svg').show();
                 path = path.data(pie(dataset[this.value])); // update the data
                 path.transition().duration(750).attrTween("d", arcTween); // redraw the arcs
-            // Hide the graph if we can't draw it correctly, not ideal but this works
+                // Hide the graph if we can't draw it correctly, not ideal but this works
             } else {
                 $('#graph').find('> svg').hide();
             }
@@ -629,9 +647,9 @@ $dataModel = new OpCacheDataModel();
 
         function size_for_humans(bytes) {
             if (bytes > 1048576) {
-                return (bytes/1048576).toFixed(2) + ' MB';
+                return (bytes / 1048576).toFixed(2) + ' MB';
             } else if (bytes > 1024) {
-                return (bytes/1024).toFixed(2) + ' KB';
+                return (bytes / 1024).toFixed(2) + ' KB';
             } else return bytes + ' bytes';
         }
 
@@ -649,39 +667,53 @@ $dataModel = new OpCacheDataModel();
             y = d3.scale.linear().range([0, h]);
 
         var vis = d3.select("#partition")
-                    .style("width", w + "px")
-                    .style("height", h + "px")
-                    .append("svg:svg")
-                    .attr("width", w)
-                    .attr("height", h);
+            .style("width", w + "px")
+            .style("height", h + "px")
+            .append("svg:svg")
+            .attr("width", w)
+            .attr("height", h);
 
         var partition = d3.layout.partition()
-                .value(function(d) { return d.size; });
+            .value(function(d) {
+                return d.size;
+            });
 
         root = JSON.parse('<?php echo json_encode($dataModel->getD3Scripts()); ?>');
 
         var g = vis.selectAll("g")
-                   .data(partition.nodes(root))
-                   .enter().append("svg:g")
-                   .attr("transform", function(d) { return "translate(" + x(d.y) + "," + y(d.x) + ")"; })
-                   .on("click", click);
+            .data(partition.nodes(root))
+            .enter().append("svg:g")
+            .attr("transform", function(d) {
+                return "translate(" + x(d.y) + "," + y(d.x) + ")";
+            })
+            .on("click", click);
 
         var kx = w / root.dx,
-                ky = h / 1;
+            ky = h / 1;
 
         g.append("svg:rect")
-         .attr("width", root.dy * kx)
-         .attr("height", function(d) { return d.dx * ky; })
-         .attr("class", function(d) { return d.children ? "parent" : "child"; });
+            .attr("width", root.dy * kx)
+            .attr("height", function(d) {
+                return d.dx * ky;
+            })
+            .attr("class", function(d) {
+                return d.children ? "parent" : "child";
+            });
 
         g.append("svg:text")
-         .attr("transform", transform)
-         .attr("dy", ".35em")
-         .style("opacity", function(d) { return d.dx * ky > 12 ? 1 : 0; })
-         .text(function(d) { return d.name; })
+            .attr("transform", transform)
+            .attr("dy", ".35em")
+            .style("opacity", function(d) {
+                return d.dx * ky > 12 ? 1 : 0;
+            })
+            .text(function(d) {
+                return d.name;
+            })
 
         d3.select(window)
-          .on("click", function() { click(root); })
+            .on("click", function() {
+                click(root);
+            })
 
         function click(d) {
             if (!d.children) return;
@@ -692,16 +724,22 @@ $dataModel = new OpCacheDataModel();
             y.domain([d.x, d.x + d.dx]);
 
             var t = g.transition()
-                     .duration(d3.event.altKey ? 7500 : 750)
-                     .attr("transform", function(d) { return "translate(" + x(d.y) + "," + y(d.x) + ")"; });
+                .duration(d3.event.altKey ? 7500 : 750)
+                .attr("transform", function(d) {
+                    return "translate(" + x(d.y) + "," + y(d.x) + ")";
+                });
 
             t.select("rect")
-             .attr("width", d.dy * kx)
-             .attr("height", function(d) { return d.dx * ky; });
+                .attr("width", d.dy * kx)
+                .attr("height", function(d) {
+                    return d.dx * ky;
+                });
 
             t.select("text")
-             .attr("transform", transform)
-             .style("opacity", function(d) { return d.dx * ky > 12 ? 1 : 0; });
+                .attr("transform", transform)
+                .style("opacity", function(d) {
+                    return d.dx * ky > 12 ? 1 : 0;
+                });
 
             d3.event.stopPropagation();
         }
@@ -741,4 +779,5 @@ $dataModel = new OpCacheDataModel();
         });
     </script>
 </body>
+
 </html>
