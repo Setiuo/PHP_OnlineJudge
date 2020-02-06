@@ -188,13 +188,23 @@ usort($PeopleRank, "my_sort");
 </thead>
 <tbody>
 	<?php
+	$RankNum = 0;
+	$LastACNum = -1;
+	$LastUsedTime = 0;
+
 	for ($i = 0; $i < $PeoNum; $i++) {
 		if (!$PeopleRank[$i]['User']) {
 			continue;
 		}
+		if ($LastACNum != $PeopleRank[$i]['ACNum'] ||  $LastUsedTime != $PeopleRank[$i]['TimePenalty']) {
+			$LastACNum = $PeopleRank[$i]['ACNum'];
+			$LastUsedTime = $PeopleRank[$i]['TimePenalty'];
+			$RankNum++;
+		}
+
 		echo '<tr>';
 
-		echo '<td>' . ($i + 1) . '</td>';
+		echo '<td>' . ($RankNum) . '</td>';
 		$TF = get_user_tailsAndFight($PeopleRank[$i]['User']);
 		echo '<td><a href="/OtherUser.php?User=' . $PeopleRank[$i]['User'] . '" class=' . GetUserColor($TF['fight']) . '>' . $PeopleRank[$i]['User'] . ($TF['tails'] ? '(' . $TF['tails'] . ')' : '') . '</a></td>';
 

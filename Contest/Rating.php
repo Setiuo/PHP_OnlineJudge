@@ -39,7 +39,7 @@ $DataNum = count($RatingData);
 						<thead>
 							<tr>
 								<th>用户名</th>
-								<th>比赛排名</th>
+								<th>结算排名</th>
 								<th>赛前战斗力</th>
 								<th>战斗力增减</th>
 								<th>赛后战斗力</th>
