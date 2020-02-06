@@ -101,24 +101,28 @@ function oj_mysql_close()
 //取用户名颜色样式
 function GetUserColor($Fight)
 {
-    if ($Fight >= 3200)
+    if ($Fight >= 3500)
+        return '"myuser-base myuser-legendary"';
+    else if ($Fight >= 3200)
         return '"myuser-base myuser-red"';
-    else if ($Fight >= 2800)
+    else if ($Fight >= 2900)
         return '"myuser-base myuser-fire"';
-    else if ($Fight >= 2600)
+    else if ($Fight >= 2700)
         return '"myuser-base myuser-orange"';
-    else if ($Fight >= 2400)
+    else if ($Fight >= 2450)
         return '"myuser-base myuser-yellow"';
     else if ($Fight >= 2200)
         return '"myuser-base myuser-purple"';
-    else if ($Fight >= 2000)
+    else if ($Fight >= 1900)
         return '"myuser-base myuser-violet"';
-    else if ($Fight >= 1700)
+    else if ($Fight >= 1750)
         return '"myuser-base myuser-blue"';
     else if ($Fight >= 1600)
         return '"myuser-base myuser-cyan"';
-    else
+    else if ($Fight > 0)
         return '"myuser-base myuser-green"';
+    else
+        return '"myuser-base myuser-gray"';
 }
 
 //获取小尾巴和战斗力

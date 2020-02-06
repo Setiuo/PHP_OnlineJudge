@@ -122,7 +122,9 @@ if (isset($User)) {
                         <table class="table">
                             <tr>
                                 <td>用户名</td>
-                                <td class=<?php echo GetUserColor($Fight) ?>> <?php echo $User ?> </td>
+                                <td>
+                                    <font class=<?php echo GetUserColor($Fight) ?>> <?php echo $User ?></font>
+                                </td>
                             </tr>
 
                             <tr>
