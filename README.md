@@ -9,9 +9,10 @@
 支持SpecialJudge<br/>
 支持部署多个评测机评测<br/>
 基本的ACM/OI赛制<br/>
+ACM赛制的封榜功能<br/>
 战斗力功能：支持带Rating的比赛，算法参考Codeforces<br/>
 用户名颜色根据战斗力划分<br/>
-代码相似度检测：支持字符串检测和Standford Moss检测<br/>
+比赛代码相似度检测：支持字符串检测和Standford Moss检测<br/>
 
 <h2>网站部署</h2>
 网站使用PHP编写，可运行在7.2.10版本（其它版本也可以运行）<br />
