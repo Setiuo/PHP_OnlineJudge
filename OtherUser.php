@@ -96,10 +96,10 @@ if (isset($User)) {
                     <div class="panel panel-default float-center animated fadeInLeft" style="width:450px;">
                         <table class="table">
                             <tr>
-
-
                                 <td>用户名</td>
-                                <td class=<?php echo GetUserColor($Fight) ?>> <?php echo $User . ($Tails ? '(' . $Tails . ')' : '') ?> </td>
+                                <td>
+                                    <font class=<?php echo GetUserColor($Fight) ?>> <?php echo $User . ($Tails ? '(' . $Tails . ')' : '') ?> </font>
+                                </td>
                             </tr>
 
                             <tr>
@@ -161,7 +161,7 @@ if (isset($User)) {
 
                 <?php
                 for ($i = 1; $i <= $nPassProNum; $i++) {
-                    echo '<a href="/Question.php?Problem=' . $nPassProblem[$i - 1] . '"class="label label-default">' . $nPassProblem[$i - 1] . '</a> ';
+                    echo '<a href="/Question.php?Problem=' . $nPassProblem[$i - 1] . '" class="label label-default">' . $nPassProblem[$i - 1] . '</a> ';
                 }
                 ?>
 

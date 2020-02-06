@@ -5,7 +5,12 @@
 }
 
 .myuser-legendary {
-    color: #CC0000 !important;
+    background-clip: text;
+    background-image: linear-gradient(135deg, rgb(99, 22, 22), rgb(247, 3, 3), rgb(247, 3, 3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
 }
 
 .myuser-red {
