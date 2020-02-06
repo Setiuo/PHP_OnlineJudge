@@ -4,13 +4,13 @@ Navicat MySQL Data Transfer
 Source Server         : 127.0.0.1_3306
 Source Server Version : 80018
 Source Host           : 127.0.0.1:3306
-Source Database       : oj_test
+Source Database       : new_oj_db
 
 Target Server Type    : MYSQL
 Target Server Version : 80018
 File Encoding         : 65001
 
-Date: 2019-12-27 14:27:59
+Date: 2020-02-06 14:55:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -35,8 +35,7 @@ CREATE TABLE `oj_constatus` (
   `Judger` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   UNIQUE KEY `RunID_2` (`RunID`),
   KEY `runID` (`RunID`,`ConID`),
-  KEY `SubTime` (`SubTime`,`Show`),
-  KEY `Status` (`Status`)
+  KEY `SubTime` (`SubTime`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
@@ -64,6 +63,7 @@ CREATE TABLE `oj_contest` (
   `EnrollPeople` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT '参赛人员',
   `RiskRatio` float DEFAULT NULL COMMENT '风险系数',
   `RatingStatus` int(11) DEFAULT NULL COMMENT '战斗力结算状态',
+  `RatingData` longtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '战斗力结算数据',
   `Problem` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '题目',
   `Show` int(11) NOT NULL,
   `Practice` int(11) NOT NULL COMMENT '是否为练习',
@@ -97,7 +97,7 @@ CREATE TABLE `oj_data` (
 -- ----------------------------
 -- Records of oj_data
 -- ----------------------------
-INSERT INTO `oj_data` VALUES ('SEOJ', 'OnlineJudge - 评测平台', 'OnlineJudge - 源程序判题系统', '692', '1', '0', '0', '0', '0');
+INSERT INTO `oj_data` VALUES ('SEOJ', 'OnlineJudge - 评测平台', 'OnlineJudge - 源程序判题系统', '1', '1', '0', '1', '1', '0');
 
 -- ----------------------------
 -- Table structure for oj_judger
@@ -191,7 +191,6 @@ INSERT INTO `oj_problem` VALUES ('A+B Problem', '1000', '1000', '65536', 0x43616
 DROP TABLE IF EXISTS `oj_problem_test`;
 CREATE TABLE `oj_problem_test` (
   `problemID` int(11) DEFAULT NULL,
-  `testNum` int(11) DEFAULT NULL,
   `test1_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci,
   `test1_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci,
   `test2_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci,
@@ -292,15 +291,114 @@ CREATE TABLE `oj_problem_test` (
   `test49_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci,
   `test50_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci,
   `test50_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci,
+  `test51_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test51_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test52_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test52_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test53_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test53_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test54_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test54_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test55_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test55_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test56_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test56_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test57_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test57_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test58_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test58_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test59_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test59_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test60_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test60_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test61_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test61_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test62_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test62_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test63_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test63_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test64_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test64_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test65_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test65_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test66_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test66_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test67_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test67_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test68_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test68_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test69_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test69_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test70_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test70_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test71_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test71_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test72_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test72_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test73_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test73_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test74_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test74_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test75_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test75_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test76_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test76_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test77_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test77_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test78_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test78_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test79_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test79_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test80_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test80_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test81_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test81_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test82_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test82_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test83_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test83_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test84_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test84_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test85_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test85_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test86_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test86_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test87_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test87_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test88_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test88_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test89_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test89_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test90_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test90_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test91_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test91_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test92_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test92_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test93_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test93_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test94_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test94_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test95_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test95_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test96_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test96_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test97_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test97_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test98_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test98_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test99_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test99_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test100_in` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `test100_out` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   UNIQUE KEY `problemID_2` (`problemID`),
-  KEY `problemID` (`problemID`),
-  KEY `problemID_3` (`problemID`)
+  KEY `problemID` (`problemID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of oj_problem_test
 -- ----------------------------
-INSERT INTO `oj_problem_test` VALUES ('1000', '10', '0 0', '0', '1000 1', '1001', '-1 1', '0', '-10 100', '90', '-100 -200', '-300', '1000000000 1', '1000000001', '666 666', '1332', '10086 11', '10097', '11 11', '22', '1 2', '3', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `oj_problem_test` VALUES ('1000', '10', '0 0', '0', '1000 1', '1001', '-1 1', '0', '-10 100', '90', '-100 -200', '-300', '1000000000 1', '1000000001', '666 666', '1332', '10086 11', '10097', '11 11', '22', '1 2', '3', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- ----------------------------
 -- Table structure for oj_status
@@ -321,7 +419,9 @@ CREATE TABLE `oj_status` (
   `Judger` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   UNIQUE KEY `RunID_2` (`RunID`),
   KEY `runID` (`RunID`),
-  KEY `Show` (`Show`)
+  KEY `Show` (`Show`),
+  KEY `User` (`User`),
+  KEY `Problem` (`Problem`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
@@ -353,4 +453,4 @@ CREATE TABLE `oj_user` (
 -- ----------------------------
 -- Records of oj_user
 -- ----------------------------
-INSERT INTO `oj_user` VALUES ('admin', '1', 'd8599493ae274d2416d2e50dd9397305', '2', '我不管，我最帅，我是你的小可爱', 'test@test.com', '2019-01-01 00:00:00', '2019-12-27 14:23:41', '3200', 'Slate', '', '管理员');
+INSERT INTO `oj_user` VALUES ('admin', '1', 'd8599493ae274d2416d2e50dd9397305', '2', 'ADMIN', 'admin@oj.com', '2019-01-01 00:00:00', '2020-02-05 23:30:22', '5000', 'Slate', '', '');
