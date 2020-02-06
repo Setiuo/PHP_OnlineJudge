@@ -42,8 +42,14 @@ if ($ConData['Show'] == 0 && !can_edit_contest($ConID)) {
 	die();
 }
 
+$isEnroll = false;
+if (isset($LandUser)) {
+	$EnrollData = explode('|', $ConData['EnrollPeople']);
+	$isEnroll = in_array($LandUser, $EnrollData);
+}
+
 //检查比赛是否需要密码进入
-if ($ConData['Type'] == 1 && $_SERVER['PHP_SELF'] != "/Contest/PassWord.php" && (!can_edit_contest($ConID))) {
+if ($ConData['Type'] == 1 && $_SERVER['PHP_SELF'] != "/Contest/PassWord.php" && (!can_edit_contest($ConID)) && !$isEnroll) {
 	if (isset($_SESSION['ConPassWord_' . $ConID])) {
 		if ($_SESSION['ConPassWord_' . $ConID] != $ConData['PassWord']) {
 			header('Location: /Contest/PassWord.php?ConID=' . $ConID);
