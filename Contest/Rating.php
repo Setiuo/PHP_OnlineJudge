@@ -52,14 +52,13 @@ $DataNum = count($RatingData);
 									continue;
 
 								$iData = explode('|', $RatingData[$i]);
-								$TF = get_user_tailsAndFight($iData[0]);
 
 								$before = intval($iData[2]);
 								$after =  intval($iData[3]);
 
 							?>
 								<tr data-rank="<?php echo $iData[1] ?>">
-									<td><a href="/OtherUser.php?User=<?php echo $iData[0] ?>" class=<?php echo GetUserColor($TF['fight']) ?>><?php echo $iData[0] ?></a></td>
+									<td><a href="/OtherUser.php?User=<?php echo $iData[0] ?>" class=<?php echo GetUserColor($after) ?>><?php echo $iData[0] ?></a></td>
 									<td><?php echo $iData[1] ?></td>
 									<td><?php echo $iData[2] ?></td>
 									<td class="SlateFixBlack <?php echo  $after >= $before ? 'rankyes' : 'rankno' ?>"><?php if ($after > $before) echo '+';

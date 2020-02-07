@@ -5,7 +5,7 @@ if (!isset($LandUser)) {
     header('Location: /Message.php?Msg=您没有登陆，无权访问缓存数据页面');
     die();
 }
-if (!is_admin()) {
+if (!is_admin_max()) {
     header('Location: /Message.php?Msg=您无权访问缓存数据页面');
     die();
 }

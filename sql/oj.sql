@@ -436,7 +436,7 @@ CREATE TABLE `oj_user` (
   `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '用户姓名',
   `uid` int(11) NOT NULL COMMENT '用户ID',
   `password` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '用户密码',
-  `jurisdicton` int(11) NOT NULL COMMENT '权限',
+  `jurisdiction` int(11) NOT NULL COMMENT '权限',
   `signature` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '签名',
   `email` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '邮箱',
   `regtime` datetime NOT NULL COMMENT '注册时间',
@@ -453,4 +453,4 @@ CREATE TABLE `oj_user` (
 -- ----------------------------
 -- Records of oj_user
 -- ----------------------------
-INSERT INTO `oj_user` VALUES ('admin', '1', 'd8599493ae274d2416d2e50dd9397305', '2', 'ADMIN', 'admin@oj.com', '2019-01-01 00:00:00', '2020-02-05 23:30:22', '5000', 'Slate', '', '');
+INSERT INTO `oj_user` VALUES ('admin', '1', 'd8599493ae274d2416d2e50dd9397305', '64', 'ADMIN', 'admin@oj.com', '2019-01-01 00:00:00', '2020-02-05 23:30:22', '5000', 'Slate', '', '');

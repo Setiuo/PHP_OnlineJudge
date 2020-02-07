@@ -34,6 +34,18 @@ if (isset($User)) {
     //获取登陆时间
     $Logtime = $UserData['logtime'];
 
+    //根据权限值获得名称
+    $Jurisdiction = '';
+    if ($UserData['jurisdiction'] & (1 << 6)) {
+        $Jurisdiction = '高级管理员';
+    } else if ($UserData['jurisdiction'] & (1 << 5)) {
+        $Jurisdiction = '管理员';
+    } else if ($UserData['jurisdiction'] != 0) {
+        $Jurisdiction = '高级用户';
+    } else {
+        $Jurisdiction = '普通用户';
+    }
+
     $Allsubnum = 0;
 
     $PassProblem = array();
@@ -90,7 +102,43 @@ if (isset($User)) {
     <div class="container">
 
         <div class="panel panel-default">
-            <div class="panel-heading">个人信息</div>
+            <div class="panel-heading">
+                个人信息
+                <?php if (is_admin_max()) { ?>
+                    <script>
+                        function set_user_jurisdiction(user) {
+                            var juri = prompt("请输入权限标号", "");
+                            if (juri) {
+                                if (confirm('确定要赋予该用户' + juri + '权限吗？')) {
+                                    $.get('/Php/SetUserJurisdiction.php?jur=' + juri + '&user=' + user, function(msg) {
+                                        var obj = eval('(' + msg + ')');
+                                        if (obj.status === 0) {
+                                            location.reload();
+                                        } else {
+                                            alert("赋予权限时发生异常。")
+                                        }
+                                    });
+                                }
+                            }
+                        }
+
+                        function set_user_password(user) {
+                            if (confirm('确定要重制该用户的密码吗？密码初始为123456')) {
+                                $.get('/Php/SetUserPassword.php?user=' + user, function(msg) {
+                                    var obj = eval('(' + msg + ')');
+                                    if (obj.status === 0) {
+                                        location.reload();
+                                    } else {
+                                        alert("重制密码时发生异常。")
+                                    }
+                                });
+                            }
+                        }
+                    </script>
+                    <a class="label label-success" href="javascript:set_user_jurisdiction('<?php echo $User ?>');">赋予权限</a>
+                    <a class="label label-danger" href="javascript:set_user_password('<?php echo $User ?>');">重制密码</a>
+                <?php } ?>
+            </div>
             <div class="panel-body">
                 <form method="post">
                     <div class="panel panel-default float-center animated fadeInLeft" style="width:450px;">
@@ -107,6 +155,14 @@ if (isset($User)) {
                                 <td><?php echo $E_Mail ?>
                                 </td>
                             </tr>
+
+                            <?php if (is_admin_max()) { ?>
+                                <tr>
+                                    <td>用户权限</td>
+                                    <td><?php echo $Jurisdiction ?>
+                                    </td>
+                                </tr>
+                            <?php } ?>
 
                             <tr>
                                 <td>注册日期</td>
