@@ -6,7 +6,7 @@ session_start();
 
 define("SQL_USER", "onlinejudge");
 define("SQL_PASSWORD", "sql_password");
-define("SQL_BASE", "onlinejudge");
+define("SQL_BASE", "onlinejujdge");
 
 function LoadData()
 {
@@ -154,19 +154,19 @@ function check_captcha($code, $time)
 }
 
 global $LandUser;
-global $User_Jurisdicton;
-$User_Jurisdicton = 0;
+global $User_Jurisdiction;
+$User_Jurisdiction = 0;
 
 if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
     $SessionID = session_id();
 
-    $sql = "SELECT `name`,`jurisdicton` FROM `oj_user` WHERE `name`='" . $_SESSION['username'] . "' AND `password`='" . $_SESSION['password'] . "' AND `sessionid`='" . $SessionID . "' LIMIT 1";
+    $sql = "SELECT `name`,`jurisdiction` FROM `oj_user` WHERE `name`='" . $_SESSION['username'] . "' AND `password`='" . $_SESSION['password'] . "' AND `sessionid`='" . $SessionID . "' LIMIT 1";
     $rs = mysqli_query($con, $sql);
     $row = oj_mysql_fetch_array($rs);
 
     if (isset($row) && $row) {
         $LandUser = $row['name'];
-        $User_Jurisdicton = $row['jurisdicton'];
+        $User_Jurisdiction = $row['jurisdiction'];
     } else {
         session_unset();
         session_destroy();

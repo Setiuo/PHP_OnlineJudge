@@ -162,8 +162,11 @@ function my_sort($a, $b)
 }
 usort($PeopleRank, "my_sort");
 
+//每人奖励战斗力点数
+$reward = 2;
+
 $myfile = fopen("./data/cf_rating_start_" . $ConID . ".txt", "w");
-fwrite($myfile, $ConData['RiskRatio'] . "\n");
+fwrite($myfile, $ConData['RiskRatio'] . ' ' . $reward . "\n");
 $RankNum = 0;
 $LastACNum = -1;
 $LastUsedTime = 0;

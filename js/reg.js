@@ -7,7 +7,6 @@ $(document).ready(function() {
     fusr = false,
     fpwd = false,
     frep = false;
-  fcap = false;
   $("#inputEmail").blur(function() {
     var reemil = $("#inputEmail").val();
     if (reemil != teml) {
@@ -115,11 +114,9 @@ $(document).ready(function() {
   $("#inputCaptcha").blur(function() {
     var cap_code = $("#inputCaptcha").val();
     if (cap_code.length == 4) {
-      fcap = true;
       $("#regcaptcha").attr("class", "form-group has-success");
       $("#regcaptcha").attr("data-content", "验证码格式正确！");
     } else {
-      fcap = false;
       $("#regcaptcha").attr("class", "form-group has-error");
       $("#regcaptcha").attr("data-content", "验证码格式错误！");
     }
@@ -131,7 +128,6 @@ $(document).ready(function() {
     if (fusr == false) ers = ers + "用户名填写错误！\n";
     if (fpwd == false) ers = ers + "密码填写错误！\n";
     if (frep == false) ers = ers + "重复密码填写错误！\n";
-    if (fcap == false) ers = ers + "验证码格式错误！\n";
 
     if (ers.length == 0) {
       $("#SubmitRegisterButton").attr("disabled", "disabled");

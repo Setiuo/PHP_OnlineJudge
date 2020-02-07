@@ -9,7 +9,7 @@
 using namespace std;
 
 double rating = 0.3;
-const int reward = 3;
+int reward = 3;
 
 struct user {
 	double rank;
@@ -150,7 +150,7 @@ int main(int argc, char const* argv[]) {
 
 	ifstream in(in_file, ios::in);
 
-	in >> rating;
+	in >> rating >> reward;
 	while (in >> u.rank >> u.handle >> u.old_rating) {
 		users.push_back(u);
 	}

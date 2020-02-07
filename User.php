@@ -36,10 +36,19 @@ if (isset($User)) {
     $Regtime = $UserData['regtime'];
     //获取登陆时间
     $Logtime = $UserData['logtime'];
-    //权限名称
-    $AllJurisdicton = array('普通用户', '高级用户', '管理员');
+
     //根据权限值获得名称
-    $Jurisdicton = $AllJurisdicton[$UserData['jurisdicton']];
+    $Jurisdiction = '';
+    if (is_admin_max()) {
+        $Jurisdiction = '高级管理员';
+    } else if (is_admin()) {
+        $Jurisdiction = '管理员';
+    } else if (can_read_test() || can_edit_problem() || can_edit_contest() || can_read_log() || can_read_code()) {
+        $Jurisdiction = '高级用户';
+    } else {
+        $Jurisdiction = '普通用户';
+    }
+
 
     $Allsubnum = 0;
 
@@ -142,7 +151,7 @@ if (isset($User)) {
                             </tr>
                             <tr>
                                 <td>用户权限</td>
-                                <td><?php echo $Jurisdicton ?></td>
+                                <td><?php echo $Jurisdiction ?></td>
                             </tr>
                             <tr>
                                 <td>注册日期</td>
