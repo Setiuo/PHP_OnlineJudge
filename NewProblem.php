@@ -50,8 +50,6 @@ $NewID = oj_mysql_fetch_array($result);
             CKEDITOR.replace('Description');
             CKEDITOR.replace('InputFormat');
             CKEDITOR.replace('OutputFormat');
-            CKEDITOR.replace('ExpInput');
-            CKEDITOR.replace('ExpOutput');
             CKEDITOR.replace('Hint');
             CKEDITOR.replace('Source');
         };
