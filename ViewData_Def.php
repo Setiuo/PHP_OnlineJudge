@@ -34,8 +34,20 @@ if (!can_edit_problem()) {
 		die();
 	}
 }
-//$FileIn_Path = "./Judge/data/" . intval($_GET['Problem']) . "/" . intval($_GET['Problem']) . "_" . intval($_GET['Data']) . ".in";
-//$FileOut_Path = "./Judge/data/" . intval($_GET['Problem']) . "/" . intval($_GET['Problem']) . "_" . intval($_GET['Data']) . ".out";
+
+$dataID = $_GET['Data'];
+
+$inputData = '';
+$outputData = '';
+
+$sql = "SELECT `input`,`output` FROM `oj_problem_data` WHERE `problemID`=$problemID AND `testID`=$dataID LIMIT 1";
+$have = oj_mysql_query($sql);
+$row = oj_mysql_fetch_array($have);
+if ($row) {
+	$testData = $row;
+	$inputData = $testData["input"];
+	$outputData = $testData["output"];
+}
 ?>
 
 <body>
@@ -43,35 +55,14 @@ if (!can_edit_problem()) {
 	<div class="container animated fadeInLeft">
 
 
-		<h3>测试点 # <?php echo intval($_GET['Data']) ?></h3>
+		<h3>测试点 # <?php echo $dataID ?></h3>
 		<br>
 		<div class="panel panel-default">
 			<div class="panel-heading">输入数据</div>
 			<div class="panel-body">
 				<pre class="SlateFix"><?php
-										$test_in_name = 'test' . intval($_GET['Data']) . '_in';
-										$sql = 'SELECT `' . $test_in_name . '` FROM `oj_problem_test` WHERE `problemID` = ' . $problemID . ' LIMIT 1';
-										$result_in = oj_mysql_query($sql);
-
-										if ($result_in) {
-											$testInData = oj_mysql_fetch_array($result_in);
-											echo htmlspecialchars($testInData[$test_in_name]);
-										}
-
-										/*
-					if (file_exists($FileIn_Path)) {
-						$file_arr = file($FileIn_Path);
-
-						for ($i = 0; $i < count($file_arr); $i++) {
-							$str = $file_arr[$i];
-							$str = str_replace("<", "&lt;", $str);
-							$str = str_replace(">", "&gt;", $str);
-							echo $str;
-						}
-					}
-					*/
-										?>
-				</pre>
+										echo $inputData;
+										?></pre>
 			</div>
 		</div>
 
@@ -79,29 +70,8 @@ if (!can_edit_problem()) {
 			<div class="panel-heading">输出数据</div>
 			<div class="panel-body">
 				<pre class="SlateFix"><?php
-										$test_out_name = 'test' . intval($_GET['Data']) . '_out';
-										$sql = 'SELECT `' . $test_out_name . '` FROM `oj_problem_test` WHERE `problemID` = ' . $problemID . ' LIMIT 1';
-										$result_out = oj_mysql_query($sql);
-
-										if ($result_out) {
-											$testOutData = oj_mysql_fetch_array($result_out);
-											echo htmlspecialchars($testOutData[$test_out_name]);
-										}
-
-										/*
-					if (file_exists($FileOut_Path)) {
-						$file_arr = file($FileOut_Path);
-
-						for ($i = 0; $i < count($file_arr); $i++) {
-							$str = $file_arr[$i];
-							$str = str_replace("<", "&lt;", $str);
-							$str = str_replace(">", "&gt;", $str);
-							echo $str;
-						}
-					}
-					*/
-										?>
-				</pre>
+										echo $outputData;
+										?></pre>
 			</div>
 		</div>
 

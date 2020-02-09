@@ -420,10 +420,6 @@ while ($row = oj_mysql_fetch_array($result)) {
 										echo ' &nbsp;';
 										echo '<a onclick="afreshEva(' . $AllStatus[$i]['RunID'] . ',' . $AllStatus[$i]['ConID'] . ')" class="label label-warning" href="">重测</a>';
 
-										if (can_read_log()) {
-											echo ' <a class="label label-default" href="/Contest/ShowLog.php?ConID=' . $AllStatus[$i]['ConID'] . '&RunID=' . $AllStatus[$i]['RunID'] . '" >日志</a>';
-										}
-
 										if ($AllStatus[$i]['Show'] == 1) {
 											echo ' <a onclick="changeStatusShow(' . $AllStatus[$i]['RunID'] . ')" class="label label-primary" href="" >隐藏</a>';
 										} else {

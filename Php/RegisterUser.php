@@ -36,7 +36,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
 
     $SessionID = session_id();
 
-    $sql = 'INSERT INTO oj_user(`name`, `uid`, `password`, `jurisdiction`, `signature`, `email`, `regtime`, `logtime`, `fight`, `skin`, `sessionid`) values("' . $user . '", 3, "' . $md5pw . '", 0, "", "' . $email . '", "' . date("Y-m-d H:i:s") . '", "' . date("Y-m-d H:i:s") . '", 1650, "spacelab", "' . $SessionID . '")';
+    $sql = 'INSERT INTO oj_user(`name`, `uid`, `password`, `jurisdiction`, `signature`, `email`, `regtime`, `logtime`, `fight`, `skin`, `sessionid`) values("' . $user . '", 1, "' . $md5pw . '", 0, "", "' . $email . '", "' . date("Y-m-d H:i:s") . '", "' . date("Y-m-d H:i:s") . '", 1650, "spacelab", "' . $SessionID . '")';
     $result = oj_mysql_query($sql);
 
     if ($result) {

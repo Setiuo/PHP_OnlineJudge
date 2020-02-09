@@ -311,8 +311,6 @@ while ($row = oj_mysql_fetch_array($result)) {
 							echo ' &nbsp;';
 							echo '<a href="javascript:afreshEva(' . $AllStatus[$i]['RunID'] . ')" class="label label-warning">重测</a>';
 
-							echo ' <a class="label label-default" href="/ShowLog.php?RunID=' . $AllStatus[$i]['RunID'] . '" >日志</a>';
-
 
 							if ($AllStatus[$i]['Show'] == 1) {
 								echo ' <a href="javascript:changeStatusShow(' . $AllStatus[$i]['RunID'] . ')" class="label label-primary">隐藏</a>';

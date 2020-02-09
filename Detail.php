@@ -39,6 +39,10 @@ $Fight = $TF['fight'];
 $Tails = $TF['tails'];
 
 $AllStatus = explode("|", $StatusData['AllStatus']);
+
+$sql = "SELECT `prohibit`, `code` FROM `oj_judge_task` WHERE `RunID`=" . $RunID . " LIMIT 1";
+$rs = oj_mysql_query($sql);
+$codeData = oj_mysql_fetch_array($rs);
 ?>
 
 <body>
@@ -69,6 +73,24 @@ $AllStatus = explode("|", $StatusData['AllStatus']);
 	<?php
 	}
 	?>
+	<?php
+	if (is_admin_max()) {
+	?>
+		<script>
+			function changeCodeProhibit(runID) {
+				$.get("/Php/changeCodeProhibit.php?RunID=" + runID, function(msg) {
+					var obj = eval('(' + msg + ')');
+					if (obj.status === 0) {
+						location.reload();
+					} else {
+						alert('设置失败！');
+					}
+				});
+			}
+		</script>
+	<?php
+	}
+	?>
 
 	<div class="container">
 
@@ -92,6 +114,13 @@ $AllStatus = explode("|", $StatusData['AllStatus']);
 					echo ' <a href="javascript:changeStatusShow(' . $RunID . ')" class="label label-primary">隐藏</a>';
 				} else {
 					echo ' <a href="javascript:changeStatusShow(' . $RunID . ')" class="label label-info">显示</a>';
+				}
+			}
+			if (is_admin_max()) {
+				if ($codeData['prohibit'] == 0) {
+					echo ' <a href="javascript:changeCodeProhibit(' . $RunID . ')" class="label label-danger">隐藏代码</a>';
+				} else {
+					echo ' <a href="javascript:changeCodeProhibit(' . $RunID . ')" class="label label-success">显示代码</a>';
 				}
 			}
 			?>
@@ -155,29 +184,6 @@ $AllStatus = explode("|", $StatusData['AllStatus']);
 			$log = str_replace("\n", "<br>", $log);
 			$log = str_replace(" ", "&nbsp", $log);
 			echo $log;
-
-			/*
-			$File_Path = './Judge/Temporary_Error/' . $StatusData['RunID'] . '.log';
-			if (file_exists($File_Path)) {
-				$file_size = filesize($File_Path);
-				if ($file_size >= 1 * 1024 * 1024) {
-					echo "编译错误信息过长，无法显示.";
-				} else {
-					$file_arr = file($File_Path);
-
-					for ($i = 0; $i < count($file_arr); $i++) {
-						$str_encode = mb_convert_encoding($file_arr[$i], 'UTF-8', 'GBK');
-
-						echo $str_encode . "<br/>";
-					}
-				}
-			} else {
-				echo "未找到编译错误日志.";
-			}
-			*/
-
-			//$str = file_get_contents($File_Path);
-			//$str = str_replace('\r', '<br/>', $str);
 			echo '</div>';
 			echo '</div>';
 		} else if ($StatusData['Status'] != Wating && $StatusData['Status'] != Pending && $StatusData['Status'] != Compiling && $StatusData['Status'] != Running) {
@@ -257,35 +263,20 @@ $AllStatus = explode("|", $StatusData['AllStatus']);
 
 			<?php
 			if (isset($LandUser)) {
-				if ($StatusData['User'] == $LandUser ||  can_read_code()) {
+				if ($StatusData['User'] == $LandUser ||  (can_read_code())) {
+					if ($codeData['prohibit'] == 1 && !is_admin_max() && $StatusData['User'] != $LandUser) {
+						echo <<<NOTCODE
+				<div class="panel-body">
+				<p>管理员看代码？痴心妄想！</p>
+				</div>
+NOTCODE;
+					} else {
+						echo '<div class="panel-body">';
+						echo '<pre class="padding-0"><code class="C++">';
 
-					echo '<div class="panel-body">';
-					echo '<pre class="padding-0"><code class="C++">';
-
-
-					$sql = "SELECT `code` FROM `oj_judge_task` WHERE `RunID`=" . $RunID . " LIMIT 1";
-					$rs = oj_mysql_query($sql);
-					$row = oj_mysql_fetch_array($rs);
-
-					echo htmlspecialchars($row['code']);
-
-
-					/*
-					$File_Path = './Judge/Temporary_Code/' . $StatusData['RunID'];
-
-					if (file_exists($File_Path)) {
-						$file_arr = file($File_Path);
-
-						for ($i = 0; $i < count($file_arr); $i++) {
-							$str = $file_arr[$i];
-							$str = htmlspecialchars($str);
-							echo $str;
-						}
+						echo htmlspecialchars($codeData['code']);
+						echo '</code></pre></div>';
 					}
-					*/
-
-
-					echo '</code></pre></div>';
 				} else {
 					echo <<<NOTCODE
 				<div class="panel-body">
