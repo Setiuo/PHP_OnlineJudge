@@ -19,13 +19,13 @@ $dataID = intval($_GET['Data']);
 $inputData = '';
 $outputData = '';
 
-$sql = "SELECT `test" . $dataID . "_in`,`test" . $dataID . "_out` FROM `oj_problem_test` WHERE `problemID`=$problemID LIMIT 1";
+$sql = "SELECT `input`,`output` FROM `oj_problem_data` WHERE `problemID`=$problemID AND `testID`=$dataID LIMIT 1";
 $have = oj_mysql_query($sql);
 $row = oj_mysql_fetch_array($have);
 if ($row) {
 	$testData = $row;
-	$inputData = $testData["test" . $dataID . "_in"];
-	$outputData = $testData["test" . $dataID . "_out"];
+	$inputData = $testData["input"];
+	$outputData = $testData["output"];
 }
 ?>
 

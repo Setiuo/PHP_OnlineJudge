@@ -1,20 +1,6 @@
 <?php
 require_once('Php/LoadData.php');
 header("Content-Type: text/html; charset=utf-8"); //防止界面乱码
-
-$Skin = "";
-
-if (isset($LandUser)) {
-    $sql = "SELECT `skin` FROM `oj_user` WHERE `name`='" . $LandUser . "' LIMIT 1";
-    $rs = oj_mysql_query($sql);
-    if (!$rs) {
-        unset($_SESSION['username']);
-        header('Location: /Message.php?Msg=用户信息载入失败');
-        die();
-    }
-    $row = oj_mysql_fetch_array($rs);
-    $Skin = $row['skin'];
-}
 ?>
 
 <head>

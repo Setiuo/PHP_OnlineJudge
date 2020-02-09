@@ -19,15 +19,7 @@ $dataID = intval($_POST['dataID']);
 $inData = addslashes($_POST['inputData']);
 $outData = addslashes($_POST['outputData']);
 
-$sql = "SELECT `problemID` FROM `oj_problem_test` WHERE `problemID`=$problemID LIMIT 1";
-$have = oj_mysql_query($sql);
-$row = oj_mysql_fetch_array($have);
-if (!$row) {
-    $sql = "INSERT INTO `oj_problem_test` (`problemID`) VALUES ($problemID);";
-    oj_mysql_query($sql);
-}
-
-$sql = "UPDATE `oj_problem_test` SET `test" . $dataID . "_in`='$inData', `test" . $dataID . "_out`='$outData' WHERE `problemID` = $problemID LIMIT 1";
+$sql = "INSERT INTO oj_problem_data(problemID, testID, input, output) VALUE($problemID, $dataID, '$inData', '$outData') ON DUPLICATE KEY UPDATE `input`= '$inData', `output`='$outData'";
 $result = oj_mysql_query($sql);
 
 if ($result) {

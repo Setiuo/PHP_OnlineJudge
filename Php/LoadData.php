@@ -6,7 +6,7 @@ session_start();
 
 define("SQL_USER", "onlinejudge");
 define("SQL_PASSWORD", "sql_password");
-define("SQL_BASE", "onlinejujdge");
+define("SQL_BASE", "onlinejudge");
 
 function LoadData()
 {
@@ -15,10 +15,6 @@ function LoadData()
     global $WebHtmlTitle;
     global $Maintain;
     global $NowTime;
-    global $JudgeMac_1;
-    global $JudgeMac_2;
-    global $JudgeAllRun_1;
-    global $JudgeAllRun_2;
     global $JudgeMacRunID;
     global $con;
     global $OJ_Version;
@@ -44,20 +40,11 @@ function LoadData()
     $WebName = $row['oj_name'];
     $WebTitle = $row['oj_title'];
     $WebHtmlTitle = $row['oj_html_title'];
-    $JudgeMac_1 = $row['oj_EvaMacState_1'];
-    $JudgeMac_2 = $row['oj_EvaMacState_2'];
     $JudgeMacRunID = $row['oj_runid'];
-    $JudgeAllRun_1 = $row['oj_allrun_1'];
-    $JudgeAllRun_2 = $row['oj_allrun_2'];
 
     $Maintain = $row['maintain'];
 }
 LoadData();
-
-if ($Maintain == 1 && $_SERVER['PHP_SELF'] != "/Maintain.php") {
-    header('Location: /Maintain.php');
-    die();
-}
 
 //封装mysqli的query操作
 function oj_mysql_query($sql)
@@ -155,16 +142,18 @@ function check_captcha($code, $time)
 
 global $LandUser;
 global $User_Jurisdiction;
+global $Skin;
 $User_Jurisdiction = 0;
 
 if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
     $SessionID = session_id();
 
-    $sql = "SELECT `name`,`jurisdiction` FROM `oj_user` WHERE `name`='" . $_SESSION['username'] . "' AND `password`='" . $_SESSION['password'] . "' AND `sessionid`='" . $SessionID . "' LIMIT 1";
+    $sql = "SELECT `Skin`, `name`,`jurisdiction` FROM `oj_user` WHERE `name`='" . $_SESSION['username'] . "' AND `password`='" . $_SESSION['password'] . "' AND `sessionid`='" . $SessionID . "' LIMIT 1";
     $rs = mysqli_query($con, $sql);
     $row = oj_mysql_fetch_array($rs);
 
     if (isset($row) && $row) {
+        $Skin = $row['Skin'];
         $LandUser = $row['name'];
         $User_Jurisdiction = $row['jurisdiction'];
     } else {
@@ -176,6 +165,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 
 //权限验证
 require_once("Jurisdiction.php");
+
+if ($Maintain == 1 && !is_admin_max() && $_SERVER['PHP_SELF'] != "/Maintain.php") {
+    header('Location: /Maintain.php');
+    die();
+}
 
 const Wating = 0;
 const Pending = 1;
