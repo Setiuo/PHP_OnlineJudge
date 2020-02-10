@@ -238,15 +238,15 @@ while ($row = oj_mysql_fetch_array($result)) {
 
 				<select name="Status" class="form-control">
 					<option value="">All</option>
-					<option value=<?php echo Accepted; ?>>Accepted</option>
-					<option value=<?php echo PresentationError; ?>>Presentation Error</option>
-					<option value=<?php echo TimeLimitExceeded; ?>>Time Limit Exceeded</option>
-					<option value=<?php echo MemoryLimitExceeded; ?>>Memory Limit Exceeded</option>
-					<option value=<?php echo WrongAnswer; ?>>Wrong Answer</option>
-					<option value=<?php echo RuntimeError; ?>>Runtime Error</option>
-					<option value=<?php echo OutputLimitExceeded; ?>>Output Limit Exceeded</option>
-					<option value=<?php echo CompileError; ?>>Compile Error</option>
-					<option value=<?php echo SystemError; ?>>System Error</option>
+					<option value=<?php echo Accepted; ?>>correct</option>
+					<option value=<?php echo PresentationError; ?>>presentation-error</option>
+					<option value=<?php echo TimeLimitExceeded; ?>>timelimit</option>
+					<option value=<?php echo MemoryLimitExceeded; ?>>memorylimit</option>
+					<option value=<?php echo WrongAnswer; ?>>wrong-answer</option>
+					<option value=<?php echo RuntimeError; ?>>run-error</option>
+					<option value=<?php echo OutputLimitExceeded; ?>>outputlimit</option>
+					<option value=<?php echo CompileError; ?>>compile-error</option>
+					<option value=<?php echo SystemError; ?>>system-error</option>
 				</select>
 
 				<script language=JavaScript>

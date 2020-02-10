@@ -5,7 +5,7 @@
 session_start();
 
 define("SQL_USER", "onlinejudge");
-define("SQL_PASSWORD", "sql_password");
+define("SQL_PASSWORD", "sql_ieIAjVBw02");
 define("SQL_BASE", "onlinejudge");
 
 function LoadData()
@@ -183,5 +183,5 @@ const OutputLimitExceeded = 10;
 const CompileError = 11;
 const SystemError = 12;
 
-$AllStatusName = array("Wating", "Pending", "Compiling", "Running", "Correct", "Presentation Error", "Time Limit Exceeded", "Memory Limit Exceeded", "Wrong Answer", "Runtime Error", "Output Limit Exceeded", "Compile Error", "System Error");
+$AllStatusName = array("WATING", "PENDING", "COMPILING", "RUNNING", "CORRECT", "PRESENTATION-ERROR", "TIMELIMIT", "MEMORYLIMIT", "WRONG-ANSWER", "RUN-ERROR", "OUTPUTLIMIT", "COMPILER-ERROR", "SYSTEM-ERROR");
 $AllStatusCName = array("等待分配", "等待评测", "正在编译", "正在运行", "测试通过", "描述错误", "时间超限", "内存超限", "答案错误", "运行错误", "输出超限", "编译错误", "系统错误");

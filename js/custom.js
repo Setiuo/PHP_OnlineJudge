@@ -116,15 +116,15 @@ $("[data-href]").click(function() {
 $("[data-status]").each(function() {
   var that = $(this);
   var cls = {
-    Correct: "label-success",
-    "Presentation Error": "label-danger",
-    "Time Limit Exceeded": "label-danger",
-    "Memory Limit Exceeded": "label-danger",
-    "Wrong Answer": "label-danger",
-    "Runtime Error": "label-danger",
-    "Output Limit Exceeded": "label-danger",
-    "Compile Error": "label-warning",
-    "System Error": "label-danger"
+    CORRECT: "label-success",
+    "PRESENTATION-ERROR": "label-danger",
+    TIMELIMIT: "label-danger",
+    MEMORYLIMIT: "label-danger",
+    "WRONG-ANSWER": "label-danger",
+    "RUN-ERROR": "label-danger",
+    OUTPUTLIMIT: "label-danger",
+    "COMPILER-ERROR": "label-warning",
+    "SYSTEM-ERROR": "label-danger"
   }[that.attr("data-status")];
   if (!cls) cls = "label-primary";
   that.addClass(cls);
