@@ -4,9 +4,11 @@ function refreshStatus() {
     .find("tr")
     .each(function() {
       var tdArr = $(this).children();
-      var RunID_Data = tdArr.eq(0).text();
+      var ConID_Data = tdArr.eq(0).text();
+      var ConID = parseInt(ConID_Data);
+      var RunID_Data = tdArr.eq(1).text();
       var RunID = parseInt(RunID_Data);
-      var staticText = tdArr.eq(3).text();
+      var staticText = tdArr.eq(4).text();
 
       if (
         staticText == "等待分配 Wating" ||
@@ -18,7 +20,8 @@ function refreshStatus() {
           type: "post",
           url: "refreshStatus.php",
           data: {
-            RunID: RunID
+            ConID,
+            RunID
           },
           dataType: "json",
           success: function(msg) {
@@ -27,13 +30,11 @@ function refreshStatus() {
             if (msg != "") {
               data = eval("(" + msg + ")");
             }
-            tdArr.eq(3).html(data.status);
-            tdArr.eq(4).html(data.useTime);
-            tdArr.eq(5).html(data.useMemory);
+            tdArr.eq(4).html(data.status);
+            tdArr.eq(5).html(data.useTime);
+            tdArr.eq(6).html(data.useMemory);
           },
-          error: function(msg) {
-            console.log(msg);
-          }
+          error: function(msg) {}
         });
 
         NeedRefresh = true;

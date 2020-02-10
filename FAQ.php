@@ -62,7 +62,7 @@
 								<td>编译成功，正在进行测评</td>
 							</tr>
 							<tr>
-								<td><span class="label label-success">Accepted</span></td>
+								<td><span class="label label-success">Correct</span></td>
 								<td>AC</td>
 								<td>代码正确</td>
 							</tr>

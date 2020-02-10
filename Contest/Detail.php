@@ -8,25 +8,22 @@
 $RunID = 0;
 if (array_key_exists('RunID', $_GET)) {
 	$RunID = intval($_GET['RunID']);
-
-	if ($RunID > $JudgeMacRunID - 1) {
-		header('Location: /Message.php?Msg=信息获取出现错误');
-		die();
-	} else if ($RunID < 1) {
-		header('Location: /Message.php?Msg=信息获取出现错误');
-		die();
-	}
 } else {
 	header('Location: /Contest/Status.php');
 	die();
 }
 
 if (can_edit_contest($ConID)) {
-	$sql = "SELECT * FROM `oj_constatus` WHERE `RunID`='" . $RunID . "' LIMIT 1";
+	$sql = "SELECT * FROM `oj_constatus` WHERE `RunID`=$RunID AND `ConID`=$ConID LIMIT 1";
 } else {
-	$sql = "SELECT * FROM `oj_constatus` WHERE `RunID`='" . $RunID . "' AND `Show`=1 LIMIT 1";
+	$sql = "SELECT * FROM `oj_constatus` WHERE `RunID`=$RunID AND `ConID`=$ConID AND `Show`=1 LIMIT 1";
 }
 $rs = oj_mysql_query($sql);
+
+if (!$rs) {
+	header('Location: /Message.php?Msg=信息获取出现错误');
+}
+
 $row = oj_mysql_fetch_array($rs);
 if (!$row) {
 	header('Location: /Message.php?Msg=未找到该状态信息');
@@ -48,7 +45,7 @@ $Tails = $TF['tails'];
 
 $AllStatus = explode("|", $StatusData['AllStatus']);
 
-$sql = "SELECT `code`,`prohibit` FROM `oj_judge_task` WHERE `RunID`=" . $RunID . " LIMIT 1";
+$sql = "SELECT `code`,`prohibit` FROM `oj_judge_task` WHERE `runID`=$RunID AND `contestID`=$ConID LIMIT 1";
 $rs = oj_mysql_query($sql);
 $codeData = oj_mysql_fetch_array($rs);
 ?>
@@ -64,7 +61,7 @@ $codeData = oj_mysql_fetch_array($rs);
 	?>
 		<script>
 			function afreshEva(runID, conID) {
-				$.get("/Contest/AfreshEva.php?ReEva=" + runID + '&ConID=' + conID, function(msg) {
+				$.get("/Contest/AfreshEva.php?RunID=" + runID + "&ConID=" + conID, function(msg) {
 					var obj = eval('(' + msg + ')');
 					if (obj.status === 0) {
 						location.reload();
@@ -72,8 +69,8 @@ $codeData = oj_mysql_fetch_array($rs);
 				});
 			}
 
-			function changeStatusShow(runID) {
-				$.get("/Contest/StatusShow.php?RunID=" + runID, function(msg) {
+			function changeStatusShow(runID, conID) {
+				$.get("/Contest/StatusShow.php?RunID=" + runID + "&ConID=" + conID, function(msg) {
 					var obj = eval('(' + msg + ')');
 					if (obj.status === 0) {
 						location.reload();
@@ -89,8 +86,8 @@ $codeData = oj_mysql_fetch_array($rs);
 	if (is_admin_max()) {
 	?>
 		<script>
-			function changeCodeProhibit(runID) {
-				$.get("/Php/changeCodeProhibit.php?RunID=" + runID, function(msg) {
+			function changeCodeProhibit(runID, conID) {
+				$.get("/Php/changeCodeProhibit.php?RunID=" + runID + "&ConID=" + conID, function(msg) {
 					var obj = eval('(' + msg + ')');
 					if (obj.status === 0) {
 						location.reload();
@@ -141,16 +138,16 @@ $codeData = oj_mysql_fetch_array($rs);
 					}
 					if (can_edit_contest($ConID))
 						if ($StatusData['Show'] == 1) {
-							echo ' <a href="javascript:changeStatusShow(' . $RunID . ')" class="label label-primary">隐藏</a>';
+							echo ' <a href="javascript:changeStatusShow(' . $RunID . ',' . $ConID . ')" class="label label-primary">隐藏</a>';
 						} else {
-							echo ' <a href="javascript:changeStatusShow(' . $RunID . ')" class="label label-info">显示</a>';
+							echo ' <a href="javascript:changeStatusShow(' . $RunID . ',' . $ConID . ')" class="label label-info">显示</a>';
 						}
 
 					if (is_admin_max()) {
 						if ($codeData['prohibit'] == 0) {
-							echo ' <a href="javascript:changeCodeProhibit(' . $RunID . ')" class="label label-danger">隐藏代码</a>';
+							echo ' <a href="javascript:changeCodeProhibit(' . $RunID . ', ' . $ConID . ')" class="label label-danger">隐藏代码</a>';
 						} else {
-							echo ' <a href="javascript:changeCodeProhibit(' . $RunID . ')" class="label label-success">显示代码</a>';
+							echo ' <a href="javascript:changeCodeProhibit(' . $RunID . ', ' . $ConID . ')" class="label label-success">显示代码</a>';
 						}
 					}
 					?>
@@ -223,7 +220,7 @@ $codeData = oj_mysql_fetch_array($rs);
 					echo '<div class="panel-heading">编译错误信息</div>';
 					echo '<div class="panel-body">';
 
-					$sql = "SELECT `compileLog` FROM `oj_judge_compile_log` WHERE `runID`=" . $StatusData['RunID'] . " LIMIT 1";
+					$sql = "SELECT `compileLog` FROM `oj_judge_compile_log` WHERE `runID`=" . $StatusData['RunID'] . " AND `contestID`=$ConID LIMIT 1";
 					$rs = oj_mysql_query($sql);
 					$row = oj_mysql_fetch_array($rs);
 					$log = htmlspecialchars($row['compileLog']);
@@ -237,7 +234,7 @@ $codeData = oj_mysql_fetch_array($rs);
 					if ($StatusData['Status'] != Wating && $StatusData['Status'] != Pending && $StatusData['Status'] != Compiling && $StatusData['Status'] != Running) {
 						//编译警告
 						{
-							$sql = "SELECT `compileLog` FROM `oj_judge_compile_log` WHERE `runID`=" . $StatusData['RunID'] . " LIMIT 1";
+							$sql = "SELECT `compileLog` FROM `oj_judge_compile_log` WHERE `runID`=" . $StatusData['RunID'] . " AND `contestID`=$ConID LIMIT 1";
 							$rs = oj_mysql_query($sql);
 							$row = oj_mysql_fetch_array($rs);
 							$log = htmlspecialchars($row['compileLog']);

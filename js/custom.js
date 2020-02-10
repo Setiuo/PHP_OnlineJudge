@@ -116,7 +116,7 @@ $("[data-href]").click(function() {
 $("[data-status]").each(function() {
   var that = $(this);
   var cls = {
-    Accepted: "label-success",
+    Correct: "label-success",
     "Presentation Error": "label-danger",
     "Time Limit Exceeded": "label-danger",
     "Memory Limit Exceeded": "label-danger",

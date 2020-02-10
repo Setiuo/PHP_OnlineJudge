@@ -93,13 +93,13 @@ if ($standford_moss) {
         echo $e->getMessage();
     }
 
-    deleteDir("temp_code/");
-    mkdir("temp_code/", 0777, true);
+    deleteDir("temp_code/$ConID/");
+    mkdir("temp_code/$ConID/", 0777, true);
 }
 
 while ($StatusData = oj_mysql_fetch_array($statusData_result)) {
 
-    $sql = "SELECT `code` FROM `oj_judge_task` WHERE `RunID`=" . $StatusData['RunID'] . " LIMIT 1";
+    $sql = "SELECT `code` FROM `oj_judge_task` WHERE `runID`=" . $StatusData['RunID'] . " AND `contestID`=$ConID LIMIT 1";
     $rs = oj_mysql_query($sql);
     $row = oj_mysql_fetch_array($rs);
 
@@ -114,12 +114,12 @@ while ($StatusData = oj_mysql_fetch_array($statusData_result)) {
         );
 
     if ($standford_moss) {
-        $myfile = fopen("temp_code/" . $StatusData['RunID'], "w");
+        $myfile = fopen("temp_code/$ConID/" . $StatusData['RunID'], "w");
         fwrite($myfile, $row['code']);
         fclose($myfile);
 
         try {
-            $moss->addFile("temp_code/" . $StatusData['RunID']);
+            $moss->addFile("temp_code/$ConID/" . $StatusData['RunID']);
         } catch (Exception $e) {
             echo $e->getMessage();
         }
@@ -140,8 +140,8 @@ if ($standford_moss) {
     preg_match_all('/<A[^>]*([\s\S]*?)<\/A>/i', $result_html, $matches);
     $num = 1;
     foreach ($matches[1] as $iData) {
-        if (strstr($iData, '>temp_code/')) {
-            $data_id = get_between($iData, 'temp_code/', '(');
+        if (strstr($iData, ">temp_code/$ConID/")) {
+            $data_id = get_between($iData, "temp_code/$ConID/", '(');
             preg_match_all("/(?:\()(.*)(?:\))/i", $iData, $data_sim);
 
             if ($num % 2 == 1) {
@@ -158,7 +158,7 @@ if ($standford_moss) {
         }
     }
 
-    deleteDir("temp_code/");
+    deleteDir("temp_code/$ConID/");
 }
 
 foreach ($AllCodeData as  $iUserData) {

@@ -3,16 +3,16 @@ header('Content-Type:application/json; charset=gbk');
 
 require_once("../Php/LoadData.php");
 
-if (array_key_exists('RunID', $_POST)) {
+if (array_key_exists('RunID', $_POST) && array_key_exists('ConID', $_POST)) {
     $runID = intval($_POST['RunID']);
+    $conID = intval($_POST['ConID']);
 
-    $sql = "SELECT `ConID`,`Status`,`UseTime`,`UseMemory` FROM `oj_constatus` WHERE `RunID`='" . $runID . "' LIMIT 1";
+    $sql = "SELECT `Status`,`UseTime`,`UseMemory` FROM `oj_constatus` WHERE `RunID`=$runID AND `ConID`=$conID LIMIT 1";
     $rs = oj_mysql_query($sql);
 
     if ($rs) {
         $row = oj_mysql_fetch_array($rs);
 
-        $iConID = $row['ConID'];
         $iStatic = $row['Status'];
         $iUseTime = $row['UseTime'];
         $iUseMemory = $row['UseMemory'];
@@ -26,7 +26,7 @@ if (array_key_exists('RunID', $_POST)) {
         else if ($iStatic > Accepted)
             $iClass = 'label-danger';
 
-        $Status = '<a class="label ' . $iClass . '" href="/Contest/Detail.php?ConID=' . $iConID . '&RunID=' . $runID . '">' . $AllStatusCName[$iStatic] . ' ' . $AllStatusName[$iStatic] . '</a>';
+        $Status = '<a class="label ' . $iClass . '" href="/Contest/Detail.php?ConID=' . $conID . '&RunID=' . $runID . '">' . $AllStatusCName[$iStatic] . ' ' . $AllStatusName[$iStatic] . '</a>';
 
         //组合成json格式数据
         $data = "{status:'" . $Status . "',useTime:'" . $iUseTime . "',useMemory:'" . $iUseMemory . "'}";
