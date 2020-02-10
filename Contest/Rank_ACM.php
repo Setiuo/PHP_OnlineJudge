@@ -302,17 +302,17 @@ function my_sort($a, $b)
 
 usort($PeopleRank, "my_sort");
 ?>
+<table class="table table-striped table-hover text-center">
+	<thead>
+		<tr>
+			<th>排名</th>
+			<th>用户名</th>
+			<th>AC题数</th>
+			<th>罚时</th>
 
-<thead>
-	<tr>
-		<th>排名</th>
-		<th>用户名</th>
-		<th>AC题数</th>
-		<th>罚时</th>
-
-		<?php
-		for ($i = 0; $i < $ProNum; $i++) {
-			/*
+			<?php
+			for ($i = 0; $i < $ProNum; $i++) {
+				/*
 			$sql = "SELECT count(*) as value FROM `oj_constatus` WHERE `ConID` = " . $ConID . " AND `Status` = " . Accepted . " AND `Show` = 1 AND `Problem` = " . $i . " AND `SubTime`<'" . $FreezeTime . "'";
 			if (can_edit_contest($ConID)) {
 				$sql = "SELECT count(*) as value FROM `oj_constatus` WHERE `ConID` = " . $ConID . " AND `Status` = " . Accepted . " AND `Problem` = " . $i . " AND `SubTime`<'" . $FreezeTime . "'";
@@ -320,9 +320,9 @@ usort($PeopleRank, "my_sort");
 			$rs = oj_mysql_query($sql);
 			$PassProNum = oj_mysql_fetch_array($rs);
 			*/
-			$PassProNum = count_problem_ac($i, $FreezeTime);
+				$PassProNum = count_problem_ac($i, $FreezeTime);
 
-			/*
+				/*
 			$sql = "SELECT count(*) as value FROM `oj_constatus` WHERE `ConID` = " . $ConID . " AND `Show` = 1 AND `Problem` = " . $i;
 			if (can_edit_contest($ConID)) {
 				$sql = "SELECT count(*) as value FROM `oj_constatus` WHERE `ConID` = " . $ConID . " AND `Problem` = " . $i;
@@ -330,68 +330,69 @@ usort($PeopleRank, "my_sort");
 			$rs = oj_mysql_query($sql);
 			$AllProNum = oj_mysql_fetch_array($rs);
 			*/
-			$AllProNum = count_problem_submit($i);
+				$AllProNum = count_problem_submit($i);
 
-			echo '<th><a href="/Contest/Problem.php?ConID=' . $ConID . '&Problem=' . $ProEngNum[$i] . '">' . $ProEngNum[$i] . '(' . $PassProNum . '/' . $AllProNum . ')</a></th>';
+				echo '<th><a href="/Contest/Problem.php?ConID=' . $ConID . '&Problem=' . $ProEngNum[$i] . '">' . $ProEngNum[$i] . '(' . $PassProNum . '/' . $AllProNum . ')</a></th>';
+			}
+			?>
+
+		</tr>
+	</thead>
+	<tbody>
+		<?php
+		$RankNum = 0;
+		$LastACNum = -1;
+		$LastUsedTime = 0;
+		for ($i = 0; $i < $PeoNum; $i++) {
+			if (!$PeopleRank[$i]['User']) {
+				continue;
+			}
+
+			if ($LastACNum != $PeopleRank[$i]['ACNum'] ||  $LastUsedTime != $PeopleRank[$i]['TimePenalty']) {
+				$LastACNum = $PeopleRank[$i]['ACNum'];
+				$LastUsedTime = $PeopleRank[$i]['TimePenalty'];
+				$RankNum++;
+			}
+
+			echo '<tr>';
+
+			echo '<td>' . ($RankNum) . '</td>';
+			$TF = get_user_tailsAndFight($PeopleRank[$i]['User']);
+
+			echo '<td><a href="/OtherUser.php?User=' . $PeopleRank[$i]['User'] . '" class=' . GetUserColor($TF['fight']) . '>' . $PeopleRank[$i]['User'] . ($TF['tails'] ? '(' . $TF['tails'] . ')' : '') . '</a></td>';
+
+			if ($PeopleRank[$i]['ACNum'] == $ProNum) {
+				echo '<td class="rankyes" style="color:black">' . $PeopleRank[$i]['ACNum'] . '<br> <span style="color:red">All Killed</span> </td>';
+			} else {
+				echo '<td>' . $PeopleRank[$i]['ACNum'] . '</td>';
+			}
+
+			echo '<td>' . $PeopleRank[$i]['TimePenalty'] . '</td>';
+
+			for ($j = 0; $j < $ProNum; $j++) {
+				if (($PeopleRank[$i][$j]['AttemptNum'] + $PeopleRank[$i][$j]['PendNum']) > 1) {
+					$try_text = ' tries ';
+				} else {
+					$try_text = ' try ';
+				}
+
+				if ($PeopleRank[$i][$j]['ACStatus'] == 1) {
+					if ($PeopleRank[$i][$j]['FirstPass'] == 1) {
+						echo '<td class="SlateFixBlack rankfirst">' . $PeopleRank[$i][$j]['AttemptNum'] . $try_text . '<br><span class="tenaltyText">' . $PeopleRank[$i][$j]['UseTime'] . '</span></td>';
+					} else {
+						echo '<td class="SlateFixBlack rankyes">' . $PeopleRank[$i][$j]['AttemptNum'] . $try_text . '<br><span class="tenaltyText">' . $PeopleRank[$i][$j]['UseTime'] . '</span></td>';
+					}
+				} else if ($PeopleRank[$i][$j]['ACStatus'] == 2) {
+					echo '<td class="SlateFixBlack rankno">' . $PeopleRank[$i][$j]['AttemptNum'] . $try_text . '<br>' . $PeopleRank[$i][$j]['UseTime'] . '</td>';
+				} else if ($PeopleRank[$i][$j]['ACStatus'] == 3) {
+					echo '<td class="SlateFixBlack rankpending">' . $PeopleRank[$i][$j]['AttemptNum'] . ' + ' . $PeopleRank[$i][$j]['PendNum'] . $try_text . '<br>' . $PeopleRank[$i][$j]['UseTime'] . '</td>';
+				} else {
+					echo '<td></td>';
+				}
+			}
+
+			echo '</tr>';
 		}
 		?>
-
-	</tr>
-</thead>
-<tbody>
-	<?php
-	$RankNum = 0;
-	$LastACNum = -1;
-	$LastUsedTime = 0;
-	for ($i = 0; $i < $PeoNum; $i++) {
-		if (!$PeopleRank[$i]['User']) {
-			continue;
-		}
-
-		if ($LastACNum != $PeopleRank[$i]['ACNum'] ||  $LastUsedTime != $PeopleRank[$i]['TimePenalty']) {
-			$LastACNum = $PeopleRank[$i]['ACNum'];
-			$LastUsedTime = $PeopleRank[$i]['TimePenalty'];
-			$RankNum++;
-		}
-
-		echo '<tr>';
-
-		echo '<td>' . ($RankNum) . '</td>';
-		$TF = get_user_tailsAndFight($PeopleRank[$i]['User']);
-
-		echo '<td><a href="/OtherUser.php?User=' . $PeopleRank[$i]['User'] . '" class=' . GetUserColor($TF['fight']) . '>' . $PeopleRank[$i]['User'] . ($TF['tails'] ? '(' . $TF['tails'] . ')' : '') . '</a></td>';
-
-		if ($PeopleRank[$i]['ACNum'] == $ProNum) {
-			echo '<td class="rankyes" style="color:black">' . $PeopleRank[$i]['ACNum'] . '<br> <span style="color:red">All Killed</span> </td>';
-		} else {
-			echo '<td>' . $PeopleRank[$i]['ACNum'] . '</td>';
-		}
-
-		echo '<td>' . $PeopleRank[$i]['TimePenalty'] . '</td>';
-
-		for ($j = 0; $j < $ProNum; $j++) {
-			if (($PeopleRank[$i][$j]['AttemptNum'] + $PeopleRank[$i][$j]['PendNum']) > 1) {
-				$try_text = ' tries ';
-			} else {
-				$try_text = ' try ';
-			}
-
-			if ($PeopleRank[$i][$j]['ACStatus'] == 1) {
-				if ($PeopleRank[$i][$j]['FirstPass'] == 1) {
-					echo '<td class="SlateFixBlack rankfirst">' . $PeopleRank[$i][$j]['AttemptNum'] . $try_text . '<br><span class="tenaltyText">' . $PeopleRank[$i][$j]['UseTime'] . '</span></td>';
-				} else {
-					echo '<td class="SlateFixBlack rankyes">' . $PeopleRank[$i][$j]['AttemptNum'] . $try_text . '<br><span class="tenaltyText">' . $PeopleRank[$i][$j]['UseTime'] . '</span></td>';
-				}
-			} else if ($PeopleRank[$i][$j]['ACStatus'] == 2) {
-				echo '<td class="SlateFixBlack rankno">' . $PeopleRank[$i][$j]['AttemptNum'] . $try_text . '<br>' . $PeopleRank[$i][$j]['UseTime'] . '</td>';
-			} else if ($PeopleRank[$i][$j]['ACStatus'] == 3) {
-				echo '<td class="SlateFixBlack rankpending">' . $PeopleRank[$i][$j]['AttemptNum'] . ' + ' . $PeopleRank[$i][$j]['PendNum'] . $try_text . '<br>' . $PeopleRank[$i][$j]['UseTime'] . '</td>';
-			} else {
-				echo '<td></td>';
-			}
-		}
-
-		echo '</tr>';
-	}
-	?>
-</tbody>
+	</tbody>
+</table>

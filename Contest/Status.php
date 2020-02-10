@@ -199,9 +199,6 @@ while ($row = oj_mysql_fetch_array($result)) {
 	);
 }
 
-//按运行ID排序
-//$arr1 = array_map(create_function('$n', 'return $n["RunID"];'), $AllStatus);
-//array_multisort($arr1, SORT_DESC, $AllStatus);
 ?>
 
 <body>
@@ -214,7 +211,7 @@ while ($row = oj_mysql_fetch_array($result)) {
 	?>
 		<script>
 			function afreshEva(runID, conID) {
-				$.get("/Contest/AfreshEva.php?ReEva=" + runID + '&ConID=' + conID, function(msg) {
+				$.get("/Contest/AfreshEva.php?RunID=" + runID + '&ConID=' + conID, function(msg) {
 					var obj = eval('(' + msg + ')');
 					if (obj.status === 0) {
 						location.reload();
@@ -222,8 +219,8 @@ while ($row = oj_mysql_fetch_array($result)) {
 				});
 			}
 
-			function changeStatusShow(runID) {
-				$.get("/Contest/StatusShow.php?RunID=" + runID, function(msg) {
+			function changeStatusShow(runID, conID) {
+				$.get("/Contest/StatusShow.php?RunID=" + runID + "&ConID=" + conID, function(msg) {
 					var obj = eval('(' + msg + ')');
 					if (obj.status === 0) {
 						location.reload();
@@ -335,6 +332,7 @@ while ($row = oj_mysql_fetch_array($result)) {
 					<table class="table table-striped table-hover" id="StatusTable">
 						<thead>
 							<tr>
+								<th hidden>比赛ID</th>
 								<th>运行ID</th>
 								<th>用户</th>
 								<th>题号</th>
@@ -355,33 +353,16 @@ while ($row = oj_mysql_fetch_array($result)) {
 						<tbody>
 							<?php
 							for ($i = 0; $i < MaxRankNum; $i++) {
-								if (!isset($AllStatus[$i]['RunID'])) {
+								if (!isset($AllStatus[$i]['RunID']) || !isset($AllStatus[$i]['ConID'])) {
 									continue;
 								}
+
+								$TF = get_user_tailsAndFight($AllStatus[$i]['User']);
 								if ($ConData['Rule'] == 'OI' && !can_edit_contest($ConID) && $NowDate <= $ConData['OverTime']) {
-									$TF = get_user_tailsAndFight($AllStatus[$i]['User']);
-
 									echo '<tr>';
+									echo '<td hidden>' . $AllStatus[$i]['ConID'] . '</td>';
 
-									if (can_edit_contest($ConID)) {
-										unset($_GET['ReEva']);
-										echo '<td>';
-										echo $AllStatus[$i]['RunID'];
-										echo ' &nbsp;';
-										echo '<a href="javascript:afreshEva(' . $AllStatus[$i]['RunID'] . ',' . $AllStatus[$i]['ConID'] . ')" class="label label-warning">重测</a>';
-
-										echo ' <a class="label label-default" href="/Contest/ShowLog.php?ConID=' . $AllStatus[$i]['ConID'] . '&RunID=' . $AllStatus[$i]['RunID'] . '" >日志</a>';
-
-										if ($AllStatus[$i]['Show'] == 1) {
-											echo ' <a href="javascript:changeStatusShow(' . $AllStatus[$i]['RunID'] . ')" class="label label-primary">隐藏</a>';
-										} else {
-											echo ' <a href="javascript:changeStatusShow(' . $AllStatus[$i]['RunID'] . ')" class="label label-info">显示</a>';
-										}
-
-										echo '</td>';
-									} else {
-										echo '<td>' . $AllStatus[$i]['RunID'] . '</td>';
-									}
+									echo '<td>' . $AllStatus[$i]['RunID'] . '</td>';
 
 									echo '<td>';
 									echo '<a href="/OtherUser.php?User=' . $AllStatus[$i]['User'] . '" class=' . GetUserColor($TF['fight']) . '>' . $AllStatus[$i]['User'] . ($TF['tails'] ? '(' . $TF['tails'] . ')' : '') . '</a>';
@@ -409,21 +390,20 @@ while ($row = oj_mysql_fetch_array($result)) {
 
 									echo '</tr>';
 								} else {
-									$TF = get_user_tailsAndFight($AllStatus[$i]['User']);
-
 									echo '<tr>';
 
+									echo '<td hidden>' . $AllStatus[$i]['ConID'] . '</td>';
 									if (can_edit_contest($ConID)) {
-										unset($_GET['ReEva']);
+										unset($_GET['RunID']);
 										echo '<td>';
 										echo $AllStatus[$i]['RunID'];
 										echo ' &nbsp;';
-										echo '<a onclick="afreshEva(' . $AllStatus[$i]['RunID'] . ',' . $AllStatus[$i]['ConID'] . ')" class="label label-warning" href="">重测</a>';
+										echo '<a href="javascript:afreshEva(' . $AllStatus[$i]['RunID'] . ',' . $AllStatus[$i]['ConID'] . ')" class="label label-warning">重测</a>';
 
 										if ($AllStatus[$i]['Show'] == 1) {
-											echo ' <a onclick="changeStatusShow(' . $AllStatus[$i]['RunID'] . ')" class="label label-primary" href="" >隐藏</a>';
+											echo ' <a href="javascript:changeStatusShow(' . $AllStatus[$i]['RunID'] . ',' . $AllStatus[$i]['ConID'] . ')" class="label label-primary">隐藏</a>';
 										} else {
-											echo ' <a onclick="changeStatusShow(' . $AllStatus[$i]['RunID'] . ')" class="label label-info" href="" >显示</a>';
+											echo ' <a href="javascript:changeStatusShow(' . $AllStatus[$i]['RunID'] . ',' . $AllStatus[$i]['ConID'] . ')" class="label label-info">显示</a>';
 										}
 										echo '</td>';
 									} else {

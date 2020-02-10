@@ -74,14 +74,10 @@ if (isset($_POST["code"]) && isset($_POST["language"]) && isset($_POST["ConID"])
 	$ProblemData = oj_mysql_fetch_array($result);
 
 	//获取运行ID
-	$RunID = $JudgeMacRunID;
-
-	/*
-	//输出代码文件
-	$myfile = fopen("../Judge/Temporary_Code/" . $RunID, "w");
-	fwrite($myfile, $_POST["code"]);
-	fclose($myfile);
-	*/
+	$sql = 'SELECT max(RunID) AS VALUE FROM `oj_constatus` WHERE `ConID`=' . $ConID;
+	$res = oj_mysql_query($sql);
+	$resArray = oj_mysql_fetch_array($res);
+	$RunID = max(1, $resArray['VALUE'] + 1);
 
 	//评测模式
 	$JudgeType = 2;
@@ -96,31 +92,11 @@ if (isset($_POST["code"]) && isset($_POST["language"]) && isset($_POST["ConID"])
 	$sql = 'INSERT INTO oj_judge_task(`runID`, `contestID`, `user`, `problemID`, `language`, `judgeType`, `limitTime`, `limitMemory`, `test`, `code`, `isRead`) values(' . $RunID . ', ' . $ConID . ', "' . $LandUser . '", ' . $AllProblem[$ConProblemID] . ', "' . $Language . '", ' . $JudgeType . ', ' . $ProblemData['LimitTime'] . ', ' . $ProblemData['LimitMemory'] . ', "' . $ProblemData['Test'] . '", "' . addslashes($_POST["code"]) . '", 0)';
 	$result = oj_mysql_query($sql);
 
-	/*
-	//输出评测信息
-	$myfile = fopen("../Judge/log/data_" . $RunID, "w");
-	fwrite($myfile, $Language);
-	fwrite($myfile, '|' . $LandUser);
-	fwrite($myfile, '|' . $AllProblem[$ConProblemID]);
-	fwrite($myfile, '|' . $JudgeType);
-	fwrite($myfile, '|' . $ProblemData['LimitTime']);
-	fwrite($myfile, '|' . $ProblemData['LimitMemory']);
-	fwrite($myfile, '|');
-	fwrite($myfile, $ProblemData['Test']);
-	fclose($myfile);
-	copy("../Judge/log/data_" . $RunID, "../Judge/Temporary_ContestData/" . $RunID);
-	*/
-
 	$CodeLen = mb_strlen($_POST["code"], "utf-8");
 	$NowTime = date('Y-m-d H:i:s');
 	//向数据库中插入状态
 	$sql = 'INSERT INTO oj_constatus(`RunID`, `ConID`, `User`, `Problem`, `Status`, `UseTime`, `UseMemory`, `Language`, `CodeLen`, `SubTime`, `AllStatus`, `Show`) values(' . $RunID . ', ' . $ConID . ', "' . $LandUser . '", ' . $ConProblemID . ', ' . Wating . ', -1, -1, "' . $Language . '", ' . $CodeLen . ', "' . $NowTime . '", " ", ' . $ProblemData['Show'] . ')';
 	$result = oj_mysql_query($sql);
-
-	//更新运行ID
-	$RunID = $RunID + 1;
-	$sql = "UPDATE oj_data SET oj_runid='$RunID' WHERE oj_name='$WebName'";
-	oj_mysql_query($sql);
 
 	//清空post值
 	unset($_POST['code']);

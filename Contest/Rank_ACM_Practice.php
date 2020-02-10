@@ -172,97 +172,99 @@ function my_sort($a, $b)
 usort($PeopleRank, "my_sort");
 ?>
 
-<thead>
-	<tr>
-		<th>排名</th>
-		<th>用户名</th>
-		<th>AC题数</th>
-		<th>罚时</th>
-		<th>已通过题目</th>
-		<th>未通过题目</th>
-		<th>未尝试</th>
+<table class="table table-striped table-hover text-center">
+	<thead>
+		<tr>
+			<th>排名</th>
+			<th>用户名</th>
+			<th>AC题数</th>
+			<th>罚时</th>
+			<th>已通过题目</th>
+			<th>未通过题目</th>
+			<th>未尝试</th>
+			<?php
+			?>
+
+		</tr>
+	</thead>
+	<tbody>
 		<?php
+		$RankNum = 0;
+		$LastACNum = -1;
+		$LastUsedTime = 0;
+
+		for ($i = 0; $i < $PeoNum; $i++) {
+			if (!$PeopleRank[$i]['User']) {
+				continue;
+			}
+			if ($LastACNum != $PeopleRank[$i]['ACNum'] ||  $LastUsedTime != $PeopleRank[$i]['TimePenalty']) {
+				$LastACNum = $PeopleRank[$i]['ACNum'];
+				$LastUsedTime = $PeopleRank[$i]['TimePenalty'];
+				$RankNum++;
+			}
+
+			echo '<tr>';
+
+			echo '<td>' . ($RankNum) . '</td>';
+			$TF = get_user_tailsAndFight($PeopleRank[$i]['User']);
+			echo '<td><a href="/OtherUser.php?User=' . $PeopleRank[$i]['User'] . '" class=' . GetUserColor($TF['fight']) . '>' . $PeopleRank[$i]['User'] . ($TF['tails'] ? '(' . $TF['tails'] . ')' : '') . '</a></td>';
+
+			if ($PeopleRank[$i]['ACNum'] == $ProNum) {
+				echo '<td class="rankyes" style="color:black">' . $PeopleRank[$i]['ACNum'] . '</td>';
+			} else {
+				echo '<td>' . $PeopleRank[$i]['ACNum'] . '</td>';
+			}
+
+			echo '<td>' . $PeopleRank[$i]['TimePenalty'] . '</td>';
+
+			if (isset($PeopleRank[$i]['Pass'])) {
+				$passCount = count($PeopleRank[$i]['Pass']);
+
+				echo '<td class="SlateFixBlack rankyes">';
+				for ($j = 0; $j < $passCount; $j++) {
+
+					echo $ProEngNum[$PeopleRank[$i]['Pass'][$j]['problemID']];
+					if ($PeopleRank[$i]['Pass'][$j]['try'] > 0)
+						echo  '(<font color="red">+' . $PeopleRank[$i]['Pass'][$j]['try'] . '</font>)';
+					echo ' ';
+				}
+				echo '</td>';
+			} else {
+				echo '<td></td>';
+			}
+
+			if (isset($PeopleRank[$i]['noPass'])) {
+				$noPassCount = count($PeopleRank[$i]['noPass']);
+
+				echo '<td class="SlateFixBlack rankno">';
+				for ($j = 0; $j < $noPassCount; $j++) {
+
+					echo $ProEngNum[$PeopleRank[$i]['noPass'][$j]['problemID']];
+					if ($PeopleRank[$i]['noPass'][$j]['try'] > 0)
+						echo  '(<font color="red">+' . $PeopleRank[$i]['noPass'][$j]['try'] . '</font>)';
+					echo ' ';
+				}
+				echo '</td>';
+			} else {
+				echo '<td></td>';
+			}
+
+
+			if (isset($PeopleRank[$i]['noSubmit'])) {
+				$noSubmitCount = count($PeopleRank[$i]['noSubmit']);
+
+				echo '<td>';
+				for ($j = 0; $j < $noSubmitCount; $j++) {
+
+					echo $ProEngNum[$PeopleRank[$i]['noSubmit'][$j]] . ' ';
+				}
+				echo '</td>';
+			} else {
+				echo '<td></td>';
+			}
+
+			echo '</tr>';
+		}
 		?>
-
-	</tr>
-</thead>
-<tbody>
-	<?php
-	$RankNum = 0;
-	$LastACNum = -1;
-	$LastUsedTime = 0;
-
-	for ($i = 0; $i < $PeoNum; $i++) {
-		if (!$PeopleRank[$i]['User']) {
-			continue;
-		}
-		if ($LastACNum != $PeopleRank[$i]['ACNum'] ||  $LastUsedTime != $PeopleRank[$i]['TimePenalty']) {
-			$LastACNum = $PeopleRank[$i]['ACNum'];
-			$LastUsedTime = $PeopleRank[$i]['TimePenalty'];
-			$RankNum++;
-		}
-
-		echo '<tr>';
-
-		echo '<td>' . ($RankNum) . '</td>';
-		$TF = get_user_tailsAndFight($PeopleRank[$i]['User']);
-		echo '<td><a href="/OtherUser.php?User=' . $PeopleRank[$i]['User'] . '" class=' . GetUserColor($TF['fight']) . '>' . $PeopleRank[$i]['User'] . ($TF['tails'] ? '(' . $TF['tails'] . ')' : '') . '</a></td>';
-
-		if ($PeopleRank[$i]['ACNum'] == $ProNum) {
-			echo '<td class="rankyes" style="color:black">' . $PeopleRank[$i]['ACNum'] . '</td>';
-		} else {
-			echo '<td>' . $PeopleRank[$i]['ACNum'] . '</td>';
-		}
-
-		echo '<td>' . $PeopleRank[$i]['TimePenalty'] . '</td>';
-
-		if (isset($PeopleRank[$i]['Pass'])) {
-			$passCount = count($PeopleRank[$i]['Pass']);
-
-			echo '<td class="SlateFixBlack rankyes">';
-			for ($j = 0; $j < $passCount; $j++) {
-
-				echo $ProEngNum[$PeopleRank[$i]['Pass'][$j]['problemID']];
-				if ($PeopleRank[$i]['Pass'][$j]['try'] > 0)
-					echo  '(<font color="red">+' . $PeopleRank[$i]['Pass'][$j]['try'] . '</font>)';
-				echo ' ';
-			}
-			echo '</td>';
-		} else {
-			echo '<td></td>';
-		}
-
-		if (isset($PeopleRank[$i]['noPass'])) {
-			$noPassCount = count($PeopleRank[$i]['noPass']);
-
-			echo '<td class="SlateFixBlack rankno">';
-			for ($j = 0; $j < $noPassCount; $j++) {
-
-				echo $ProEngNum[$PeopleRank[$i]['noPass'][$j]['problemID']];
-				if ($PeopleRank[$i]['noPass'][$j]['try'] > 0)
-					echo  '(<font color="red">+' . $PeopleRank[$i]['noPass'][$j]['try'] . '</font>)';
-				echo ' ';
-			}
-			echo '</td>';
-		} else {
-			echo '<td></td>';
-		}
-
-
-		if (isset($PeopleRank[$i]['noSubmit'])) {
-			$noSubmitCount = count($PeopleRank[$i]['noSubmit']);
-
-			echo '<td>';
-			for ($j = 0; $j < $noSubmitCount; $j++) {
-
-				echo $ProEngNum[$PeopleRank[$i]['noSubmit'][$j]] . ' ';
-			}
-			echo '</td>';
-		} else {
-			echo '<td></td>';
-		}
-
-		echo '</tr>';
-	}
-	?>
-</tbody>
+	</tbody>
+</table>

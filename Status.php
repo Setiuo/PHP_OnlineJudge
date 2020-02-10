@@ -172,10 +172,6 @@ while ($row = oj_mysql_fetch_array($result)) {
 		"Show" => $row['Show']
 	);
 }
-
-//按运行ID排序
-//$arr1 = array_map(create_function('$n', 'return $n["RunID"];'), $AllStatus);
-//array_multisort($arr1, SORT_DESC, $AllStatus);
 ?>
 
 <body>
@@ -187,7 +183,7 @@ while ($row = oj_mysql_fetch_array($result)) {
 	?>
 		<script>
 			function afreshEva(runID) {
-				$.get("/Php/AfreshEva.php?ReEva=" + runID, function(msg) {
+				$.get("/Php/AfreshEva.php?RunID=" + runID, function(msg) {
 					var obj = eval('(' + msg + ')');
 					if (obj.status === 0) {
 						location.reload();
@@ -305,7 +301,7 @@ while ($row = oj_mysql_fetch_array($result)) {
 						echo '<tr>';
 
 						if (is_admin()) {
-							unset($_GET['ReEva']);
+							unset($_GET['RunID']);
 							echo '<td>';
 							echo $AllStatus[$i]['RunID'];
 							echo ' &nbsp;';

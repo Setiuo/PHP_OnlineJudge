@@ -15,12 +15,11 @@ function LoadData()
     global $WebHtmlTitle;
     global $Maintain;
     global $NowTime;
-    global $JudgeMacRunID;
     global $con;
     global $OJ_Version;
 
     //设置版本号，用来更新客户端缓存资源
-    $OJ_Version = 4;
+    $OJ_Version = 6;
 
     //设置时区
     date_default_timezone_set('Asia/Shanghai');
@@ -40,7 +39,6 @@ function LoadData()
     $WebName = $row['oj_name'];
     $WebTitle = $row['oj_title'];
     $WebHtmlTitle = $row['oj_html_title'];
-    $JudgeMacRunID = $row['oj_runid'];
 
     $Maintain = $row['maintain'];
 }
@@ -185,5 +183,5 @@ const OutputLimitExceeded = 10;
 const CompileError = 11;
 const SystemError = 12;
 
-$AllStatusName = array("Wating", "Pending", "Compiling", "Running", "Accepted", "Presentation Error", "Time Limit Exceeded", "Memory Limit Exceeded", "Wrong Answer", "Runtime Error", "Output Limit Exceeded", "Compile Error", "System Error");
+$AllStatusName = array("Wating", "Pending", "Compiling", "Running", "Correct", "Presentation Error", "Time Limit Exceeded", "Memory Limit Exceeded", "Wrong Answer", "Runtime Error", "Output Limit Exceeded", "Compile Error", "System Error");
 $AllStatusCName = array("等待分配", "等待评测", "正在编译", "正在运行", "测试通过", "描述错误", "时间超限", "内存超限", "答案错误", "运行错误", "输出超限", "编译错误", "系统错误");

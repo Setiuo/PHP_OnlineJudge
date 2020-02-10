@@ -4,7 +4,7 @@ header('Content-Type:application/json; charset=gbk');
 require_once("LoadData.php");
 
 if (is_admin()) {
-	$runID = intval($_GET['ReEva']);
+	$runID = intval($_GET['RunID']);
 
 	//for ($runID = 1; $runID <= 143; $runID++)
 	{
@@ -21,21 +21,8 @@ if (is_admin()) {
 			$result = oj_mysql_query($sql);
 			$ProblemData = oj_mysql_fetch_array($result);
 
-			$sql = "UPDATE `oj_judge_task` SET `judgeType`=2, `limitTime`=" . $ProblemData['LimitTime'] . ", `limitMemory`=" . $ProblemData['LimitMemory'] . ", `test`='" . $ProblemData['Test'] . "', `isRead`=0 WHERE `RunID`=" . $runID;
+			$sql = "UPDATE `oj_judge_task` SET `judgeType`=2, `limitTime`=" . $ProblemData['LimitTime'] . ", `limitMemory`=" . $ProblemData['LimitMemory'] . ", `test`='" . $ProblemData['Test'] . "', `isRead`=0 WHERE `runID`=$runID AND `contestID`=0";
 			$result = oj_mysql_query($sql);
-			/*
-			$myfile = fopen("../Judge/log/data_" . $runID, "w");
-			fwrite($myfile, $StatusData['Language']);
-			fwrite($myfile, '|' . $StatusData['User']);
-			fwrite($myfile, '|' . $StatusData['Problem']);
-			fwrite($myfile, '|2');
-			fwrite($myfile, '|' . $ProblemData['LimitTime']);
-			fwrite($myfile, '|' . $ProblemData['LimitMemory']);
-			fwrite($myfile, '|');
-			fwrite($myfile, $ProblemData['Test']);
-			fclose($myfile);
-			copy("../Judge/log/data_" . $runID, "../Judge/Temporary_Data/" . $runID);
-			*/
 
 			echo  json_encode("{status: 0}");
 		} else {

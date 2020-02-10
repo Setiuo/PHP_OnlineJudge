@@ -4,13 +4,13 @@ Navicat MySQL Data Transfer
 Source Server         : 127.0.0.1_3306
 Source Server Version : 80018
 Source Host           : 127.0.0.1:3306
-Source Database       : new_oj_db
+Source Database       : oj_newnew
 
 Target Server Type    : MYSQL
 Target Server Version : 80018
 File Encoding         : 65001
 
-Date: 2020-02-09 20:49:32
+Date: 2020-02-10 17:21:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,9 +33,13 @@ CREATE TABLE `oj_constatus` (
   `AllStatus` varchar(1000) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '测试点状态',
   `Show` int(11) NOT NULL COMMENT '是否显示',
   `Judger` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  UNIQUE KEY `RunID_2` (`RunID`),
+  UNIQUE KEY `RunID_2` (`RunID`,`ConID`),
   KEY `runID` (`RunID`,`ConID`),
-  KEY `SubTime` (`SubTime`)
+  KEY `SubTime` (`SubTime`),
+  KEY `Problem` (`Problem`),
+  KEY `Status` (`Status`),
+  KEY `Show` (`Show`),
+  KEY `User` (`User`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
@@ -85,7 +89,6 @@ CREATE TABLE `oj_data` (
   `oj_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '网站名称',
   `oj_html_title` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '标题',
   `oj_title` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '副名称',
-  `oj_runid` int(11) NOT NULL,
   `maintain` int(11) NOT NULL COMMENT '是否维护网站',
   UNIQUE KEY `oj_name` (`oj_name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -93,7 +96,7 @@ CREATE TABLE `oj_data` (
 -- ----------------------------
 -- Records of oj_data
 -- ----------------------------
-INSERT INTO `oj_data` VALUES ('SEOJ', 'OnlineJudge - 评测平台', 'OnlineJudge - 源程序判题系统', '1', '0');
+INSERT INTO `oj_data` VALUES ('SEOJ', 'OnlineJudge - 评测平台', 'OnlineJudge - 源程序判题系统', '1');
 
 -- ----------------------------
 -- Table structure for oj_judger
@@ -120,7 +123,8 @@ CREATE TABLE `oj_judge_compile_log` (
   `contestID` int(11) DEFAULT NULL,
   `runID` int(11) DEFAULT NULL,
   `compileLog` text CHARACTER SET utf8 COLLATE utf8_bin,
-  UNIQUE KEY `contestID` (`contestID`,`runID`) USING BTREE
+  UNIQUE KEY `contestID_2` (`contestID`,`runID`),
+  KEY `contestID` (`contestID`,`runID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
@@ -143,8 +147,8 @@ CREATE TABLE `oj_judge_task` (
   `test` text CHARACTER SET utf8 COLLATE utf8_bin,
   `code` longtext CHARACTER SET utf8 COLLATE utf8_bin,
   `isRead` int(11) DEFAULT NULL,
-  `prohibit` int(11) DEFAULT NULL,
-  UNIQUE KEY `runID_2` (`runID`),
+  `prohibit` int(11) NOT NULL COMMENT '禁止查看代码',
+  UNIQUE KEY `runID_2` (`runID`,`contestID`),
   KEY `finish` (`isRead`),
   KEY `runID` (`runID`,`contestID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -244,7 +248,7 @@ CREATE TABLE `oj_user` (
   `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '用户姓名',
   `uid` int(11) NOT NULL COMMENT '用户ID',
   `password` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '用户密码',
-  `jurisdicton` int(11) NOT NULL COMMENT '权限',
+  `jurisdiction` int(11) NOT NULL COMMENT '权限',
   `signature` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '签名',
   `email` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '邮箱',
   `regtime` datetime NOT NULL COMMENT '注册时间',

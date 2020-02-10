@@ -25,18 +25,6 @@ if (!can_read_log()) {
 		echo '<pre class="SlateFix">';
 
 		echo '评测日志需要在评测机端查看';
-		/*
-		$File_Path = '../Judge/log/Judge_' . $RunID . '.log';
-
-		if (file_exists($File_Path)) {
-			$file_arr = file($File_Path);
-
-			for ($i = 0; $i < count($file_arr); $i++) {
-				$str_encode = mb_convert_encoding($file_arr[$i], 'UTF-8', 'GBK');
-				echo $str_encode;
-			}
-		}
-		*/
 
 		echo '</pre>';
 		echo '</div>';

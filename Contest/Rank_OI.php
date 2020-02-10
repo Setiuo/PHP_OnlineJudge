@@ -1,7 +1,7 @@
 <?php
 if (!can_edit_contest($ConID) && ($NowDate <= $ConData['OverTime'])) {
 	echo '<h3 class="text-center">注意：OI赛制不实时显示排名</h3>';
-	die();
+	return;
 }
 
 $PeopleRank = array();
@@ -60,72 +60,73 @@ function my_sort($a, $b)
 
 usort($PeopleRank, "my_sort");
 ?>
+<table class="table table-striped table-hover text-center">
+	<thead>
+		<tr>
+			<th>排名</th>
+			<th>用户名</th>
+			<th>得分</th>
 
-<thead>
-	<tr>
-		<th>排名</th>
-		<th>用户名</th>
-		<th>得分</th>
+			<?php
+			for ($i = 0; $i < $ProNum; $i++) {
+				$sql = "SELECT count(*) AS value FROM `oj_constatus` WHERE `ConID` = " . $ConID . " AND `Status` = " . Accepted . " AND `Show` = 1 AND `Problem` = " . $i;
+				if (can_edit_contest($ConID)) {
+					$sql = "SELECT count(*) AS value FROM `oj_constatus` WHERE `ConID` = " . $ConID . " AND `Status` = " . Accepted . " AND `Problem` = " . $i;
+				}
+				$rs = oj_mysql_query($sql);
+				$PassProNum = oj_mysql_fetch_array($rs);
 
+				$sql = "SELECT count(*) AS value FROM `oj_constatus` WHERE `ConID` = " . $ConID . " AND `Show` = 1 AND `Problem` = " . $i;
+				if (can_edit_contest($ConID)) {
+					$sql = "SELECT count(*) AS value FROM `oj_constatus` WHERE `ConID` = " . $ConID . " AND `Problem` = " . $i;
+				}
+				$rs = oj_mysql_query($sql);
+				$AllProNum = oj_mysql_fetch_array($rs);
+
+				echo '<th><a href="/Contest/Problem.php?ConID=' . $ConID . '&Problem=' . $ProEngNum[$i] . '">' . $ProEngNum[$i] . '(' . $PassProNum['value'] . '/' . $AllProNum['value'] . ')</a></th>';
+			}
+			?>
+
+		</tr>
+	</thead>
+	<tbody>
 		<?php
-		for ($i = 0; $i < $ProNum; $i++) {
-			$sql = "SELECT count(*) AS value FROM `oj_constatus` WHERE `ConID` = " . $ConID . " AND `Status` = " . Accepted . " AND `Show` = 1 AND `Problem` = " . $i;
-			if (can_edit_contest($ConID)) {
-				$sql = "SELECT count(*) AS value FROM `oj_constatus` WHERE `ConID` = " . $ConID . " AND `Status` = " . Accepted . " AND `Problem` = " . $i;
-			}
-			$rs = oj_mysql_query($sql);
-			$PassProNum = oj_mysql_fetch_array($rs);
+		//排名计算
+		$LastPeoScore = 0;
+		$PeoRank = 0;
+		$EqualRank = 1;
 
-			$sql = "SELECT count(*) AS value FROM `oj_constatus` WHERE `ConID` = " . $ConID . " AND `Show` = 1 AND `Problem` = " . $i;
-			if (can_edit_contest($ConID)) {
-				$sql = "SELECT count(*) AS value FROM `oj_constatus` WHERE `ConID` = " . $ConID . " AND `Problem` = " . $i;
+		for ($i = 0; $i < $PeoNum; $i++) {
+			if (!$PeopleRank[$i]['User']) {
+				continue;
 			}
-			$rs = oj_mysql_query($sql);
-			$AllProNum = oj_mysql_fetch_array($rs);
 
-			echo '<th><a href="/Contest/Problem.php?ConID=' . $ConID . '&Problem=' . $ProEngNum[$i] . '">' . $ProEngNum[$i] . '(' . $PassProNum['value'] . '/' . $AllProNum['value'] . ')</a></th>';
+			if ($LastPeoScore != $PeopleRank[$i]['Score']) {
+				$LastPeoScore = $PeopleRank[$i]['Score'];
+				$PeoRank += $EqualRank;
+				$EqualRank = 1;
+			} else {
+				$EqualRank++;
+			}
+			echo '<tr>';
+
+			echo '<td>' . ($PeoRank) . '</td>';
+			$TF = get_user_tailsAndFight($PeopleRank[$i]['User']);
+			echo '<td><a href="/OtherUser.php?User=' . $PeopleRank[$i]['User'] . '" class=' . GetUserColor($TF['fight']) . '>' . $PeopleRank[$i]['User'] . ($TF['tails'] ? '(' . $TF['tails'] . ')' : '') . '</a></td>';
+			echo '<td>' . $PeopleRank[$i]['Score'] . '</td>';
+
+			for ($j = 0; $j < $ProNum; $j++) {
+				if (ceil($PeopleRank[$i][$j]['Score']) == 100 || floor($PeopleRank[$i][$j]['Score']) == 100) {
+					echo '<td class="SlateFixBlack rankyes">' . $PeopleRank[$i][$j]['Score'] . '</td>';
+				} else if ($PeopleRank[$i][$j]['Submit'] == 1) {
+					echo '<td class="SlateFixBlack rankno">' . $PeopleRank[$i][$j]['Score'] . '</td>';
+				} else {
+					echo '<td></td>';
+				}
+			}
+
+			echo '</tr>';
 		}
 		?>
-
-	</tr>
-</thead>
-<tbody>
-	<?php
-	//排名计算
-	$LastPeoScore = 0;
-	$PeoRank = 0;
-	$EqualRank = 1;
-
-	for ($i = 0; $i < $PeoNum; $i++) {
-		if (!$PeopleRank[$i]['User']) {
-			continue;
-		}
-
-		if ($LastPeoScore != $PeopleRank[$i]['Score']) {
-			$LastPeoScore = $PeopleRank[$i]['Score'];
-			$PeoRank += $EqualRank;
-			$EqualRank = 1;
-		} else {
-			$EqualRank++;
-		}
-		echo '<tr>';
-
-		echo '<td>' . ($PeoRank) . '</td>';
-		$TF = get_user_tailsAndFight($PeopleRank[$i]['User']);
-		echo '<td><a href="/OtherUser.php?User=' . $PeopleRank[$i]['User'] . '" class=' . GetUserColor($TF['fight']) . '>' . $PeopleRank[$i]['User'] . ($TF['tails'] ? '(' . $TF['tails'] . ')' : '') . '</a></td>';
-		echo '<td>' . $PeopleRank[$i]['Score'] . '</td>';
-
-		for ($j = 0; $j < $ProNum; $j++) {
-			if (ceil($PeopleRank[$i][$j]['Score']) == 100 || floor($PeopleRank[$i][$j]['Score']) == 100) {
-				echo '<td class="SlateFixBlack rankyes">' . $PeopleRank[$i][$j]['Score'] . '</td>';
-			} else if ($PeopleRank[$i][$j]['Submit'] == 1) {
-				echo '<td class="SlateFixBlack rankno">' . $PeopleRank[$i][$j]['Score'] . '</td>';
-			} else {
-				echo '<td></td>';
-			}
-		}
-
-		echo '</tr>';
-	}
-	?>
-</tbody>
+	</tbody>
+</table>
