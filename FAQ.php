@@ -42,67 +42,67 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td><span class="label label-primary">Wating</span></td>
+								<td><span class="label label-primary">WATING</span></td>
 								<td></td>
 								<td>代码已经提交,等待分配评测机</td>
 							</tr>
 							<tr>
-								<td><span class="label label-primary">Pending</span></td>
+								<td><span class="label label-primary">PENDING</span></td>
 								<td></td>
 								<td>评测机已经接收评测任务,正在等待测评</td>
 							</tr>
 							<tr>
-								<td><span class="label label-primary">Compiling</span></td>
+								<td><span class="label label-primary">COMPILING</span></td>
 								<td></td>
 								<td>代码正在编译</td>
 							</tr>
 							<tr>
-								<td><span class="label label-primary">Running</span></td>
+								<td><span class="label label-primary">RUNNING</span></td>
 								<td></td>
 								<td>编译成功，正在进行测评</td>
 							</tr>
 							<tr>
-								<td><span class="label label-success">Correct</span></td>
+								<td><span class="label label-success">CORRECT</span></td>
 								<td>AC</td>
 								<td>代码正确</td>
 							</tr>
 							<tr>
-								<td><span class="label label-warning">Compile Error</span></td>
+								<td><span class="label label-warning">COMPILER-ERROR</span></td>
 								<td>CE</td>
 								<td>编译错误.请检查代码在自己的机器上能否正常编译,以及是否选错了语言.在比赛中编译错误不会增加罚时</td>
 							</tr>
 							<tr>
-								<td><span class="label label-danger">Presentation Error</span></td>
+								<td><span class="label label-danger">PRESENTATION-ERROR</span></td>
 								<td>PE</td>
 								<td>输出格式错误.一般来说结果是正确的,但是多输出或者少输出了空格，换行等符号</td>
 							</tr>
 							<tr>
-								<td><span class="label label-danger">Wrong Answer</span></td>
+								<td><span class="label label-danger">WRONG-ANSWER</span></td>
 								<td>WA</td>
 								<td>答案错误.你需要检查你的代码</td>
 							</tr>
 							<tr>
-								<td><span class="label label-danger">Runtime Error</span></td>
+								<td><span class="label label-danger">RUN-ERROR</span></td>
 								<td>RE或者RTE</td>
 								<td>运行时错误.引发的原因有很多,包括但不仅限于使用未初始化的指针,数组越界,堆栈溢出,除数为零,返回值不为0等</td>
 							</tr>
 							<tr>
-								<td><span class="label label-danger">Time Limit Exceeded</span></td>
+								<td><span class="label label-danger">TIMELIMIT</span></td>
 								<td>TLE</td>
 								<td>超出时间限制.可能是代码中包含死循环,也可能是算法不够优化</td>
 							</tr>
 							<tr>
-								<td><span class="label label-danger">Memory Limit Exceeded</span></td>
+								<td><span class="label label-danger">MEMORYLIMIT</span></td>
 								<td>MLE</td>
 								<td>内存超出限制.你使用的内存太多了,可能由于使用了过大的数组,或是忘记释放使用过的内存导致内存泄漏</td>
 							</tr>
 							<tr>
-								<td><span class="label label-danger">Output Limit Exceeded</span></td>
+								<td><span class="label label-danger">OUTPUTLIMIT</span></td>
 								<td>OLE</td>
 								<td>你的输出超过标准答案的限制</td>
 							</tr>
 							<tr>
-								<td><span class="label label-danger">System Error</span></td>
+								<td><span class="label label-danger">SYSTEM-ERROR</span></td>
 								<td>SE</td>
 								<td>系统傲娇了</td>
 							</tr>
