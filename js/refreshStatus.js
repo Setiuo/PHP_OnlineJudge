@@ -10,10 +10,10 @@ function refreshStatus() {
       var staticText = tdArr.eq(3).text();
 
       if (
-        staticText == "等待分配 Wating" ||
-        staticText == "等待评测 Pending" ||
-        staticText == "正在编译 Compiling" ||
-        staticText == "正在运行 Running"
+        staticText == "等待分配 WAITING" ||
+        staticText == "等待评测 PENDING" ||
+        staticText == "正在编译 COMPILING" ||
+        staticText == "正在运行 RUNNING"
       ) {
         $.ajax({
           type: "post",

@@ -474,7 +474,7 @@ while ($row = oj_mysql_fetch_array($result)) {
 	$PageActive = "#c_status";
 	require_once('Footer.php');
 	?>
-	<script src="/js/refreshStatus_contest.js"></script>
+	<script src="/js/refreshStatus_contest.js?v=<?php echo $OJ_Version ?>"></script>
 </body>
 
 </html>
