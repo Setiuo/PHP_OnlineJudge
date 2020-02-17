@@ -42,7 +42,7 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td><span class="label label-primary">WATING</span></td>
+								<td><span class="label label-primary">WAITING</span></td>
 								<td></td>
 								<td>代码已经提交,等待分配评测机</td>
 							</tr>

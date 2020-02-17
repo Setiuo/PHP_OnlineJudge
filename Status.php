@@ -382,7 +382,7 @@ while ($row = oj_mysql_fetch_array($result)) {
 	$PageActive = '#status';
 	require_once('Php/Page_Footer.php');
 	?>
-	<script src="/js/refreshStatus.js"></script>
+	<script src="/js/refreshStatus.js?v=<?php echo $OJ_Version ?>"></script>
 </body>
 
 </html>
