@@ -42,18 +42,23 @@ if (isset($_POST["code"]) && $_POST["language"]) {
 
 			//向数据库中插入评测任务
 			$sql = 'INSERT INTO oj_judge_task(`runID`, `contestID`, `user`, `problemID`, `language`, `judgeType`, `limitTime`, `limitMemory`, `test`, `code`, `isRead`) values(' . $RunID . ', 0, "' . $LandUser . '", ' . $ProblemID . ', "' . $Language . '", 2, ' . $ProblemData['LimitTime'] . ', ' . $ProblemData['LimitMemory'] . ', "' . $ProblemData['Test'] . '", "' . addslashes($_POST["code"]) . '", 0)';
-			$result = oj_mysql_query($sql);
+			$result1 = oj_mysql_query($sql);
 
 			$CodeLen = mb_strlen($_POST["code"], "utf-8");
 			$NowTime = date('Y-m-d H:i:s');
 			//向数据库中插入状态
 			$sql = 'INSERT INTO oj_status(`RunID`, `User`, `Problem`, `Status`, `UseTime`, `UseMemory`, `Language`, `CodeLen`, `SubTime`, `AllStatus`, `Show`) values(' . $RunID . ', "' . $LandUser . '", ' . $_POST["pid"] . ', ' . Wating . ', -1, -1, "' . $_POST["language"] . '", ' . $CodeLen . ', "' . $NowTime . '", " ", ' . $ProblemData['Show'] . ')';
-			$result = oj_mysql_query($sql);
+			$result2 = oj_mysql_query($sql);
 
 			//清空post值
 			unset($_POST['code']);
 			unset($_POST['language']);
-			$data = "{status: 0}";
+
+			if ($result1 && $result2) {
+				$data = "{status: 0}";
+			} else {
+				$data = "{status: 2}";
+			}
 		}
 	}
 
