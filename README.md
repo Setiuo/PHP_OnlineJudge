@@ -25,6 +25,7 @@ ACM赛制的封榜功能<br/>
 管理员账号为admin,密码为123456，请注意更改<br />
 
 <h2>评测机部署</h2>
+首先配置好编译器环境变量<br />
 在Judger目录里新建data文件夹<br />
 在Judger目录里新建log文件夹<br />
 在Judger目录里新建temp文件夹<br />
