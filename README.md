@@ -22,8 +22,11 @@ ACM赛制的封榜功能<br/>
 验证码功能Captcha.php文件中字体文件路径是绝对路径，注意更改。<br />
 
 <h2>MYSQL数据库导入</h2>
+方法1：<br />
 请运行openjudge_new.sql初始化数据库表，并对照oj.sql中的insert语句自行插入表初始数据<br />
 管理员账号为admin,密码为123456，请注意更改<br />
+方法2：<br />
+你可以直接运行openjudge_new2.sql文件初始化数据库<br />
 
 <h2>评测机部署</h2>
 首先配置好编译器环境变量<br />
