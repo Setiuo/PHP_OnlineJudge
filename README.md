@@ -1,6 +1,6 @@
 # PHP_OnlineJudge
 
-<a href="https://oj.setiuo.top">项目预览</a> 一个运行在 Windows 平台的源程序判题系统
+<a href="http://oj.setiuo.top">项目预览</a> 一个运行在 Windows 平台的源程序判题系统
 
 <a href="https://judge.setiuo.top">新OJ——项目预览</a> 暂未开源
 
