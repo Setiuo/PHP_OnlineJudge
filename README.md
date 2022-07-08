@@ -1,7 +1,6 @@
 # PHP_OnlineJudge
 
 <a href="http://oj.setiuo.top">项目预览</a> 一个运行在 Windows 平台的源程序判题系统<br/>
-注：目前网站仅支持浏览
 
 <a href="https://judge.setiuo.top">新OJ——项目预览</a> 暂未开源
 
@@ -28,6 +27,7 @@ ACM赛制的封榜功能<br/>
 管理员账号为admin,密码为123456，请注意更改<br />
 方法2：<br />
 你可以直接运行openjudge_new2.sql文件初始化数据库<br />
+注意：需要关闭mysql的严格模式
 
 <h2>评测机部署</h2>
 首先配置好编译器环境变量<br />
